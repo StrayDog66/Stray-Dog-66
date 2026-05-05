@@ -576,6 +576,12 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
   color:var(--bone); border:1px solid var(--line-strong);
   padding:5px 10px; white-space:nowrap;
 }
+.rotation-item-link{
+  text-decoration:none; transition:all .2s;
+}
+.rotation-item-link:hover{
+  background:var(--acid); color:var(--ink); border-color:var(--acid);
+}
 @media(max-width:700px){
   .rotation-item{grid-template-columns:48px 1fr; gap:12px}
   .rotation-item-tag{grid-column:2; justify-self:start; margin-top:4px}
@@ -990,13 +996,14 @@ footer .foot-bottom{
         <span class="rotation-week-num">WEEK 19 · 2026</span>
       </div>
       <ol class="rotation-list">
-        <li class="rotation-item placeholder">
+        <li class="rotation-item">
           <span class="rotation-item-num">01</span>
           <div class="rotation-item-info">
-            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
-            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+            <span class="rotation-item-artist">FAVIO INKER</span>
+            <span class="rotation-item-track">Internal Whisper 2</span>
           </div>
-          <span class="rotation-item-tag">HARD TECHNO</span>
+          <a href="https://soundcloud.com/favio-inker/favio-inker-internal-whisper-2"
+             target="_blank" rel="noopener" class="rotation-item-tag rotation-item-link">SOUNDCLOUD →</a>
         </li>
         <li class="rotation-item placeholder">
           <span class="rotation-item-num">02</span>

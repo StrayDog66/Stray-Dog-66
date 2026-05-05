@@ -78,9 +78,49 @@ nav.topbar .booking{
   transition:transform .2s, box-shadow .2s, background .2s;
 }
 nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--blood); background:var(--acid)}
+/* MOBILE HAMBURGER */
+.nav-toggle{
+  display:none; background:transparent; border:1px solid var(--line-strong);
+  width:38px; height:38px; padding:0; cursor:pointer;
+  align-items:center; justify-content:center;
+  transition:border-color .2s;
+}
+.nav-toggle:hover{border-color:var(--acid)}
+.nav-toggle span{
+  display:block; width:18px; height:2px; background:var(--bone);
+  position:relative; transition:transform .25s, background .2s;
+}
+.nav-toggle span::before, .nav-toggle span::after{
+  content:""; position:absolute; left:0; width:18px; height:2px;
+  background:var(--bone); transition:transform .25s, top .25s;
+}
+.nav-toggle span::before{top:-6px}
+.nav-toggle span::after{top:6px}
+.nav-toggle[aria-expanded="true"] span{background:transparent}
+.nav-toggle[aria-expanded="true"] span::before{top:0; transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span::after{top:0; transform:rotate(-45deg)}
+
 @media(max-width:880px){
-  nav.topbar ul{display:none}
-  nav.topbar .booking{padding:7px 10px; font-size:11px}
+  nav.topbar{padding:12px 18px}
+  nav.topbar ul{
+    position:fixed; inset:62px 0 0 0;
+    flex-direction:column; gap:0;
+    background:rgba(10,10,10,.97);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    padding:18px 24px;
+    border-top:1px solid var(--line-strong);
+    transform:translateY(-110%); opacity:0; pointer-events:none;
+    transition:transform .3s ease, opacity .25s ease;
+  }
+  nav.topbar ul.open{transform:translateY(0); opacity:1; pointer-events:auto}
+  nav.topbar ul li{width:100%; border-bottom:1px solid var(--line)}
+  nav.topbar ul li:last-child{border-bottom:0}
+  nav.topbar ul a{display:block; padding:18px 0; font-size:12px}
+  nav.topbar .booking{padding:8px 12px; font-size:11px}
+  .nav-toggle{display:flex}
+}
+@media(min-width:881px){
+  .nav-toggle{display:none !important}
 }
 
 /* HERO */
@@ -731,7 +771,7 @@ footer .foot-bottom{
     </svg>
     STRAY DOG
   </a>
-  <ul>
+  <ul id="primary-nav">
     <li><a href="#radio"><span class="es">Radio</span><span class="en">Radio</span></a></li>
     <li><a href="#rotation"><span class="es">Rotación</span><span class="en">Rotation</span></a></li>
     <li><a href="#music"><span class="es">EP</span><span class="en">EP</span></a></li>
@@ -745,6 +785,9 @@ footer .foot-bottom{
       <button data-lang="en">EN</button>
     </div>
     <a href="#contact" class="booking">BOOKING</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+      <span></span>
+    </button>
   </div>
 </nav>
 
@@ -1062,30 +1105,51 @@ footer .foot-bottom{
           <div class="rotation-item-player" hidden></div>
         </li>
 
-        <li class="rotation-item placeholder">
-          <span class="rotation-item-num">03</span>
-          <div class="rotation-item-info">
-            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
-            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
-          </div>
-          <span class="rotation-item-tag">DUB TECHNO</span>
+        <li class="rotation-item" data-track-url="https://soundcloud.com/sapientrobots/azhure-speak-with-your-eyes-original-mix-1">
+          <button type="button" class="rotation-item-row" aria-expanded="false">
+            <span class="rotation-item-num">03</span>
+            <div class="rotation-item-info">
+              <span class="rotation-item-artist">AZHURE</span>
+              <span class="rotation-item-track">Speak With Your Eyes (Original Mix)</span>
+            </div>
+            <span class="rotation-item-tag rotation-item-play">
+              <span class="rotation-play-icon">▶</span>
+              <span class="rotation-play-label"><span class="es">PLAY</span><span class="en">PLAY</span></span>
+            </span>
+          </button>
+          <div class="rotation-item-player" hidden></div>
         </li>
-        <li class="rotation-item placeholder">
-          <span class="rotation-item-num">04</span>
-          <div class="rotation-item-info">
-            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
-            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
-          </div>
-          <span class="rotation-item-tag">DARK BASS</span>
+
+        <li class="rotation-item" data-track-url="https://soundcloud.com/simulateofficial/stylo-quake-loca">
+          <button type="button" class="rotation-item-row" aria-expanded="false">
+            <span class="rotation-item-num">04</span>
+            <div class="rotation-item-info">
+              <span class="rotation-item-artist">STYLO</span>
+              <span class="rotation-item-track">Quake Loca</span>
+            </div>
+            <span class="rotation-item-tag rotation-item-play">
+              <span class="rotation-play-icon">▶</span>
+              <span class="rotation-play-label"><span class="es">PLAY</span><span class="en">PLAY</span></span>
+            </span>
+          </button>
+          <div class="rotation-item-player" hidden></div>
         </li>
-        <li class="rotation-item placeholder">
-          <span class="rotation-item-num">05</span>
-          <div class="rotation-item-info">
-            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
-            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
-          </div>
-          <span class="rotation-item-tag">HOUSE</span>
+
+        <li class="rotation-item" data-track-url="https://soundcloud.com/simulateofficial/pacs-undress">
+          <button type="button" class="rotation-item-row" aria-expanded="false">
+            <span class="rotation-item-num">05</span>
+            <div class="rotation-item-info">
+              <span class="rotation-item-artist">PACS</span>
+              <span class="rotation-item-track">Undress</span>
+            </div>
+            <span class="rotation-item-tag rotation-item-play">
+              <span class="rotation-play-icon">▶</span>
+              <span class="rotation-play-label"><span class="es">PLAY</span><span class="en">PLAY</span></span>
+            </span>
+          </button>
+          <div class="rotation-item-player" hidden></div>
         </li>
+
       </ol>
       <a href="https://soundcloud.com/straydog2066" target="_blank" rel="noopener" class="rotation-cta">
         <span class="es">VER PLAYLIST COMPLETA EN SOUNDCLOUD →</span>
@@ -1286,6 +1350,29 @@ footer .foot-bottom{
 
   tick();
   setInterval(tick, 1000);
+})();
+
+// MOBILE NAV · hamburger toggle
+(function(){
+  const btn  = document.querySelector('.nav-toggle');
+  const list = document.getElementById('primary-nav');
+  if(!btn || !list) return;
+
+  function close(){
+    btn.setAttribute('aria-expanded','false');
+    list.classList.remove('open');
+  }
+  function open(){
+    btn.setAttribute('aria-expanded','true');
+    list.classList.add('open');
+  }
+  btn.addEventListener('click', () => {
+    btn.getAttribute('aria-expanded') === 'true' ? close() : open();
+  });
+  // Cerrar al elegir una sección
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  // Cerrar al volver a desktop
+  window.addEventListener('resize', () => { if(window.innerWidth > 880) close(); });
 })();
 
 // ON ROTATION · inline SoundCloud accordion (only one open at a time)

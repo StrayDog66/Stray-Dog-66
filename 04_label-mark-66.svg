@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  STRAY DOG — Label Mark "66"
+  Marca del sello · Para etiquetas de vinilo
+  © 2026 · 66 Records
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>66 Records — Label Mark</title>
+  <rect width="240" height="240" fill="#0A0A0A"/>
+  <circle cx="120" cy="120" r="105" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+  <circle cx="120" cy="120" r="92" fill="none" stroke="#EFEAD8" stroke-width="0.5"/>
+  <defs>
+    <path id="circ-text" d="M 120,120 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+  </defs>
+  <text font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" fill="#EFEAD8" letter-spacing="6">
+    <textPath href="#circ-text" startOffset="0">·  STRAY DOG  ·  PERRO CALLEJERO  ·  66 RECORDS  </textPath>
+  </text>
+  <text x="120" y="148"
+        font-family="'Big Shoulders Stencil Display', sans-serif"
+        font-weight="900"
+        font-size="120"
+        text-anchor="middle"
+        fill="#D4FF1C"
+        letter-spacing="-8">66</text>
+</svg>

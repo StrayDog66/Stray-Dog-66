@@ -1,0 +1,217 @@
+═══════════════════════════════════════════════════════════════
+STRAY DOG · RADIO SHOWS  —  CONCEPTOS Y EJECUCIÓN
+                          —  CONCEPTS & EXECUTION
+═══════════════════════════════════════════════════════════════
+
+  Documento estratégico para tus dos programas de radio.
+  Strategic document for your two radio shows.
+
+  Owner:    Cesar (Stray Dog)
+  Email:    straydog2066@gmail.com
+  Version:  v1.0 · 2026
+
+
+═══════════════════════════════════════════════════════════════
+   SHOW 01 — THE GROWLER
+═══════════════════════════════════════════════════════════════
+
+  ¿POR QUÉ "GROWLER"?
+  ───────────────────
+  ▸ Growler = envase de 1 litro para cerveza artesanal
+  ▸ Growler = gruñido del perro
+  Doble sentido perfecto · brand-locked · internacional.
+
+  CONCEPTO
+  ────────
+  Una hora. Una cerveza. Música profunda.
+  Cada quincena, los jueves, Stray Dog comparte el set
+  que pondría si te invitara a tomar una cerveza en su
+  bar favorito de Casco Viejo. Más historia que pista.
+
+  ESPECIFICACIONES
+  ────────────────
+  Frecuencia:    QUINCENAL · Jueves 21:00 (hora Panamá)
+  Duración:      60 minutos
+  BPM:           110-122 (deep, melodic, atmospheric)
+  Plataforma:    Spotify Podcast + YouTube + Bandcamp
+  Visual:        Foto del bar (la del kit) + lyric tipo
+  Formato:       Audio narrado + DJ mix
+
+  ESTRUCTURA POR EPISODIO (60 MIN)
+  ─────────────────────────────────
+  [00:00 - 01:00]  INTRO HABLADA
+                   "¿Qué tal? Soy Stray Dog. Hoy estoy
+                   tomando [cerveza featured]. Vamos."
+
+  [01:00 - 25:00]  SET 1 — WARMUP (4 tracks · ~24 min)
+                   Atmospheric, deep, sin kicks fuertes.
+
+  [25:00 - 27:00]  BREAK HABLADO (90 segundos)
+                   Cuenta historia: "Esta cerveza la probé
+                   en [lugar] cuando [anécdota]..."
+
+  [27:00 - 55:00]  SET 2 — PEAK (5 tracks · ~28 min)
+                   Energy se construye, melodic peak.
+
+  [55:00 - 60:00]  OUTRO + CRÉDITOS
+                   "Tracklist en straydog.66. Próximo
+                   episodio en 14 días. Gracias."
+
+  TRACKLIST PUBLICATION
+  ─────────────────────
+  Cada episodio publica el tracklist completo en:
+  ▸ Descripción de Spotify
+  ▸ Pinned comment de YouTube
+  ▸ Post de IG con foto del episodio
+
+  CERVEZA FEATURED (cerveza del episodio)
+  ───────────────────────────────────────
+  Cada episodio destaca una cerveza artesanal:
+  ▸ Panamá:    Casa Bruja, La Rana Dorada, Istmo Brewing
+  ▸ Paraguay:  Asunción Brewing Co., Bröeders, La Rubia
+  ▸ Argentina: Patagonia, Antares (raras)
+  ▸ Mexico:    Wendlandt, Cucapá
+
+  Después de 6 episodios: brewery sponsorship potencial.
+
+  TÍTULOS DE EPISODIOS · Pattern
+  ──────────────────────────────
+  Formato:  "GROWLER #001 · [TRACK ANCLA]"
+  Ejemplos:
+    GROWLER #001 · Liquid Glass
+    GROWLER #002 · After Hours
+    GROWLER #003 · Río Paraguay
+
+
+═══════════════════════════════════════════════════════════════
+   SHOW 02 — OFF LEASH
+═══════════════════════════════════════════════════════════════
+
+  ¿POR QUÉ "OFF LEASH"?
+  ─────────────────────
+  ▸ Tu tagline: "Sin correa. Sin dueño. Sin piedad."
+  ▸ Off leash = literal "sin correa" (perro suelto)
+  ▸ Es el momento del viernes en que la jauría sale
+  ▸ Contraste perfecto con el GROWLER (Jueves relajado
+    vs Viernes salvaje)
+
+  CONCEPTO
+  ────────
+  Cada viernes a las 22:00, antes de salir.
+  90 minutos de techno y house ascendente para calentar
+  rumbo a la pista. Sin habladuría. Sin pausas. La correa
+  se suelta. Strap in.
+
+  ESPECIFICACIONES
+  ────────────────
+  Frecuencia:    SEMANAL · Viernes 22:00 (hora Panamá)
+  Duración:      90 minutos (+/- 5)
+  BPM:           122-128 (warm-up ascendente)
+  Plataforma:    SoundCloud (principal) + Mixcloud
+  Visual:        Foto montaña B&W + tipografía
+  Formato:       Pure mix. Cero hablado.
+
+  ESTRUCTURA POR EPISODIO (90 MIN)
+  ─────────────────────────────────
+  [00:00 - 30:00]  WARM-UP CHAPTER
+                   122-124 BPM · house oscuro, melodic
+
+  [30:00 - 60:00]  RISING CHAPTER
+                   124-126 BPM · techno melodic, drive
+
+  [60:00 - 90:00]  PEAK CHAPTER
+                   126-128 BPM · raw techno, climax
+
+  PUBLICATION
+  ───────────
+  ▸ Subir Viernes 18:00 (programada)
+  ▸ Tracklist en descripción SoundCloud
+  ▸ Post IG con artwork al subir
+
+  ARTWORK SYSTEM
+  ──────────────
+  Cada episodio usa misma plantilla con:
+  ▸ Misma foto de fondo (montaña B&W)
+  ▸ Número del episodio gigante
+  ▸ Track-anchor del set
+  ▸ Color de acento varía: ácido / sangre / hueso
+
+  TÍTULOS DE EPISODIOS · Pattern
+  ──────────────────────────────
+  Formato:  "OFF LEASH · 001 · [SUBTÍTULO]"
+  Ejemplos:
+    OFF LEASH · 001 · OPENING WARM-UP
+    OFF LEASH · 002 · MIDNIGHT MIGRATION
+    OFF LEASH · 003 · CASCO 04:00
+
+
+═══════════════════════════════════════════════════════════════
+   CALENDARIO QUINCENAL TIPO / SAMPLE BI-WEEKLY CALENDAR
+═══════════════════════════════════════════════════════════════
+
+  SEMANA A
+  ────────
+  Mar  16:00  → Teaser GROWLER en stories IG (15-30s)
+  Mié  20:00  → Post IG anuncio GROWLER
+  Jue  21:00  → THE GROWLER #001 en vivo en Spotify Podcast
+  Vie  18:00  → Subir OFF LEASH #001 a SoundCloud
+  Vie  22:00  → Post IG OFF LEASH disponible
+
+  SEMANA B  (descanso GROWLER)
+  ─────────
+  Mié  20:00  → Post IG anuncio OFF LEASH #002
+  Vie  18:00  → Subir OFF LEASH #002
+  Vie  22:00  → Post IG
+
+  TOTAL CONTENIDO POR MES
+  ───────────────────────
+  ▸ 2 episodios THE GROWLER
+  ▸ 4 episodios OFF LEASH
+  ▸ ~6 piezas de audio principales
+  ▸ ~30 piezas de contenido derivado (clips IG/TikTok)
+
+
+═══════════════════════════════════════════════════════════════
+   CHECKLIST PARA EL PRIMER EPISODIO
+═══════════════════════════════════════════════════════════════
+
+  PRE-PRODUCCIÓN
+  ──────────────
+  □ Crear cuenta SoundCloud (si no tienes)
+  □ Crear canal YouTube
+  □ Crear show de Spotify para Podcasters
+  □ Comprar dominio: straydog.com / .66 / etc
+  □ Diseñar plantilla artwork (uso este kit)
+  □ Reservar handle @straydog.66 en todas las plataformas
+
+  GRABACIÓN GROWLER #001
+  ──────────────────────
+  □ Comprar 6 cervezas distintas (probar antes)
+  □ Elegir la #1 favorita = la del episodio
+  □ Escribir guión de 60s para intro
+  □ Escribir guión de 90s para break
+  □ Curar 9 tracks (4 + 5)
+  □ Grabar mix en 1 sola toma
+  □ Editar voz narrada por separado
+  □ Mezclar en DAW
+
+  GRABACIÓN OFF LEASH #001
+  ────────────────────────
+  □ Curar 18 tracks ascendentes en 3 chapters
+  □ Hacer warmup de 5 min antes (calentar manos)
+  □ Grabar en 1 toma de 90 min
+  □ Cero edición — solo trim ends
+
+  PUBLICACIÓN
+  ───────────
+  □ Subir audio
+  □ Crear artwork (usar templates del kit)
+  □ Programar post IG (apps: Buffer / Later)
+  □ Tracklist en descripción
+  □ Compartir en stories
+  □ Cross-promo: en GROWLER mencionar OFF LEASH y vice versa
+
+
+═══════════════════════════════════════════════════════════════
+                 straydog2066@gmail.com  ·  2026
+═══════════════════════════════════════════════════════════════

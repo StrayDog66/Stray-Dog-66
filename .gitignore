@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
+ehthumbs_vista.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / build artifacts (futuro)
+node_modules/
+dist/
+.cache/
+.parcel-cache/
+
+# Local env
+.env
+.env.local
+
+# Claude Code session
+.claude/
+
+# Logs
+*.log
+npm-debug.log*

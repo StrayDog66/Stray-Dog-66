@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAY DOG // 66 — Brand Identity System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#EFEAD8;
+    --ink:#0A0A0A;
+    --ash:#1A1A1A;
+    --shadow:#3A3A3A;
+    --grey:#7A7A7A;
+    --acid:#D4FF1C;
+    --blood:#FF3B00;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html,body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    line-height:1.4;
+    overflow-x:hidden;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity:.6;
+    pointer-events:none;
+    z-index:1000;
+    mix-blend-mode:overlay;
+  }
+
+  /* TECH GRID */
+  .scaffold{
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:1;
+    background-image:
+      linear-gradient(to right, rgba(239,234,216,.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(239,234,216,.04) 1px, transparent 1px);
+    background-size:80px 80px;
+  }
+
+  main{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 24px}
+
+  /* HEADER */
+  .hud{
+    position:sticky;top:0;
+    background:var(--ink);
+    border-bottom:1px solid rgba(239,234,216,.15);
+    padding:14px 0;
+    margin:0 -24px 0 -24px;
+    padding-left:24px;padding-right:24px;
+    display:flex;flex-wrap:wrap;gap:14px;
+    font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;
+    z-index:50;
+  }
+  .hud span{color:var(--grey)}
+  .hud b{color:var(--acid);font-weight:400}
+  .hud .pill{
+    border:1px solid var(--bone);
+    padding:3px 8px;
+    border-radius:99px;
+    color:var(--bone);
+  }
+
+  /* SECTION HEADERS */
+  .section{
+    padding:80px 0 40px;
+    border-bottom:1px solid rgba(239,234,216,.08);
+  }
+  .sec-num{
+    font-family:'Special Elite', monospace;
+    color:var(--grey);
+    font-size:11px;
+    letter-spacing:.3em;
+    margin-bottom:8px;
+  }
+  .sec-num b{color:var(--acid);font-weight:400}
+  h2.sec-title{
+    font-family:'Big Shoulders Stencil Display', sans-serif;
+    font-weight:900;
+    font-size:clamp(38px, 7vw, 72px);
+    line-height:.9;
+    letter-spacing:-.01em;
+    margin-bottom:32px;
+    color:var(--bone);
+  }
+  h2.sec-title em{font-style:normal;color:var(--acid)}
+
+  /* HERO */
+  .hero{
+    min-height:90vh;
+    padding:60px 0 40px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+    position:relative;
+  }
+  @media(min-width:900px){
+    .hero{grid-template-columns:1fr 1fr;align-items:center}
+  }
+  .hero-mark{
+    aspect-ratio:1;
+    background:var(--bone);
+    color:var(--ink);
+    display:flex;
+    align-items:center;justify-content:center;
+    position:relative;
+    padding:8%;
+  }
+  .hero-mark svg{width:100%;height:100%;display:block}
+  .hero-mark::after{
+    content:"PRIMARY MARK · 01.A";
+    position:absolute;
+    bottom:14px;left:14px;
+    font-size:9px;letter-spacing:.25em;
+    color:var(--ink);opacity:.5;
+  }
+  .hero-mark::before{
+    content:"";
+    position:absolute;
+    top:14px;right:14px;
+    width:10px;height:10px;
+    background:var(--blood);
+    border-radius:50%;
+  }
+  .hero-text h1{
+    font-family:'Big Shoulders Stencil Display', sans-serif;
+    font-weight:900;
+    font-size:clamp(70px, 16vw, 180px);
+    line-height:.82;
+    letter-spacing:-.02em;
+    color:var(--bone);
+    margin-bottom:8px;
+  }
+  .hero-text h1 .acid{color:var(--acid)}
+  .hero-text .es{
+    font-family:'Archivo Black', sans-serif;
+    font-size:clamp(14px, 2.4vw, 22px);
+    letter-spacing:.2em;
+    color:var(--grey);
+    margin-bottom:30px;
+  }
+  .hero-meta{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+    margin-top:30px;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .hero-meta div{
+    border:1px solid rgba(239,234,216,.2);
+    padding:14px;
+  }
+  .hero-meta b{display:block;color:var(--acid);font-weight:400;margin-bottom:6px;font-size:9px}
+  .hero-meta span{color:var(--bone);font-family:'Special Elite',monospace;font-size:13px;letter-spacing:.05em}
+
+  /* CONCEPT */
+  .concept{
+    margin-top:30px;
+    padding:24px;
+    background:linear-gradient(135deg, rgba(212,255,28,.08), transparent);
+    border-left:3px solid var(--acid);
+  }
+  .concept .label{
+    font-size:10px;letter-spacing:.3em;
+    color:var(--acid);
+    margin-bottom:12px;
+  }
+  .concept p{
+    font-family:'Special Elite',monospace;
+    font-size:15px;line-height:1.6;
+    color:var(--bone);
+  }
+
+  /* LOGO SUITE GRID */
+  .logo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:16px;
+  }
+  .logo-card{
+    aspect-ratio:1;
+    background:var(--bone);
+    color:var(--ink);
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    padding:14%;
+    overflow:hidden;
+  }
+  .logo-card.dark{background:var(--ink);color:var(--bone);border:1px solid rgba(239,234,216,.2)}
+  .logo-card.acid{background:var(--acid);color:var(--ink)}
+  .logo-card svg{width:100%;height:100%;display:block}
+  .logo-card .tag{
+    position:absolute;top:12px;left:12px;
+    font-size:8px;letter-spacing:.25em;
+    text-transform:uppercase;
+    opacity:.55;
+  }
+  .logo-card .num{
+    position:absolute;bottom:12px;right:12px;
+    font-family:'Special Elite',monospace;
+    font-size:9px;letter-spacing:.2em;
+    opacity:.55;
+  }
+
+  /* COLOR PALETTE */
+  .palette{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:14px;
+  }
+  .swatch{
+    border:1px solid rgba(239,234,216,.15);
+    overflow:hidden;
+  }
+  .swatch .chip{
+    height:160px;
+    position:relative;
+  }
+  .swatch .chip::after{
+    content:attr(data-pct);
+    position:absolute;
+    top:12px;right:12px;
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-size:38px;font-weight:900;
+    line-height:1;
+  }
+  .swatch.bone .chip::after{color:var(--ink);opacity:.3}
+  .swatch.acid .chip::after{color:var(--ink);opacity:.7}
+  .swatch.ink .chip::after{color:var(--bone);opacity:.4}
+  .swatch.blood .chip::after{color:var(--bone);opacity:.7}
+  .swatch.grey .chip::after{color:var(--bone);opacity:.5}
+  .swatch .body{
+    padding:14px;
+    background:var(--ash);
+    font-size:10px;
+    letter-spacing:.1em;
+  }
+  .swatch h4{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-size:22px;
+    color:var(--bone);
+    letter-spacing:.05em;
+    margin-bottom:8px;
+  }
+  .swatch dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-family:'Special Elite',monospace}
+  .swatch dt{color:var(--grey);text-transform:uppercase;font-size:9px}
+  .swatch dd{color:var(--bone);font-size:11px}
+
+  /* TYPOGRAPHY */
+  .type-spec{
+    display:grid;
+    gap:24px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:768px){.type-spec{grid-template-columns:1fr 1fr}}
+  .type-card{
+    border:1px solid rgba(239,234,216,.15);
+    padding:30px;
+    background:var(--ash);
+  }
+  .type-card .role{
+    font-size:9px;letter-spacing:.3em;
+    color:var(--acid);
+    margin-bottom:8px;
+  }
+  .type-card .name{
+    font-size:11px;letter-spacing:.18em;
+    color:var(--grey);
+    margin-bottom:24px;
+    font-family:'Special Elite',monospace;
+  }
+  .type-card .sample{
+    line-height:.9;
+    margin-bottom:18px;
+  }
+  .type-card.display .sample{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:clamp(48px,10vw,90px);
+    color:var(--bone);
+  }
+  .type-card.head .sample{
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(34px,6vw,52px);
+    color:var(--bone);
+  }
+  .type-card.body .sample{
+    font-family:'JetBrains Mono',monospace;
+    font-size:18px;
+    color:var(--bone);
+    line-height:1.5;
+  }
+  .type-card.tech .sample{
+    font-family:'Special Elite',monospace;
+    font-size:18px;
+    color:var(--bone);
+    line-height:1.5;
+  }
+  .type-card .alphabet{
+    font-size:11px;
+    color:var(--grey);
+    letter-spacing:.05em;
+    word-break:break-all;
+    border-top:1px dashed rgba(239,234,216,.15);
+    padding-top:14px;
+  }
+
+  /* MOCKUPS */
+  .mocks{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+  }
+  .mock{
+    aspect-ratio:1;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(239,234,216,.15);
+  }
+  .mock-label{
+    position:absolute;top:12px;left:12px;
+    font-size:9px;letter-spacing:.25em;
+    color:var(--bone);
+    background:var(--ink);
+    padding:4px 8px;
+    z-index:5;
+  }
+
+  /* VINYL */
+  .mock-vinyl{
+    background:radial-gradient(circle, var(--ash) 0%, #050505 100%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .vinyl-disc{
+    width:88%;aspect-ratio:1;
+    border-radius:50%;
+    background:
+      repeating-radial-gradient(circle at center, #0a0a0a 0px, #0a0a0a 1px, #1a1a1a 1px, #1a1a1a 3px),
+      #0a0a0a;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 2px #050505 inset;
+    position:relative;
+  }
+  .vinyl-label{
+    width:42%;aspect-ratio:1;
+    border-radius:50%;
+    background:var(--acid);
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    position:relative;
+  }
+  .vinyl-label::after{
+    content:"";
+    position:absolute;
+    width:8%;aspect-ratio:1;
+    background:var(--ink);
+    border-radius:50%;
+  }
+  .vinyl-label .num{font-size:38px;line-height:.8;letter-spacing:-.05em}
+  .vinyl-label .sub{font-size:8px;letter-spacing:.25em;font-family:'JetBrains Mono',monospace;font-weight:700;margin-top:4px}
+
+  /* CAP/MERCH */
+  .mock-cap{
+    background:var(--blood);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--bone);
+    text-align:center;
+  }
+  .mock-cap .tee{
+    width:75%;
+    padding:30px;
+    text-align:center;
+  }
+  .mock-cap .tee svg{width:50%;margin:0 auto 14px;display:block}
+
+  /* SOCIAL AVATAR */
+  .mock-avatar{
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .avatar-circle{
+    width:80%;aspect-ratio:1;
+    border-radius:50%;
+    background:var(--bone);
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    padding:18%;
+    position:relative;
+  }
+  .avatar-circle::after{
+    content:"";
+    position:absolute;inset:-8px;
+    border:1px solid var(--acid);
+    border-radius:50%;
+  }
+  .avatar-circle svg{width:100%;height:100%}
+
+  /* POSTER */
+  .mock-poster{
+    background:var(--ink);
+    color:var(--bone);
+    padding:8%;
+    display:flex;flex-direction:column;
+    justify-content:space-between;
+  }
+  .mock-poster .top{font-size:10px;letter-spacing:.3em;color:var(--acid);font-family:'Special Elite',monospace}
+  .mock-poster h3{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:clamp(28px,5vw,48px);
+    line-height:.85;
+    letter-spacing:-.02em;
+  }
+  .mock-poster h3 .acid{color:var(--acid)}
+  .mock-poster .bot{font-size:9px;letter-spacing:.2em;color:var(--grey);font-family:'Special Elite',monospace;line-height:1.6}
+
+  /* TECH SPECS / CONSTRUCTION */
+  .specs-grid{
+    display:grid;gap:16px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:768px){.specs-grid{grid-template-columns:1fr 1fr}}
+  .spec-card{
+    border:1px solid rgba(239,234,216,.15);
+    padding:24px;
+    background:var(--ash);
+  }
+  .spec-card h4{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-size:24px;
+    color:var(--acid);
+    margin-bottom:14px;
+    letter-spacing:.04em;
+  }
+  .spec-card p{
+    font-family:'Special Elite',monospace;
+    font-size:13px;line-height:1.6;
+    color:var(--bone);
+    margin-bottom:10px;
+  }
+  .spec-card ul{list-style:none;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .spec-card li{padding:6px 0;border-bottom:1px dashed rgba(239,234,216,.1);display:flex;justify-content:space-between;gap:12px}
+  .spec-card li b{color:var(--acid);font-weight:400}
+
+  /* CONSTRUCTION DIAGRAM */
+  .construction{
+    background:var(--bone);
+    aspect-ratio:1.4;
+    position:relative;
+    padding:5%;
+  }
+  .construction svg{width:100%;height:100%;display:block}
+
+  /* DO/DON'T */
+  .rules{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+  }
+  .rule{
+    aspect-ratio:1;
+    background:var(--bone);
+    position:relative;
+    padding:18%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .rule.bad{background:#2A0A0A;}
+  .rule.bad::after{
+    content:"";
+    position:absolute;
+    inset:14px;
+    background:
+      linear-gradient(to top right, transparent calc(50% - 1px), var(--blood) calc(50% - 1px), var(--blood) calc(50% + 1px), transparent calc(50% + 1px));
+  }
+  .rule .lbl{
+    position:absolute;bottom:12px;left:12px;
+    font-size:9px;letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink);
+  }
+  .rule.bad .lbl{color:var(--blood)}
+  .rule.good::before{
+    content:"✓";
+    position:absolute;top:12px;right:12px;
+    color:var(--acid);
+    background:var(--ink);
+    width:22px;height:22px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;
+  }
+  .rule.bad::before{
+    content:"✕";
+    position:absolute;top:12px;right:12px;
+    color:var(--blood);
+    background:var(--ink);
+    width:22px;height:22px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;
+    z-index:2;
+  }
+  .rule svg{width:100%;height:100%;display:block;position:relative;z-index:1}
+
+  /* TAGLINE */
+  .voice{
+    display:grid;gap:12px;
+  }
+  .tagline{
+    border-left:3px solid var(--acid);
+    padding:24px 24px 24px 30px;
+    background:rgba(212,255,28,.04);
+  }
+  .tagline .es{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:clamp(24px,4vw,38px);
+    line-height:1;
+    margin-bottom:8px;
+    color:var(--bone);
+  }
+  .tagline .en{
+    font-family:'Special Elite',monospace;
+    font-size:13px;
+    color:var(--grey);
+    letter-spacing:.05em;
+  }
+
+  /* MARKETING */
+  .marketing{
+    display:grid;gap:14px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:768px){.marketing{grid-template-columns:1fr 1fr}}
+  .mkt-card{
+    border:1px solid rgba(239,234,216,.15);
+    padding:24px;
+    position:relative;
+  }
+  .mkt-card .num{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:60px;
+    line-height:.8;
+    color:var(--acid);
+    margin-bottom:8px;
+  }
+  .mkt-card h4{
+    font-family:'Archivo Black',sans-serif;
+    font-size:18px;
+    color:var(--bone);
+    margin-bottom:10px;
+    letter-spacing:.02em;
+  }
+  .mkt-card p{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    line-height:1.6;
+    color:var(--grey);
+  }
+  .mkt-card p b{color:var(--bone);font-weight:400}
+
+  /* FOOTER */
+  footer{
+    padding:60px 0 40px;
+    border-top:1px solid rgba(239,234,216,.15);
+    margin-top:40px;
+    display:flex;flex-direction:column;gap:24px;
+    align-items:center;text-align:center;
+  }
+  footer .stamp{
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:clamp(48px,10vw,96px);
+    line-height:.85;
+    color:var(--bone);
+    letter-spacing:-.02em;
+  }
+  footer .stamp .acid{color:var(--acid)}
+  footer .meta{
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    letter-spacing:.25em;
+    color:var(--grey);
+  }
+
+  /* TICKER */
+  .ticker{
+    background:var(--acid);
+    color:var(--ink);
+    padding:14px 0;
+    overflow:hidden;
+    position:relative;
+    margin:0 -24px;
+  }
+  .ticker-track{
+    display:flex;gap:40px;
+    white-space:nowrap;
+    animation:scroll 30s linear infinite;
+    font-family:'Big Shoulders Stencil Display',sans-serif;
+    font-weight:900;
+    font-size:22px;
+    letter-spacing:-.01em;
+  }
+  .ticker-track span{display:inline-flex;align-items:center;gap:40px}
+  .ticker-track span::after{content:"●";color:var(--blood)}
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+
+  /* UTILITY */
+  .acid-text{color:var(--acid)}
+</style>
+</head>
+<body>
+
+<div class="scaffold"></div>
+
+<main>
+
+<!-- HUD HEADER -->
+<header class="hud">
+  <span class="pill">FILE 001</span>
+  <span>CL: <b>STRAY DOG / 66 RECORDS</b></span>
+  <span>VER: <b>01.0</b></span>
+  <span>FORMAT: <b>BRAND IDENTITY SYSTEM</b></span>
+  <span>STATUS: <b>● LIVE</b></span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mark">
+    <!-- PRIMARY MARK: ANGULAR DOG FACE -->
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-label="Stray Dog primary mark">
+      <!-- Left ear -->
+      <polygon points="55,98 28,18 102,80" fill="currentColor"/>
+      <!-- Right ear -->
+      <polygon points="185,98 212,18 138,80" fill="currentColor"/>
+      <!-- Head -->
+      <polygon points="48,86 192,86 178,178 62,178" fill="currentColor"/>
+      <!-- Snout -->
+      <polygon points="80,178 160,178 148,222 92,222" fill="currentColor"/>
+      <!-- Left eye -->
+      <polygon points="72,118 108,112 102,134 78,130" fill="#EFEAD8"/>
+      <!-- Right eye -->
+      <polygon points="168,118 132,112 138,134 162,130" fill="#EFEAD8"/>
+      <!-- Eye glints (acid) -->
+      <polygon points="88,118 96,116 94,124 87,124" fill="#D4FF1C"/>
+      <polygon points="148,118 156,116 154,124 147,124" fill="#D4FF1C"/>
+      <!-- Nose -->
+      <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+      <!-- Mouth slash -->
+      <line x1="118" y1="208" x2="128" y2="218" stroke="#EFEAD8" stroke-width="3"/>
+      <!-- "66" tag on collar -->
+      <circle cx="60" cy="220" r="14" fill="#D4FF1C"/>
+      <text x="60" y="225" font-family="Archivo Black, sans-serif" font-size="13" text-anchor="middle" fill="#0A0A0A" letter-spacing="-1">66</text>
+    </svg>
+  </div>
+
+  <div class="hero-text">
+    <h1>STRAY<br><span class="acid">DOG</span></h1>
+    <div class="es">— PERRO CALLEJERO —</div>
+    <div class="concept">
+      <div class="label">CONCEPTO / CONCEPT</div>
+      <p>Un perro callejero no obedece. No tiene dueño, no tiene rumbo, no tiene reglas. Solo tiene calle, ritmo y aullido. Esta identidad es brutal, geométrica, urbana — la estampa de un sello underground que firma con dientes.</p>
+    </div>
+    <div class="hero-meta">
+      <div><b>ARTISTA</b><span>STRAY DOG</span></div>
+      <div><b>SELLO</b><span>66 RECORDS</span></div>
+      <div><b>GÉNERO</b><span>TECHNO / HOUSE</span></div>
+      <div><b>SEDE</b><span>UNDERGROUND</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>STRAY DOG</span><span>66 RECORDS</span><span>PERRO CALLEJERO</span><span>UNDERGROUND</span><span>STRAY DOG</span><span>66 RECORDS</span><span>PERRO CALLEJERO</span><span>UNDERGROUND</span>
+  </div>
+</div>
+
+<!-- LOGO SUITE -->
+<section class="section">
+  <div class="sec-num">SECTION <b>01</b> / 06 — IDENTITY SYSTEM</div>
+  <h2 class="sec-title">LOGO <em>SUITE</em></h2>
+
+  <div class="logo-grid">
+
+    <!-- A — Primary Mark on bone -->
+    <div class="logo-card">
+      <span class="tag">01.A · PRIMARY</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+        <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        <polygon points="72,118 108,112 102,134 78,130" fill="#EFEAD8"/>
+        <polygon points="168,118 132,112 138,134 162,130" fill="#EFEAD8"/>
+        <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+        <line x1="118" y1="208" x2="128" y2="218" stroke="#EFEAD8" stroke-width="3"/>
+        <circle cx="60" cy="220" r="14" fill="#D4FF1C"/>
+        <text x="60" y="225" font-family="Archivo Black, sans-serif" font-size="13" text-anchor="middle" fill="#0A0A0A" letter-spacing="-1">66</text>
+      </svg>
+      <span class="num">001/240</span>
+    </div>
+
+    <!-- B — Wordmark stack -->
+    <div class="logo-card dark">
+      <span class="tag">01.B · WORDMARK</span>
+      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <text x="150" y="80" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="78" text-anchor="middle" fill="#EFEAD8" letter-spacing="-2">STRAY</text>
+        <text x="150" y="155" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="78" text-anchor="middle" fill="#D4FF1C" letter-spacing="-2">DOG</text>
+        <line x1="60" y1="170" x2="240" y2="170" stroke="#EFEAD8" stroke-width="1"/>
+        <text x="150" y="188" font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" text-anchor="middle" fill="#EFEAD8" letter-spacing="4">A 66 RECORDS ARTIST</text>
+      </svg>
+      <span class="num">002/240</span>
+    </div>
+
+    <!-- C — Monogram SD -->
+    <div class="logo-card acid">
+      <span class="tag">01.C · MONOGRAM</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="200" height="200" fill="none" stroke="#0A0A0A" stroke-width="6"/>
+        <text x="120" y="155" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="160" text-anchor="middle" fill="#0A0A0A" letter-spacing="-8">SD</text>
+        <text x="120" y="200" font-family="JetBrains Mono, monospace" font-weight="700" font-size="14" text-anchor="middle" fill="#0A0A0A" letter-spacing="6">·SIXTY-SIX·</text>
+      </svg>
+      <span class="num">003/240</span>
+    </div>
+
+    <!-- D — Label Mark "66" vinyl -->
+    <div class="logo-card dark">
+      <span class="tag">01.D · LABEL MARK</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="120" r="105" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+        <circle cx="120" cy="120" r="92" fill="none" stroke="#EFEAD8" stroke-width="0.5"/>
+        <defs>
+          <path id="circ-text" d="M 120,120 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+        </defs>
+        <text font-family="JetBrains Mono, monospace" font-weight="700" font-size="11" fill="#EFEAD8" letter-spacing="6">
+          <textPath href="#circ-text" startOffset="0">·  STRAY DOG  ·  PERRO CALLEJERO  ·  66 RECORDS  </textPath>
+        </text>
+        <text x="120" y="148" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="120" text-anchor="middle" fill="#D4FF1C" letter-spacing="-8">66</text>
+      </svg>
+      <span class="num">004/240</span>
+    </div>
+
+    <!-- E — Stamp / Catalog -->
+    <div class="logo-card">
+      <span class="tag">01.E · STAMP</span>
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="260" height="180" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+        <rect x="20" y="20" width="240" height="160" fill="none" stroke="#0A0A0A" stroke-width="0.5"/>
+        <text x="140" y="62" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="32" text-anchor="middle" fill="#0A0A0A" letter-spacing="2">STRAY DOG</text>
+        <line x1="40" y1="74" x2="240" y2="74" stroke="#0A0A0A" stroke-width="1"/>
+        <text x="140" y="100" font-family="Special Elite, monospace" font-size="11" text-anchor="middle" fill="#0A0A0A" letter-spacing="4">CAT. NO. SXD-066</text>
+        <text x="140" y="120" font-family="Special Elite, monospace" font-size="9" text-anchor="middle" fill="#0A0A0A" letter-spacing="3">A 66 RECORDS RELEASE</text>
+        <line x1="40" y1="135" x2="240" y2="135" stroke="#0A0A0A" stroke-width="0.5"/>
+        <text x="140" y="158" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="38" text-anchor="middle" fill="#0A0A0A" letter-spacing="-2">66</text>
+      </svg>
+      <span class="num">005/240</span>
+    </div>
+
+    <!-- F — Submark paw + 66 -->
+    <div class="logo-card acid">
+      <span class="tag">01.F · SUBMARK</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- Pad center -->
+        <polygon points="120,170 75,200 100,140 140,140 165,200" fill="#0A0A0A"/>
+        <!-- Toes (4 angular pads) -->
+        <polygon points="65,90 90,75 95,115 70,120" fill="#0A0A0A"/>
+        <polygon points="100,60 125,55 125,100 100,100" fill="#0A0A0A"/>
+        <polygon points="135,55 160,60 150,100 130,100" fill="#0A0A0A"/>
+        <polygon points="170,75 195,90 180,120 155,115" fill="#0A0A0A"/>
+        <!-- Dewclaw (5th claw, lower-left) -->
+        <polygon points="38,125 62,118 66,152 42,158" fill="#0A0A0A"/>
+        <!-- 66 inside main pad -->
+        <text x="120" y="180" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="38" text-anchor="middle" fill="#D4FF1C" letter-spacing="-2">66</text>
+      </svg>
+      <span class="num">006/240</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- COLOR PALETTE -->
+<section class="section">
+  <div class="sec-num">SECTION <b>02</b> / 06 — VISUAL DNA</div>
+  <h2 class="sec-title">COLOR <em>SYSTEM</em></h2>
+
+  <div class="palette">
+
+    <div class="swatch ink">
+      <div class="chip" data-pct="60%" style="background:#0A0A0A;border-bottom:1px solid #222"></div>
+      <div class="body">
+        <h4>NEGRO ASFALTO</h4>
+        <dl>
+          <dt>HEX</dt><dd>#0A0A0A</dd>
+          <dt>RGB</dt><dd>10·10·10</dd>
+          <dt>CMYK</dt><dd>0·0·0·96</dd>
+          <dt>PMS</dt><dd>BLACK 6 C</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="swatch bone">
+      <div class="chip" data-pct="25%" style="background:#EFEAD8"></div>
+      <div class="body">
+        <h4>HUESO / BONE</h4>
+        <dl>
+          <dt>HEX</dt><dd>#EFEAD8</dd>
+          <dt>RGB</dt><dd>239·234·216</dd>
+          <dt>CMYK</dt><dd>2·2·12·0</dd>
+          <dt>PMS</dt><dd>WARM GRAY 1 C</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="swatch acid">
+      <div class="chip" data-pct="10%" style="background:#D4FF1C"></div>
+      <div class="body">
+        <h4>ÁCIDO / ACID</h4>
+        <dl>
+          <dt>HEX</dt><dd>#D4FF1C</dd>
+          <dt>RGB</dt><dd>212·255·28</dd>
+          <dt>CMYK</dt><dd>20·0·90·0</dd>
+          <dt>PMS</dt><dd>389 C</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="swatch blood">
+      <div class="chip" data-pct="3%" style="background:#FF3B00"></div>
+      <div class="body">
+        <h4>SANGRE / BLOOD</h4>
+        <dl>
+          <dt>HEX</dt><dd>#FF3B00</dd>
+          <dt>RGB</dt><dd>255·59·0</dd>
+          <dt>CMYK</dt><dd>0·85·100·0</dd>
+          <dt>PMS</dt><dd>172 C</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="swatch grey">
+      <div class="chip" data-pct="2%" style="background:#3A3A3A"></div>
+      <div class="body">
+        <h4>SOMBRA</h4>
+        <dl>
+          <dt>HEX</dt><dd>#3A3A3A</dd>
+          <dt>RGB</dt><dd>58·58·58</dd>
+          <dt>CMYK</dt><dd>0·0·0·77</dd>
+          <dt>PMS</dt><dd>426 C</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="section">
+  <div class="sec-num">SECTION <b>03</b> / 06 — VOICE</div>
+  <h2 class="sec-title">TYPO<em>GRAPHY</em></h2>
+
+  <div class="type-spec">
+
+    <div class="type-card display">
+      <div class="role">DISPLAY · WORDMARK</div>
+      <div class="name">BIG SHOULDERS STENCIL DISPLAY · 900</div>
+      <div class="sample">STRAY DOG</div>
+      <div class="alphabet">A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z · 0 1 2 3 4 5 6 7 8 9</div>
+    </div>
+
+    <div class="type-card head">
+      <div class="role">HEADLINE · TITULARES</div>
+      <div class="name">ARCHIVO BLACK · 900</div>
+      <div class="sample">66 RECORDS</div>
+      <div class="alphabet">A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z · 0 1 2 3 4 5 6 7 8 9</div>
+    </div>
+
+    <div class="type-card body">
+      <div class="role">BODY · TEXTO</div>
+      <div class="name">JETBRAINS MONO · 400/700</div>
+      <div class="sample">El sello que firma con dientes. Música cruda, geometría brutal, identidad sin correa.</div>
+      <div class="alphabet">a b c d e f g h i j k l m n ñ o p q r s t u v w x y z · 0 1 2 3 4 5</div>
+    </div>
+
+    <div class="type-card tech">
+      <div class="role">TECHNICAL · CATÁLOGO</div>
+      <div class="name">SPECIAL ELITE · 400</div>
+      <div class="sample">CAT. SXD-066 // RELEASED 2026 // VINYL 12" 180G // STAMPED</div>
+      <div class="alphabet">A B C D E F G H · 0 1 2 3 4 5 6 7 8 9 · # / · -</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLICATIONS / MOCKUPS -->
+<section class="section">
+  <div class="sec-num">SECTION <b>04</b> / 06 — APPLICATIONS</div>
+  <h2 class="sec-title">EN <em>USO</em></h2>
+
+  <div class="mocks">
+
+    <!-- VINYL -->
+    <div class="mock mock-vinyl">
+      <div class="mock-label">VINYL · 12"</div>
+      <div class="vinyl-disc">
+        <div class="vinyl-label">
+          <div class="num">66</div>
+          <div class="sub">RECORDS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOCIAL AVATAR -->
+    <div class="mock mock-avatar">
+      <div class="mock-label">AVATAR · 1:1</div>
+      <div class="avatar-circle">
+        <svg viewBox="0 0 240 240">
+          <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+          <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+          <polygon points="72,118 108,112 102,134 78,130" fill="#EFEAD8"/>
+          <polygon points="168,118 132,112 138,134 162,130" fill="#EFEAD8"/>
+          <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- POSTER -->
+    <div class="mock mock-poster">
+      <div class="mock-label">POSTER · A2</div>
+      <div class="top">66 RECORDS · 2026.06.06</div>
+      <h3>STRAY<br><span class="acid">DOG</span><br>LIVE_</h3>
+      <div class="bot">
+        WAREHOUSE 11 · 23:59<br>
+        TECHNO·HOUSE·UNDERGROUND<br>
+        SXD-066
+      </div>
+    </div>
+
+    <!-- MERCH -->
+    <div class="mock mock-cap">
+      <div class="mock-label">MERCH · TEE</div>
+      <div class="tee">
+        <svg viewBox="0 0 240 240">
+          <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+          <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+          <polygon points="72,118 108,112 102,134 78,130" fill="#FF3B00"/>
+          <polygon points="168,118 132,112 138,134 162,130" fill="#FF3B00"/>
+          <polygon points="108,188 132,188 120,205" fill="#FF3B00"/>
+        </svg>
+        <div style="font-family:'Big Shoulders Stencil Display',sans-serif;font-weight:900;font-size:32px;letter-spacing:-1px">STRAY DOG</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.3em;margin-top:6px">66 / EST. 2026</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECH SPECS -->
+<section class="section">
+  <div class="sec-num">SECTION <b>05</b> / 06 — TECHNICAL</div>
+  <h2 class="sec-title">FICHA <em>TÉCNICA</em></h2>
+
+  <div class="specs-grid">
+
+    <div class="spec-card">
+      <h4>FORMATOS DE ARCHIVO</h4>
+      <ul>
+        <li>VECTORIAL (LOGO) <b>.SVG · .AI · .EPS · .PDF</b></li>
+        <li>RASTER (DIGITAL) <b>.PNG @ 1x/2x/3x</b></li>
+        <li>SOCIAL · AVATAR <b>1080×1080 PX</b></li>
+        <li>SOCIAL · BANNER <b>1500×500 PX</b></li>
+        <li>VINYL CENTER LABEL <b>3.5" / 88MM</b></li>
+        <li>IMPRESIÓN OFFSET <b>CMYK · 300 DPI</b></li>
+        <li>WEB / RGB <b>SRGB · 72-150 DPI</b></li>
+        <li>BORDADO MERCH <b>3 HILOS MAX</b></li>
+      </ul>
+    </div>
+
+    <div class="spec-card">
+      <h4>TAMAÑO MÍNIMO</h4>
+      <ul>
+        <li>PRIMARY MARK · DIGITAL <b>32 PX</b></li>
+        <li>PRIMARY MARK · IMPRESO <b>10 MM</b></li>
+        <li>WORDMARK · DIGITAL <b>120 PX W</b></li>
+        <li>WORDMARK · IMPRESO <b>30 MM W</b></li>
+        <li>LABEL "66" SOLO <b>8 MM / 24 PX</b></li>
+        <li>FAVICON <b>SUBMARK SXD</b></li>
+      </ul>
+    </div>
+
+    <div class="spec-card">
+      <h4>ESPACIO LIBRE / CLEAR SPACE</h4>
+      <p>Aire mínimo alrededor de cualquier marca = altura de la "S" del wordmark (= "X"). Ningún elemento gráfico, texto o borde puede invadir esa zona.</p>
+      <p style="color:var(--acid)">REGLA: <b>X · X · X · X</b> en los 4 lados.</p>
+    </div>
+
+    <div class="spec-card">
+      <h4>JERARQUÍA DE USO</h4>
+      <ul>
+        <li>PORTADAS / RELEASES <b>WORDMARK + 66</b></li>
+        <li>REDES / AVATARS <b>PRIMARY MARK</b></li>
+        <li>STREAMING (Spotify, SC) <b>PRIMARY MARK</b></li>
+        <li>MERCH / FRENTE <b>PRIMARY MARK</b></li>
+        <li>ETIQUETA VINILO <b>LABEL "66"</b></li>
+        <li>FAVICONS / IOS ICON <b>MONOGRAM SD</b></li>
+        <li>DOCUMENTOS / FIRMA <b>STAMP</b></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- DO / DON'T -->
+<section class="section">
+  <div class="sec-num">REGLAS DE USO — <b>DO / DON'T</b></div>
+  <h2 class="sec-title">USO <em>CORRECTO</em></h2>
+
+  <div class="rules">
+
+    <div class="rule good">
+      <span class="lbl">SOBRE BONE</span>
+      <svg viewBox="0 0 240 240">
+        <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+        <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+    <div class="rule good" style="background:#0A0A0A">
+      <span class="lbl" style="color:#EFEAD8">SOBRE NEGRO</span>
+      <svg viewBox="0 0 240 240">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+        <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+      </svg>
+    </div>
+
+    <div class="rule good" style="background:#D4FF1C">
+      <span class="lbl">SOBRE ÁCIDO</span>
+      <svg viewBox="0 0 240 240">
+        <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+        <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        <polygon points="108,188 132,188 120,205" fill="#D4FF1C"/>
+      </svg>
+    </div>
+
+    <div class="rule bad">
+      <span class="lbl">NO DEFORMAR</span>
+      <svg viewBox="0 0 240 240" style="transform:scaleX(.6)">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+    <div class="rule bad">
+      <span class="lbl">NO ROTAR</span>
+      <svg viewBox="0 0 240 240" style="transform:rotate(25deg)">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+    <div class="rule bad">
+      <span class="lbl">NO COLORES OTROS</span>
+      <svg viewBox="0 0 240 240">
+        <polygon points="55,98 28,18 102,80" fill="#7C3AED"/>
+        <polygon points="185,98 212,18 138,80" fill="#7C3AED"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#7C3AED"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#7C3AED"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- BRAND VOICE -->
+<section class="section">
+  <div class="sec-num">SECTION <b>06</b> / 06 — VOICE</div>
+  <h2 class="sec-title">VOZ DE <em>MARCA</em></h2>
+
+  <div class="voice">
+    <div class="tagline">
+      <div class="es">SIN CORREA. SIN DUEÑO. SIN PIEDAD.</div>
+      <div class="en">Tagline principal · Core tagline</div>
+    </div>
+    <div class="tagline">
+      <div class="es">EL AULLIDO ES LA FRECUENCIA.</div>
+      <div class="en">Tagline secundario · Para releases / vinilos</div>
+    </div>
+    <div class="tagline">
+      <div class="es">66 PASOS DEBAJO DE LA CALLE.</div>
+      <div class="en">Tagline para sello · 66 Records</div>
+    </div>
+    <div class="tagline">
+      <div class="es">FERAL · BRUTAL · ELECTRÓNICO.</div>
+      <div class="en">Triada de personalidad · Brand pillars</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="section">
+  <div class="sec-num">BONUS — <b>MARKETING DIGITAL</b></div>
+  <h2 class="sec-title">PLAN DE <em>LANZAMIENTO</em></h2>
+
+  <div class="marketing">
+
+    <div class="mkt-card">
+      <div class="num">01</div>
+      <h4>TEASER · 30 DÍAS ANTES</h4>
+      <p><b>Instagram + TikTok:</b> Drop de 6 reels con la marca apareciendo en grafitis, paredes, calles, vinilos rayados. Sin texto. Sólo el logo. Audio: kicks distorsionados de 6 segundos. Hashtag <b>#STRAYDOG66</b>.</p>
+    </div>
+
+    <div class="mkt-card">
+      <div class="num">02</div>
+      <h4>LANDING · STRAYDOG.66</h4>
+      <p>Página única, fondo negro, logo central, contador hasta el primer release. <b>Newsletter</b> oculto detrás del logo (click = se abre). Lista para Beatport / Bandcamp / SoundCloud / Spotify.</p>
+    </div>
+
+    <div class="mkt-card">
+      <div class="num">03</div>
+      <h4>RELEASE STRATEGY</h4>
+      <p>Cada release del sello lleva número correlativo: <b>SXD-066, SXD-067, SXD-068...</b> El "66" siempre presente. Vinilos en tirajes limitados de <b>66 / 166 / 666 unidades</b>. Coleccionable.</p>
+    </div>
+
+    <div class="mkt-card">
+      <div class="num">04</div>
+      <h4>CONTENT PILLARS</h4>
+      <p><b>40%</b> Música / sets / previews · <b>25%</b> Estética cruda (fotos B&N de calle, mixers, manos sucias) · <b>20%</b> Detrás del beat (proceso, samplers, modulares) · <b>15%</b> Merch & releases.</p>
+    </div>
+
+    <div class="mkt-card">
+      <div class="num">05</div>
+      <h4>MERCH ESENCIAL</h4>
+      <p><b>Tee negra</b> con primary mark blanco · <b>Tote canvas</b> con stamp · <b>Slipmat 12"</b> con label 66 · <b>Pin metálico</b> del submark · <b>Vinilo</b> 180g con etiqueta acid.</p>
+    </div>
+
+    <div class="mkt-card">
+      <div class="num">06</div>
+      <h4>COLABORACIONES</h4>
+      <p>Buscar 6 artistas afines (techno, house oscuro) para release compilatorio <b>"66 SIDES"</b>. Cada uno aporta 1 track. Lanzamiento en vinilo doble. Cada cara = 1 lado del perro callejero.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="stamp">STRAY <span class="acid">DOG</span> · 66</div>
+  <div class="meta">
+    BRAND IDENTITY SYSTEM · V.01.0 · 2026<br>
+    DESIGNED FOR CESAR · A 66 RECORDS PRODUCTION
+  </div>
+</footer>
+
+</main>
+
+</body>
+</html>

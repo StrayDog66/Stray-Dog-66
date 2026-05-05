@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAY DOG — Official Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Archivo+Black&family=JetBrains+Mono:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#EFEAD8;
+  --ink:#0A0A0A;
+  --ash:#0F0F0F;
+  --carbon:#161616;
+  --grey:#7A7A7A;
+  --acid:#D4FF1C;
+  --blood:#FF3B00;
+  --line:rgba(239,234,216,.1);
+  --line-strong:rgba(239,234,216,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.55;mix-blend-mode:overlay;
+}
+::selection{background:var(--acid);color:var(--ink)}
+
+/* NAV */
+nav.topbar{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+nav.topbar .brand{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:18px;letter-spacing:-.005em;
+  color:var(--bone);
+}
+nav.topbar .brand svg{width:24px;height:24px;display:block}
+nav.topbar ul{
+  list-style:none;
+  display:flex;gap:24px;
+  font-size:11px;letter-spacing:.25em;
+  text-transform:uppercase;
+}
+nav.topbar a{
+  color:var(--bone);text-decoration:none;
+  position:relative;padding:6px 0;
+  transition:color .2s;
+}
+nav.topbar a:hover{color:var(--acid)}
+nav.topbar a::after{
+  content:"";position:absolute;
+  bottom:0;left:0;width:0;height:1px;
+  background:var(--acid);
+  transition:width .25s;
+}
+nav.topbar a:hover::after{width:100%}
+nav.topbar .booking{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:13px;letter-spacing:.04em;
+  background:var(--acid);color:var(--ink);
+  padding:8px 14px;
+  text-decoration:none;
+  border-radius:0;
+  transition:transform .2s,background .2s;
+}
+nav.topbar .booking:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--blood);background:var(--bone)}
+
+@media(max-width:820px){
+  nav.topbar ul{display:none}
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:80px 24px 40px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(212,255,28,.12),transparent 50%),
+    radial-gradient(circle at 20% 80%,rgba(255,59,0,.08),transparent 50%),
+    var(--ink);
+  z-index:0;
+}
+/* hero scaffold grid */
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(to right,var(--line) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:80px 80px;
+  z-index:1;
+  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+}
+
+.hero-tag{
+  position:relative;z-index:2;
+  font-family:'Special Elite',monospace;
+  font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--acid);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+  opacity:0;animation:fadeUp .6s .2s forwards;
+}
+.hero-tag .pulse{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--acid);
+  animation:pulse 1.4s infinite ease-in-out;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(1.3)}
+}
+
+.hero h1{
+  position:relative;z-index:2;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(72px,18vw,260px);
+  line-height:.82;letter-spacing:-.025em;
+  color:var(--bone);
+  margin-bottom:8px;
+  opacity:0;animation:fadeUp .8s .4s forwards;
+}
+.hero h1 .acid{color:var(--acid)}
+.hero h1 .stroke{
+  -webkit-text-stroke:2px var(--bone);
+  color:transparent;
+}
+.hero .sub{
+  position:relative;z-index:2;
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(14px,2.4vw,22px);
+  letter-spacing:.18em;
+  color:var(--grey);
+  margin-bottom:30px;
+  opacity:0;animation:fadeUp .8s .6s forwards;
+}
+
+.hero-meta{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1px;
+  background:var(--line-strong);
+  border:1px solid var(--line-strong);
+  margin-top:20px;
+  opacity:0;animation:fadeUp .8s .8s forwards;
+}
+.hero-meta div{
+  background:var(--ink);
+  padding:14px 18px;
+  font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.hero-meta div b{
+  display:block;color:var(--acid);font-weight:400;font-size:9px;
+  margin-bottom:4px;
+}
+.hero-meta div span{
+  font-family:'Special Elite',monospace;font-size:14px;color:var(--bone);
+  letter-spacing:.05em;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* TICKER */
+.ticker{
+  background:var(--acid);color:var(--ink);
+  padding:14px 0;overflow:hidden;
+  position:relative;
+  border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+}
+.ticker-track{
+  display:flex;gap:50px;white-space:nowrap;
+  animation:tick 32s linear infinite;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:22px;letter-spacing:-.005em;
+}
+.ticker-track span{display:inline-flex;align-items:center;gap:50px}
+.ticker-track span::after{content:"●";color:var(--blood)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{
+  padding:90px 24px 70px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.sec-head{
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  align-items:flex-end;gap:18px;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:24px;margin-bottom:50px;
+  max-width:1400px;margin-left:auto;margin-right:auto;
+}
+.sec-head .num{
+  font-family:'Special Elite',monospace;
+  font-size:11px;letter-spacing:.3em;
+  color:var(--grey);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.sec-head h2{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(42px,8vw,98px);
+  line-height:.85;letter-spacing:-.02em;
+  color:var(--bone);
+}
+.sec-head h2 em{font-style:normal;color:var(--acid)}
+.sec-head .label{
+  font-family:'Special Elite',monospace;
+  font-size:11px;letter-spacing:.25em;
+  color:var(--grey);text-transform:uppercase;
+  text-align:right;max-width:240px;
+}
+@media(max-width:600px){.sec-head .label{text-align:left}}
+.section-inner{max-width:1400px;margin:0 auto}
+
+/* NEXT SHOW */
+.next-show{
+  background:linear-gradient(135deg,var(--ash) 0%,var(--ink) 100%);
+  border:1px solid var(--line-strong);
+  padding:40px;
+  display:grid;gap:24px;
+  grid-template-columns:1fr;
+  position:relative;overflow:hidden;
+}
+.next-show::before{
+  content:"NEXT";
+  position:absolute;
+  bottom:-30px;right:-10px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:280px;letter-spacing:-.04em;
+  color:rgba(212,255,28,.05);
+  line-height:.8;pointer-events:none;
+}
+@media(min-width:768px){
+  .next-show{grid-template-columns:2fr 1fr;align-items:end}
+  .next-show{padding:60px}
+}
+.next-show .info{position:relative;z-index:2}
+.next-show .badge{
+  display:inline-block;
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.3em;
+  background:var(--acid);color:var(--ink);
+  padding:5px 10px;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.next-show .city{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(48px,10vw,120px);
+  line-height:.85;letter-spacing:-.02em;
+  color:var(--bone);
+}
+.next-show .city span{color:var(--acid)}
+.next-show .venue{
+  font-family:'Archivo Black',sans-serif;
+  font-size:18px;letter-spacing:.04em;
+  color:var(--bone);
+  margin-top:12px;margin-bottom:8px;
+}
+.next-show .country{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;color:var(--grey);
+  letter-spacing:.15em;text-transform:uppercase;
+}
+.next-show .countdown{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
+}
+.next-show .countdown div{
+  background:var(--ink);
+  border:1px solid var(--line-strong);
+  padding:14px 8px;text-align:center;
+}
+.next-show .countdown b{
+  display:block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:36px;line-height:1;
+  color:var(--acid);
+}
+.next-show .countdown span{
+  font-size:9px;letter-spacing:.2em;color:var(--grey);
+  text-transform:uppercase;display:block;margin-top:6px;
+}
+
+/* TOUR LIST */
+.tour-list{display:flex;flex-direction:column}
+.tour-row{
+  display:grid;
+  grid-template-columns:80px 1fr 1fr auto;
+  gap:18px;align-items:center;
+  padding:20px 8px;
+  border-bottom:1px solid var(--line);
+  transition:background .2s,padding .2s;
+  position:relative;
+}
+.tour-row:hover{background:rgba(212,255,28,.04);padding-left:18px}
+.tour-row:hover .arrow{transform:translateX(0);opacity:1}
+@media(max-width:700px){
+  .tour-row{grid-template-columns:60px 1fr auto;gap:12px}
+  .tour-row .ven{grid-column:1/-1;padding-left:72px;font-size:11px;color:var(--grey);margin-top:-12px}
+}
+.tour-row.sold{opacity:.5}
+.tour-row.sold:hover{background:transparent;padding-left:8px}
+.tour-row .date{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:32px;line-height:1;
+  color:var(--bone);
+  letter-spacing:-.01em;
+}
+.tour-row .date small{
+  display:block;font-size:10px;letter-spacing:.2em;
+  color:var(--grey);
+  font-family:'JetBrains Mono',monospace;font-weight:400;
+  margin-top:2px;
+}
+.tour-row .city{
+  font-family:'Archivo Black',sans-serif;
+  font-size:18px;letter-spacing:.02em;
+  color:var(--bone);
+}
+.tour-row .city small{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--grey);
+  letter-spacing:.1em;text-transform:uppercase;font-weight:400;
+  margin-top:3px;
+}
+.tour-row .ven{
+  font-size:12px;color:var(--grey);
+  letter-spacing:.05em;
+}
+.tour-row .ticket{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:14px;
+  letter-spacing:.05em;
+  background:var(--bone);color:var(--ink);
+  padding:8px 14px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  display:inline-block;
+}
+.tour-row .ticket:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
+.tour-row .ticket.sold{
+  background:transparent;color:var(--blood);
+  border:1px solid var(--blood);
+}
+.tour-row .arrow{
+  position:absolute;left:-30px;
+  font-size:24px;color:var(--acid);
+  opacity:0;transform:translateX(-10px);
+  transition:all .2s;
+}
+
+/* RELEASE HERO */
+.release-hero{
+  display:grid;gap:30px;
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media(min-width:900px){.release-hero{grid-template-columns:1fr 1fr}}
+.release-art{
+  aspect-ratio:1;
+  background:var(--ink);
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;
+}
+.release-art .art-inner{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 30%,rgba(212,255,28,.15),transparent 50%),
+    radial-gradient(circle at 70% 70%,rgba(255,59,0,.08),transparent 60%),
+    var(--ink);
+  display:flex;align-items:center;justify-content:center;
+}
+.release-art svg.dog{width:50%;height:50%;display:block;filter:drop-shadow(0 0 30px rgba(212,255,28,.3))}
+.release-art .grid-overlay{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(to right,rgba(239,234,216,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(239,234,216,.05) 1px,transparent 1px);
+  background-size:30px 30px;
+  pointer-events:none;
+}
+.release-art .corners{position:absolute;inset:14px;pointer-events:none}
+.release-art .corners::before,
+.release-art .corners::after{
+  content:"";position:absolute;
+  width:24px;height:24px;
+  border:1px solid var(--bone);opacity:.3;
+}
+.release-art .corners::before{top:0;left:0;border-right:0;border-bottom:0}
+.release-art .corners::after{bottom:0;right:0;border-left:0;border-top:0}
+.release-art .cat{
+  position:absolute;top:18px;left:18px;
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.3em;
+  color:var(--bone);opacity:.7;
+}
+.release-art .play{
+  position:absolute;bottom:18px;right:18px;
+  width:60px;height:60px;
+  background:var(--acid);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:transform .2s;
+}
+.release-art .play:hover{transform:scale(1.1)}
+.release-art .play::before{
+  content:"";
+  width:0;height:0;
+  border-left:18px solid var(--ink);
+  border-top:11px solid transparent;
+  border-bottom:11px solid transparent;
+  margin-left:5px;
+}
+
+.release-info .label{
+  font-family:'Special Elite',monospace;
+  font-size:11px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--acid);
+  margin-bottom:14px;
+}
+.release-info h3{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(40px,7vw,84px);
+  line-height:.85;letter-spacing:-.02em;
+  margin-bottom:16px;
+}
+.release-info .artist{
+  font-family:'Archivo Black',sans-serif;
+  font-size:16px;letter-spacing:.05em;
+  color:var(--grey);text-transform:uppercase;
+  margin-bottom:24px;
+}
+.release-info .desc{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;line-height:1.7;
+  color:var(--bone);opacity:.85;
+  margin-bottom:28px;
+  max-width:480px;
+}
+.release-info .tracks{
+  list-style:none;margin-bottom:28px;
+}
+.release-info .tracks li{
+  display:flex;align-items:center;gap:14px;
+  padding:10px 0;border-bottom:1px dashed var(--line-strong);
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--bone);
+}
+.release-info .tracks li b{
+  font-weight:400;color:var(--grey);
+  font-size:10px;letter-spacing:.2em;
+  min-width:30px;
+}
+.release-info .tracks li span.title{flex:1}
+.release-info .tracks li span.dur{color:var(--grey);font-size:11px}
+.release-info .platforms{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.release-info .platforms a{
+  font-family:'JetBrains Mono',monospace;font-weight:700;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bone);text-decoration:none;
+  border:1px solid var(--line-strong);
+  padding:10px 14px;
+  transition:all .2s;
+}
+.release-info .platforms a:hover{
+  background:var(--bone);color:var(--ink);
+  transform:translate(-2px,-2px);
+  box-shadow:4px 4px 0 var(--acid);
+}
+
+/* CATALOG GRID */
+.catalog{
+  display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.cat-item{
+  position:relative;
+  background:var(--ash);
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:transform .25s,border-color .25s;
+}
+.cat-item:hover{
+  transform:translateY(-4px);
+  border-color:var(--acid);
+}
+.cat-cover{
+  aspect-ratio:1;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.cat-cover.v1{background:radial-gradient(circle,rgba(212,255,28,.2),var(--ink))}
+.cat-cover.v2{background:radial-gradient(circle,rgba(255,59,0,.2),var(--ink))}
+.cat-cover.v3{background:radial-gradient(circle,rgba(239,234,216,.1),var(--ink))}
+.cat-cover.v4{background:linear-gradient(135deg,var(--ink),var(--ash))}
+.cat-cover.v5{background:radial-gradient(circle at 70% 30%,var(--blood),var(--ink))}
+.cat-cover.v6{background:linear-gradient(45deg,var(--ink),rgba(212,255,28,.1))}
+.cat-cover svg{width:55%;height:55%;display:block;opacity:.9}
+.cat-cover .ovl{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(to right,rgba(239,234,216,.04) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(239,234,216,.04) 1px,transparent 1px);
+  background-size:20px 20px;
+  pointer-events:none;
+}
+.cat-cover .cat{
+  position:absolute;top:10px;left:10px;
+  font-family:'Special Elite',monospace;
+  font-size:9px;letter-spacing:.3em;
+  color:var(--bone);opacity:.7;
+}
+.cat-info{
+  padding:14px 16px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+}
+.cat-info h4{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:22px;line-height:1;
+  letter-spacing:-.005em;color:var(--bone);
+  margin-bottom:4px;
+}
+.cat-info small{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:.2em;
+  color:var(--grey);text-transform:uppercase;
+}
+.cat-info .yr{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:18px;
+  color:var(--acid);
+}
+
+/* ABOUT */
+.about{
+  display:grid;gap:30px;
+  grid-template-columns:1fr;
+}
+@media(min-width:900px){.about{grid-template-columns:1.3fr 1fr}}
+.bio p{
+  font-family:'JetBrains Mono',monospace;
+  font-size:14px;line-height:1.8;
+  color:var(--bone);
+  margin-bottom:18px;
+  max-width:600px;
+}
+.bio p.lead{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(24px,3.5vw,38px);
+  line-height:1.05;letter-spacing:-.005em;
+  color:var(--bone);
+  margin-bottom:30px;
+  text-transform:uppercase;
+}
+.bio p.lead em{font-style:normal;color:var(--acid)}
+.stats{
+  display:grid;gap:1px;
+  grid-template-columns:1fr 1fr;
+  background:var(--line-strong);
+  border:1px solid var(--line-strong);
+}
+.stats div{
+  background:var(--ink);
+  padding:24px 18px;
+}
+.stats b{
+  display:block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:48px;line-height:1;
+  letter-spacing:-.02em;color:var(--acid);
+  margin-bottom:6px;
+}
+.stats span{
+  font-size:10px;letter-spacing:.25em;
+  color:var(--grey);text-transform:uppercase;
+}
+
+/* MIXES */
+.mixes{display:grid;gap:10px}
+.mix-row{
+  display:grid;
+  grid-template-columns:50px 1fr 1fr auto;
+  gap:18px;align-items:center;
+  padding:18px 16px;
+  background:var(--ash);
+  border:1px solid var(--line);
+  transition:all .2s;
+  cursor:pointer;
+}
+.mix-row:hover{
+  background:rgba(212,255,28,.04);
+  border-color:var(--acid);
+}
+@media(max-width:700px){
+  .mix-row{grid-template-columns:40px 1fr auto;gap:12px}
+  .mix-row .src{display:none}
+}
+.mix-row .play{
+  width:40px;height:40px;
+  background:var(--bone);color:var(--ink);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.mix-row:hover .play{background:var(--acid)}
+.mix-row .play::before{
+  content:"";width:0;height:0;
+  border-left:11px solid var(--ink);
+  border-top:7px solid transparent;
+  border-bottom:7px solid transparent;
+  margin-left:3px;
+}
+.mix-row .info h5{
+  font-family:'Archivo Black',sans-serif;
+  font-size:15px;letter-spacing:.02em;
+  color:var(--bone);margin-bottom:4px;
+}
+.mix-row .info small{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--grey);
+  letter-spacing:.1em;
+}
+.mix-row .src{
+  font-family:'Special Elite',monospace;
+  font-size:11px;color:var(--grey);
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.mix-row .dur{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--bone);
+  letter-spacing:.1em;
+}
+
+/* NEWSLETTER */
+.newsletter{
+  background:var(--acid);color:var(--ink);
+  padding:60px 24px;
+  position:relative;overflow:hidden;
+}
+.newsletter::before{
+  content:"66";
+  position:absolute;
+  bottom:-100px;right:-30px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:500px;letter-spacing:-.04em;
+  color:rgba(10,10,10,.08);line-height:.8;
+  pointer-events:none;
+}
+.newsletter-inner{
+  max-width:1400px;margin:0 auto;
+  display:grid;gap:30px;
+  grid-template-columns:1fr;
+  align-items:center;position:relative;z-index:2;
+}
+@media(min-width:768px){.newsletter-inner{grid-template-columns:1fr 1fr;gap:60px}}
+.newsletter h3{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(40px,7vw,80px);
+  line-height:.85;letter-spacing:-.02em;
+}
+.newsletter p{
+  font-family:'JetBrains Mono',monospace;
+  font-size:14px;line-height:1.6;
+  margin:14px 0;max-width:480px;
+}
+.subscribe{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:20px;
+}
+.subscribe input{
+  flex:1;min-width:200px;
+  background:var(--ink);color:var(--bone);
+  border:0;padding:16px 18px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;letter-spacing:.05em;
+  outline:none;
+}
+.subscribe input::placeholder{color:var(--grey);text-transform:uppercase;letter-spacing:.2em;font-size:11px}
+.subscribe button{
+  background:var(--ink);color:var(--bone);
+  border:0;padding:16px 24px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:14px;letter-spacing:.04em;
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+.subscribe button:hover{
+  transform:translate(-3px,-3px);
+  box-shadow:5px 5px 0 var(--blood);
+  background:var(--bone);color:var(--ink);
+}
+
+/* CONTACT / BOOKING */
+.booking-grid{
+  display:grid;gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.booking-card{
+  background:var(--ash);
+  border:1px solid var(--line-strong);
+  padding:30px 24px;
+  position:relative;
+}
+.booking-card .role{
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.3em;
+  color:var(--acid);text-transform:uppercase;
+  margin-bottom:12px;
+}
+.booking-card h4{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:32px;line-height:.95;
+  letter-spacing:-.005em;color:var(--bone);
+  margin-bottom:8px;
+}
+.booking-card .agency{
+  font-family:'Archivo Black',sans-serif;
+  font-size:12px;letter-spacing:.04em;
+  color:var(--grey);text-transform:uppercase;
+  margin-bottom:20px;
+}
+.booking-card a{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:.05em;
+  color:var(--bone);text-decoration:none;
+  border-bottom:1px solid var(--bone);
+  padding-bottom:3px;
+  transition:color .2s,border-color .2s;
+}
+.booking-card a:hover{color:var(--acid);border-color:var(--acid)}
+
+/* FOOTER */
+footer{
+  background:var(--bone);color:var(--ink);
+  padding:60px 24px 30px;
+  position:relative;
+}
+footer .foot-stamp{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(70px,18vw,260px);
+  line-height:.8;letter-spacing:-.025em;
+  color:var(--ink);
+  margin-bottom:40px;
+}
+footer .foot-stamp em{font-style:normal;color:var(--blood)}
+footer .foot-rows{
+  display:grid;gap:30px;
+  grid-template-columns:1fr;
+  border-top:2px solid var(--ink);
+  padding-top:30px;
+}
+@media(min-width:700px){footer .foot-rows{grid-template-columns:repeat(4,1fr)}}
+footer .foot-col h5{
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;
+  color:rgba(10,10,10,.55);
+  margin-bottom:14px;
+}
+footer .foot-col ul{list-style:none}
+footer .foot-col li{margin-bottom:6px}
+footer .foot-col a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;color:var(--ink);
+  text-decoration:none;
+  transition:color .2s;
+}
+footer .foot-col a:hover{color:var(--blood)}
+
+footer .foot-bottom{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  margin-top:50px;padding-top:24px;
+  border-top:1px solid var(--ink);
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.2em;
+  color:rgba(10,10,10,.65);text-transform:uppercase;
+}
+
+/* DOG SVG inline */
+.dog-icon{fill:currentColor}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar">
+  <a href="#" class="brand">
+    <svg viewBox="0 0 240 240" class="dog-icon">
+      <polygon points="55,98 28,18 102,80"/>
+      <polygon points="185,98 212,18 138,80"/>
+      <polygon points="48,86 192,86 178,178 62,178"/>
+      <polygon points="80,178 160,178 148,222 92,222"/>
+      <polygon points="72,118 108,112 102,134 78,130" fill="#0A0A0A"/>
+      <polygon points="168,118 132,112 138,134 162,130" fill="#0A0A0A"/>
+      <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+    </svg>
+    STRAY DOG
+  </a>
+  <ul>
+    <li><a href="#tour">Tour</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#mixes">Mixes</a></li>
+    <li><a href="#contact">Press</a></li>
+  </ul>
+  <a href="#contact" class="booking">BOOKING</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag"><span class="pulse"></span>NOW PLAYING · LIVE FROM THE UNDERGROUND</div>
+  <h1>STRAY <span class="acid">DOG</span></h1>
+  <div class="sub">— PERRO CALLEJERO · A 66 RECORDS ARTIST —</div>
+
+  <div class="hero-meta">
+    <div><b>BASED IN</b><span>MX / GLOBAL</span></div>
+    <div><b>GENRE</b><span>TECHNO · HOUSE</span></div>
+    <div><b>LABEL</b><span>66 RECORDS</span></div>
+    <div><b>EST.</b><span>2026</span></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>STRAY DOG</span><span>NEW RELEASE · SXD-066</span><span>OUT NOW</span><span>WORLD TOUR 2026</span><span>PERRO CALLEJERO</span><span>STRAY DOG</span><span>NEW RELEASE · SXD-066</span><span>OUT NOW</span><span>WORLD TOUR 2026</span><span>PERRO CALLEJERO</span>
+  </div>
+</div>
+
+<!-- NEXT SHOW -->
+<section class="section" id="next">
+  <div class="sec-head">
+    <div>
+      <div class="num">[01] · NEXT SHOW</div>
+      <h2>NEXT <em>STOP</em></h2>
+    </div>
+    <div class="label">UPCOMING · 06.06.2026<br>WAREHOUSE 11 · MX</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="next-show">
+      <div class="info">
+        <span class="badge">● HEADLINING</span>
+        <div class="city">MEXICO <span>CITY</span></div>
+        <div class="venue">WAREHOUSE 11</div>
+        <div class="country">CDMX · MEXICO · 23:59 → 06:00</div>
+      </div>
+      <div class="countdown">
+        <div><b>32</b><span>DÍAS</span></div>
+        <div><b>14</b><span>HRS</span></div>
+        <div><b>22</b><span>MIN</span></div>
+        <div><b>08</b><span>SEG</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section class="section" id="tour">
+  <div class="sec-head">
+    <div>
+      <div class="num">[02] · WORLD TOUR · 2026</div>
+      <h2>TOUR <em>DATES</em></h2>
+    </div>
+    <div class="label">12 SHOWS CONFIRMED<br>MORE TBA · STAY TUNED</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="tour-list">
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">06<small>JUN '26</small></div>
+        <div class="city">MEXICO CITY<small>MX · HEADLINING</small></div>
+        <div class="ven">WAREHOUSE 11 · DOORS 23:59</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">21<small>JUN '26</small></div>
+        <div class="city">BERLIN<small>DE · CLUB SET</small></div>
+        <div class="ven">RSO BERLIN · 23:00</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row sold">
+        <span class="arrow">→</span>
+        <div class="date">28<small>JUN '26</small></div>
+        <div class="city">AMSTERDAM<small>NL · OPEN AIR</small></div>
+        <div class="ven">SHELTER · 22:00</div>
+        <a href="#" class="ticket sold">SOLD OUT</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">12<small>JUL '26</small></div>
+        <div class="city">BARCELONA<small>ES · FESTIVAL</small></div>
+        <div class="ven">PARQUE DEL FÒRUM · OFF SONAR</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">25<small>JUL '26</small></div>
+        <div class="city">LONDON<small>UK · CLUB SET</small></div>
+        <div class="ven">FOLD LDN · 23:00</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">09<small>AGO '26</small></div>
+        <div class="city">BUENOS AIRES<small>AR · WAREHOUSE</small></div>
+        <div class="ven">CRØBAR · 23:30</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">23<small>AGO '26</small></div>
+        <div class="city">SÃO PAULO<small>BR · CLUB SET</small></div>
+        <div class="ven">D-EDGE · 22:00</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row sold">
+        <span class="arrow">→</span>
+        <div class="date">06<small>SEP '26</small></div>
+        <div class="city">TULUM<small>MX · OPEN AIR</small></div>
+        <div class="ven">VAGALUME · ALL NIGHT</div>
+        <a href="#" class="ticket sold">SOLD OUT</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">20<small>SEP '26</small></div>
+        <div class="city">BOGOTÁ<small>CO · DEBUT</small></div>
+        <div class="ven">VIDEO CLUB · 22:00</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">04<small>OCT '26</small></div>
+        <div class="city">NEW YORK<small>US · BASEMENT</small></div>
+        <div class="ven">BASEMENT NY · 23:00</div>
+        <a href="#" class="ticket">TICKETS</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LATEST RELEASE -->
+<section class="section" id="music">
+  <div class="sec-head">
+    <div>
+      <div class="num">[03] · OUT NOW · 2026</div>
+      <h2>LATEST <em>RELEASE</em></h2>
+    </div>
+    <div class="label">SXD-066 · DEBUT EP<br>4 TRACKS · VINYL + DIGITAL</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="release-hero">
+      <div class="release-art">
+        <div class="art-inner">
+          <div class="grid-overlay"></div>
+          <svg class="dog" viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+            <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+            <polygon points="72,118 108,112 102,134 78,130" fill="#0A0A0A"/>
+            <polygon points="168,118 132,112 138,134 162,130" fill="#0A0A0A"/>
+            <polygon points="88,118 96,116 94,124 87,124" fill="#D4FF1C"/>
+            <polygon points="148,118 156,116 154,124 147,124" fill="#D4FF1C"/>
+            <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+          </svg>
+        </div>
+        <div class="corners"></div>
+        <div class="cat">SXD-066 · 12" 180G</div>
+        <div class="play"></div>
+      </div>
+
+      <div class="release-info">
+        <div class="label">EP · 2026.06.06</div>
+        <h3>FERAL<br>FREQUENCY</h3>
+        <div class="artist">STRAY DOG · 66 RECORDS</div>
+        <div class="desc">
+          Cuatro tracks de techno crudo grabados en una bodega de la Doctores a las 4am. Sin sample-packs. Sin cuantizar la batería. Sólo máquinas, distorsión y el aullido de la calle. Edición limitada de 666 vinilos numerados a mano.
+        </div>
+        <ul class="tracks">
+          <li><b>A1</b><span class="title">Sin Correa</span><span class="dur">7:32</span></li>
+          <li><b>A2</b><span class="title">Aullido</span><span class="dur">6:18</span></li>
+          <li><b>B1</b><span class="title">Doctores 04:00</span><span class="dur">8:44</span></li>
+          <li><b>B2</b><span class="title">66 (Outro)</span><span class="dur">5:12</span></li>
+        </ul>
+        <div class="platforms">
+          <a href="#">SPOTIFY</a>
+          <a href="#">APPLE</a>
+          <a href="#">BANDCAMP</a>
+          <a href="#">BEATPORT</a>
+          <a href="#">SOUNDCLOUD</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section">
+  <div class="sec-head">
+    <div>
+      <div class="num">[04] · DISCOGRAPHY</div>
+      <h2>CATA<em>LOG</em></h2>
+    </div>
+    <div class="label">66 RECORDS · 6 RELEASES<br>ALL ON LIMITED VINYL</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="catalog">
+
+      <div class="cat-item">
+        <div class="cat-cover v1">
+          <div class="ovl"></div>
+          <div class="cat">SXD-066</div>
+          <svg viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+            <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+            <polygon points="72,118 108,112 102,134 78,130" fill="#0A0A0A"/>
+            <polygon points="168,118 132,112 138,134 162,130" fill="#0A0A0A"/>
+            <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>FERAL FREQUENCY</h4>
+            <small>STRAY DOG · 4-TRACK EP</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+      <div class="cat-item">
+        <div class="cat-cover v2">
+          <div class="ovl"></div>
+          <div class="cat">SXD-067</div>
+          <svg viewBox="0 0 240 240">
+            <polygon points="120,180 70,215 95,145 145,145 170,215" fill="#EFEAD8"/>
+            <polygon points="40,128 62,118 67,148 45,152" fill="#EFEAD8"/>
+            <polygon points="72,90 96,80 99,118 76,121" fill="#EFEAD8"/>
+            <polygon points="108,60 132,60 132,110 108,110" fill="#EFEAD8"/>
+            <polygon points="144,80 168,90 164,121 141,118" fill="#EFEAD8"/>
+            <polygon points="178,118 200,128 195,152 173,148" fill="#EFEAD8"/>
+            <text x="120" y="195" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#FF3B00" letter-spacing="-2">66</text>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>SIN CORREA</h4>
+            <small>STRAY DOG · REMIXES</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+      <div class="cat-item">
+        <div class="cat-cover v3">
+          <div class="ovl"></div>
+          <div class="cat">SXD-068</div>
+          <svg viewBox="0 0 240 240">
+            <text x="120" y="160" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="160" text-anchor="middle" fill="#D4FF1C" letter-spacing="-8">66</text>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>66 SIDES VOL.1</h4>
+            <small>VARIOUS · COMPILATION</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+      <div class="cat-item">
+        <div class="cat-cover v4">
+          <div class="ovl"></div>
+          <div class="cat">SXD-069</div>
+          <svg viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#D4FF1C"/>
+            <polygon points="185,98 212,18 138,80" fill="#D4FF1C"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#D4FF1C"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#D4FF1C"/>
+            <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>DOCTORES 04:00</h4>
+            <small>STRAY DOG · LIVE EP</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+      <div class="cat-item">
+        <div class="cat-cover v5">
+          <div class="ovl"></div>
+          <div class="cat">SXD-070</div>
+          <svg viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+            <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+            <polygon points="72,118 108,112 102,134 78,130" fill="#FF3B00"/>
+            <polygon points="168,118 132,112 138,134 162,130" fill="#FF3B00"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>BLOOD MOON</h4>
+            <small>STRAY DOG · 12"</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+      <div class="cat-item">
+        <div class="cat-cover v6">
+          <div class="ovl"></div>
+          <div class="cat">SXD-071</div>
+          <svg viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+            <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+            <polygon points="72,118 108,112 102,134 78,130" fill="#D4FF1C"/>
+            <polygon points="168,118 132,112 138,134 162,130" fill="#D4FF1C"/>
+            <polygon points="108,188 132,188 120,205" fill="#D4FF1C"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div>
+            <h4>UNDERGROUND</h4>
+            <small>STRAY DOG · 4-TRACK</small>
+          </div>
+          <div class="yr">'26</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="sec-head">
+    <div>
+      <div class="num">[05] · BIO · PRESS</div>
+      <h2>ABOUT <em>·</em><br>QUIÉN ES</h2>
+    </div>
+    <div class="label">PRESS KIT DISPONIBLE<br>BAJO PETICIÓN · BOOKING</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="about">
+      <div class="bio">
+        <p class="lead">DJ Y PRODUCTOR DE TECHNO CRUDO. <em>SIN CORREA. SIN DUEÑO. SIN PIEDAD.</em></p>
+        <p>Stray Dog (también conocido como Perro Callejero) es el alias de un productor mexicano que opera desde la Ciudad de México. Su sonido fusiona el techno industrial berlinés con la crudeza del warehouse latinoamericano: kicks distorsionados, percusión rota y atmósferas que huelen a concreto mojado.</p>
+        <p>Fundador del sello <b style="color:var(--acid)">66 RECORDS</b>, Stray Dog ha pisado dancefloors desde Tulum hasta Berlín en menos de un año. Su debut <em>"Feral Frequency"</em> (SXD-066) salió en vinilo de tirada limitada de 666 unidades y se agotó en 48 horas.</p>
+        <p>Ha compartido cabina con artistas como Reinier Zonneveld, I Hate Models, y SPFDJ. Su show en vivo combina hardware modular, máquinas Roland y un set visual brutalista diseñado por él mismo.</p>
+      </div>
+      <div class="stats">
+        <div><b>666</b><span>VINILOS / DROP</span></div>
+        <div><b>48H</b><span>SOLD OUT</span></div>
+        <div><b>12</b><span>SHOWS / 2026</span></div>
+        <div><b>4</b><span>CONTINENTES</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIXES -->
+<section class="section" id="mixes">
+  <div class="sec-head">
+    <div>
+      <div class="num">[06] · MIXES · SETS</div>
+      <h2>SET<em>LIST</em></h2>
+    </div>
+    <div class="label">SOUNDCLOUD · MIXCLOUD<br>EXCLUSIVE LIVE SETS</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="mixes">
+
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>STRAY DOG @ WAREHOUSE 11 · CDMX</h5>
+          <small>2026.04.18 · LIVE RECORDING</small>
+        </div>
+        <div class="src">SOUNDCLOUD</div>
+        <div class="dur">01:32:14</div>
+      </div>
+
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>FERAL FREQUENCY · STUDIO MIX</h5>
+          <small>2026.05.02 · 4-TRACK PREVIEW</small>
+        </div>
+        <div class="src">EXCLUSIVE</div>
+        <div class="dur">00:42:08</div>
+      </div>
+
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>HÖR BERLIN · STRAY DOG</h5>
+          <small>2026.03.22 · DEBUT EU</small>
+        </div>
+        <div class="src">YOUTUBE</div>
+        <div class="dur">01:00:00</div>
+      </div>
+
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>66 RECORDS PODCAST · 001</h5>
+          <small>2026.02.14 · LABEL DEBUT</small>
+        </div>
+        <div class="src">MIXCLOUD</div>
+        <div class="dur">02:00:00</div>
+      </div>
+
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>BOILER ROOM · CDMX (LIVE)</h5>
+          <small>2026.01.30 · UNDERGROUND</small>
+        </div>
+        <div class="src">YOUTUBE</div>
+        <div class="dur">01:15:30</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div>
+      <h3>JOIN<br>THE PACK.</h3>
+      <p>Cero spam. Sólo fechas, drops de vinilo limitado y mixes exclusivos antes que nadie. Únete a la jauría.</p>
+    </div>
+    <div>
+      <div class="subscribe">
+        <input type="email" placeholder="TU EMAIL">
+        <button>SUSCRIBIR ●</button>
+      </div>
+      <p style="font-size:11px;margin-top:14px;opacity:.7">Sin correa, sin dueño, sin piedad — pero con buen gusto musical.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section" id="contact">
+  <div class="sec-head">
+    <div>
+      <div class="num">[07] · BOOKING · PRESS</div>
+      <h2>CON<em>TACTO</em></h2>
+    </div>
+    <div class="label">RESPUESTA EN 48 HRS<br>PRESS KIT BAJO PETICIÓN</div>
+  </div>
+
+  <div class="section-inner">
+    <div class="booking-grid">
+
+      <div class="booking-card">
+        <div class="role">WORLDWIDE BOOKING</div>
+        <h4>ALL TERRITORIES</h4>
+        <div class="agency">66 RECORDS / SELF-MANAGED</div>
+        <a href="mailto:booking@straydog.66">booking@straydog.66</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role">LATAM BOOKING</div>
+        <h4>MX · LATAM</h4>
+        <div class="agency">FERAL AGENCY</div>
+        <a href="mailto:latam@straydog.66">latam@straydog.66</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role">PRESS · PROMO</div>
+        <h4>PRENSA</h4>
+        <div class="agency">PRESS KIT + EPK</div>
+        <a href="mailto:press@straydog.66">press@straydog.66</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role">LABEL · DEMOS</div>
+        <h4>66 RECORDS</h4>
+        <div class="agency">DEMO POLICY · ONLY VINYL-READY</div>
+        <a href="mailto:demos@66records.mx">demos@66records.mx</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-stamp">STRAY DOG <em>·</em> 66</div>
+
+  <div class="foot-rows">
+    <div class="foot-col">
+      <h5>SITE</h5>
+      <ul>
+        <li><a href="#tour">Tour</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#mixes">Mixes</a></li>
+        <li><a href="#contact">Booking</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5>FOLLOW</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">SoundCloud</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Bandcamp</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5>LABEL · 66 RECORDS</h5>
+      <ul>
+        <li><a href="#">Catalog</a></li>
+        <li><a href="#">Artists</a></li>
+        <li><a href="#">Shop / Vinyl</a></li>
+        <li><a href="#">Demo Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5>LEGAL</h5>
+      <ul>
+        <li><a href="#">Press Kit</a></li>
+        <li><a href="#">Tech Rider</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">© 2026 STRAY DOG</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>STRAY DOG · A 66 RECORDS PRODUCTION · EST. 2026</span>
+    <span>SIN CORREA · SIN DUEÑO · SIN PIEDAD ●</span>
+  </div>
+</footer>
+
+</body>
+</html>

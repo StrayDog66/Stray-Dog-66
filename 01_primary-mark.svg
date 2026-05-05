@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  STRAY DOG — Primary Mark
+  Logo principal · Angular dog face
+  © 2026 · 66 Records · Cesar / Stray Dog
+  Colors: Ink #0A0A0A · Bone #EFEAD8 · Acid #D4FF1C
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>Stray Dog — Primary Mark</title>
+  <desc>Angular geometric dog face mark for Stray Dog / 66 Records</desc>
+
+  <!-- Ears -->
+  <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+  <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+  <!-- Head -->
+  <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+  <!-- Snout -->
+  <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+  <!-- Eyes -->
+  <polygon points="72,118 108,112 102,134 78,130" fill="#EFEAD8"/>
+  <polygon points="168,118 132,112 138,134 162,130" fill="#EFEAD8"/>
+  <!-- Eye glints (acid yellow) -->
+  <polygon points="88,118 96,116 94,124 87,124" fill="#D4FF1C"/>
+  <polygon points="148,118 156,116 154,124 147,124" fill="#D4FF1C"/>
+  <!-- Nose -->
+  <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+  <!-- Mouth slash -->
+  <line x1="118" y1="208" x2="128" y2="218" stroke="#EFEAD8" stroke-width="3"/>
+</svg>

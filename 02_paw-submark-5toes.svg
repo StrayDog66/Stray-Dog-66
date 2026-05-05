@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  STRAY DOG — Paw Submark (5 toes / front paw anatomy)
+  Submarca · Pata delantera con 5 dedos
+  © 2026 · 66 Records · Cesar / Stray Dog
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <title>Stray Dog — Paw Submark</title>
+  <desc>Five-toe front paw submark with embedded 66</desc>
+
+  <!-- Almohadilla principal / Main pad -->
+  <polygon points="120,180 70,215 95,145 145,145 170,215" fill="#0A0A0A"/>
+
+  <!-- 5 dedos / 5 toes (front paw, includes dewclaw) -->
+  <polygon points="40,128 62,118 67,148 45,152" fill="#0A0A0A"/>
+  <polygon points="72,90 96,80 99,118 76,121" fill="#0A0A0A"/>
+  <polygon points="108,60 132,60 132,110 108,110" fill="#0A0A0A"/>
+  <polygon points="144,80 168,90 164,121 141,118" fill="#0A0A0A"/>
+  <polygon points="178,118 200,128 195,152 173,148" fill="#0A0A0A"/>
+
+  <!-- 66 dentro de la almohadilla -->
+  <text x="120" y="195"
+        font-family="'Big Shoulders Stencil Display', 'Archivo Black', sans-serif"
+        font-weight="900"
+        font-size="40"
+        text-anchor="middle"
+        fill="#D4FF1C"
+        letter-spacing="-2">66</text>
+</svg>

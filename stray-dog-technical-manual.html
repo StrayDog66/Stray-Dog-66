@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAY DOG — Brand Standards Manual / Manual de Identidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Archivo+Black&family=JetBrains+Mono:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#EFEAD8;
+  --ink:#0A0A0A;
+  --ash:#141414;
+  --carbon:#1F1F1F;
+  --grey:#7A7A7A;
+  --acid:#D4FF1C;
+  --blood:#FF3B00;
+  --line:rgba(239,234,216,.12);
+  --line-strong:rgba(239,234,216,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;line-height:1.5;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.5;mix-blend-mode:overlay;
+}
+.scaffold{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  background-image:
+    linear-gradient(to right,var(--line) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+main{position:relative;z-index:2;max-width:1480px;margin:0 auto}
+
+/* HEADER STRIP */
+.cover-strip{
+  background:var(--bone);
+  color:var(--ink);
+  padding:14px 24px;
+  display:flex;flex-wrap:wrap;align-items:center;
+  gap:12px;
+  font-size:9px;letter-spacing:.25em;
+  text-transform:uppercase;
+  border-bottom:3px solid var(--ink);
+}
+.cover-strip .dot{width:8px;height:8px;border-radius:50%;background:var(--blood)}
+.cover-strip b{font-weight:700}
+.cover-strip .pull{margin-left:auto}
+
+/* COVER */
+.cover{
+  background:var(--bone);
+  color:var(--ink);
+  padding:60px 24px 90px;
+  position:relative;
+  border-bottom:8px solid var(--ink);
+}
+.cover-meta{
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:8px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:60px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:14px 0;
+}
+.cover-meta div span{display:block;color:rgba(10,10,10,.5);margin-bottom:4px;font-size:8px}
+.cover-meta div b{font-family:'Special Elite',monospace;font-weight:400;font-size:12px;letter-spacing:.05em;color:var(--ink)}
+@media(max-width:700px){.cover-meta{grid-template-columns:1fr 1fr}}
+
+.cover h1{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(60px,15vw,180px);
+  line-height:.85;letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+.cover .sub{
+  font-family:'Special Elite',monospace;
+  font-size:14px;letter-spacing:.4em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  color:var(--ink);opacity:.65;
+}
+.cover .doc-title{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(20px,3.4vw,34px);
+  letter-spacing:-.005em;
+  border-top:2px solid var(--ink);
+  padding-top:20px;margin-top:30px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+}
+.cover .doc-title small{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.3em;
+  color:rgba(10,10,10,.55);font-weight:400;
+  align-self:end;
+}
+
+.cover-corners{
+  position:absolute;
+  pointer-events:none;
+}
+.cover-corners.tl{top:14px;left:14px}
+.cover-corners.tr{top:14px;right:14px}
+.cover-corners.bl{bottom:14px;left:14px}
+.cover-corners.br{bottom:14px;right:14px}
+.cover-corners svg{width:30px;height:30px;display:block}
+
+/* SECTIONS */
+.section{
+  padding:80px 24px 60px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.sec-head{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;
+  align-items:flex-end;
+  border-bottom:2px solid var(--bone);
+  padding-bottom:18px;margin-bottom:50px;
+}
+.sec-head .num{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(56px,9vw,98px);
+  line-height:.8;letter-spacing:-.02em;
+  color:var(--bone);
+}
+.sec-head .num span{color:var(--acid)}
+.sec-head h2{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:700;font-size:clamp(20px,3vw,32px);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-align:right;
+  color:var(--bone);
+  max-width:55%;
+}
+@media(max-width:600px){.sec-head h2{text-align:left;max-width:100%}}
+.sec-head h2 em{font-style:normal;color:var(--acid)}
+.sec-meta{
+  font-family:'Special Elite',monospace;
+  font-size:10px;letter-spacing:.25em;
+  color:var(--grey);
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+/* ANATOMY DIAGRAM */
+.anatomy{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+@media(min-width:900px){.anatomy{grid-template-columns:1.2fr 1fr}}
+.diagram{
+  background:var(--bone);
+  aspect-ratio:1;
+  position:relative;
+  padding:6%;
+  overflow:hidden;
+}
+.diagram svg{width:100%;height:100%;display:block}
+.diagram-corners{
+  position:absolute;width:100%;height:100%;top:0;left:0;
+  pointer-events:none;
+}
+.diagram-corners::before,.diagram-corners::after{
+  content:"";position:absolute;
+  width:30px;height:30px;
+  border-color:var(--ink);border-style:solid;border-width:0;
+}
+.diagram-corners::before{top:8px;left:8px;border-top-width:1px;border-left-width:1px}
+.diagram-corners::after{bottom:8px;right:8px;border-bottom-width:1px;border-right-width:1px}
+.diagram-extra{position:absolute;font-family:'Special Elite',monospace;font-size:9px;letter-spacing:.18em;color:rgba(10,10,10,.7)}
+.diagram-extra.t{top:10px;left:50%;transform:translateX(-50%)}
+.diagram-extra.b{bottom:10px;left:50%;transform:translateX(-50%)}
+.diagram-extra.l{left:10px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center}
+.diagram-extra.r{right:10px;top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center}
+
+.callouts{display:flex;flex-direction:column;gap:14px}
+.callout{
+  display:flex;gap:16px;align-items:flex-start;
+  border-left:3px solid var(--acid);
+  padding:14px 16px;
+  background:var(--ash);
+}
+.callout .id{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:32px;line-height:1;
+  color:var(--acid);min-width:42px;
+}
+.callout .body h4{
+  font-family:'Archivo Black',sans-serif;
+  font-size:14px;letter-spacing:.02em;
+  color:var(--bone);margin-bottom:6px;
+}
+.callout .body p{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:var(--grey);line-height:1.5;
+}
+.callout .body p b{color:var(--bone);font-weight:400}
+
+/* CONSTRUCTION GRID */
+.construct-grid{
+  background:var(--bone);
+  color:var(--ink);
+  padding:6%;
+  position:relative;
+  aspect-ratio:1;
+  max-width:680px;
+  margin:0 auto;
+}
+.construct-grid svg{width:100%;height:100%;display:block}
+
+/* CLEAR SPACE */
+.clearspace{
+  display:grid;gap:24px;
+  grid-template-columns:1fr;
+}
+@media(min-width:768px){.clearspace{grid-template-columns:1fr 1fr}}
+.cs-card{
+  background:var(--bone);color:var(--ink);
+  padding:30px;position:relative;
+}
+.cs-card .label{
+  position:absolute;top:14px;left:14px;
+  font-size:9px;letter-spacing:.3em;
+  color:rgba(10,10,10,.55);
+}
+.cs-card svg{width:100%;height:auto;display:block}
+
+.minsize-table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  margin-top:20px;
+}
+.minsize-table th{
+  text-align:left;padding:10px 12px;
+  background:var(--ash);color:var(--acid);
+  font-weight:400;font-size:9px;letter-spacing:.25em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line-strong);
+}
+.minsize-table td{
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  color:var(--bone);
+}
+.minsize-table tr:hover td{background:rgba(212,255,28,.04)}
+
+/* COLOR LAB */
+.color-lab{
+  display:grid;
+  gap:8px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.color-card{
+  border:1px solid var(--line-strong);
+  display:grid;
+  grid-template-rows:200px auto;
+  position:relative;
+}
+.color-card .swatch{
+  position:relative;
+}
+.color-card .swatch::before{
+  content:attr(data-name);
+  position:absolute;top:14px;left:14px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:14px;
+  letter-spacing:.05em;
+}
+.color-card .swatch::after{
+  content:attr(data-pct);
+  position:absolute;bottom:10px;right:14px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:48px;line-height:1;letter-spacing:-.02em;
+}
+.color-card.bone .swatch{background:var(--bone)}
+.color-card.bone .swatch::before,
+.color-card.bone .swatch::after{color:var(--ink);opacity:.7}
+.color-card.acid .swatch{background:var(--acid)}
+.color-card.acid .swatch::before,
+.color-card.acid .swatch::after{color:var(--ink)}
+.color-card.ink .swatch{background:var(--ink);border:1px solid var(--line-strong)}
+.color-card.ink .swatch::before,
+.color-card.ink .swatch::after{color:var(--bone);opacity:.6}
+.color-card.blood .swatch{background:var(--blood)}
+.color-card.blood .swatch::before,
+.color-card.blood .swatch::after{color:var(--bone)}
+.color-card.shadow .swatch{background:#3A3A3A}
+.color-card.shadow .swatch::before,
+.color-card.shadow .swatch::after{color:var(--bone);opacity:.7}
+.color-card .data{
+  background:var(--ash);
+  padding:14px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+}
+.color-card .data dl{display:grid;grid-template-columns:55px 1fr;gap:3px 10px}
+.color-card .data dt{color:var(--grey);font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding-top:1px}
+.color-card .data dd{color:var(--bone);font-size:11px}
+
+/* TYPOGRAPHY */
+.typo-stack{display:grid;gap:20px}
+.typo-card{
+  border:1px solid var(--line-strong);
+  background:var(--ash);
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+.typo-card .meta{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  font-size:9px;letter-spacing:.25em;text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;margin-bottom:24px;
+}
+.typo-card .meta b{color:var(--acid);font-weight:400}
+.typo-card .meta span{color:var(--grey)}
+.typo-card .specimen{margin-bottom:24px}
+.typo-card.display .specimen{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(56px,11vw,140px);
+  line-height:.85;letter-spacing:-.02em;
+  color:var(--bone);
+}
+.typo-card.head .specimen{
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(36px,7vw,72px);
+  line-height:.95;color:var(--bone);
+}
+.typo-card.body .specimen{
+  font-family:'JetBrains Mono',monospace;
+  font-size:18px;line-height:1.55;
+  color:var(--bone);
+}
+.typo-card.tech .specimen{
+  font-family:'Special Elite',monospace;
+  font-size:18px;line-height:1.6;
+  color:var(--bone);
+}
+.typo-card .charset{
+  font-size:11px;color:var(--grey);
+  border-top:1px dashed var(--line-strong);
+  padding-top:14px;
+  display:flex;flex-wrap:wrap;gap:18px;
+}
+.typo-card .charset b{color:var(--bone);font-weight:400;font-size:9px;letter-spacing:.25em;text-transform:uppercase;display:block;margin-bottom:6px}
+.typo-card .charset > div{flex:1;min-width:200px}
+
+/* APPLICATIONS — 2 hero apps */
+.app-hero{
+  display:grid;gap:20px;
+  grid-template-columns:1fr;
+}
+@media(min-width:900px){.app-hero{grid-template-columns:1fr 1fr}}
+.app-card{
+  position:relative;
+  aspect-ratio:1;
+  overflow:hidden;
+  border:1px solid var(--line-strong);
+}
+.app-card .lbl{
+  position:absolute;top:14px;left:14px;
+  background:var(--ink);color:var(--bone);
+  padding:6px 10px;font-size:9px;letter-spacing:.3em;
+  z-index:5;
+}
+.app-card .meta-bot{
+  position:absolute;bottom:14px;left:14px;right:14px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:'Special Elite',monospace;
+  font-size:9px;letter-spacing:.2em;
+  color:var(--bone);opacity:.85;
+  z-index:5;
+}
+
+.app-tee{background:var(--blood);color:var(--bone)}
+.app-tee .inner{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:14%;
+  text-align:center;
+}
+.app-tee .inner svg{width:48%;height:auto;margin-bottom:20px}
+.app-tee h3{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(32px,5vw,52px);
+  letter-spacing:-.01em;line-height:.9;
+}
+.app-tee .est{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.4em;
+  margin-top:10px;color:var(--bone);opacity:.85;
+}
+
+.app-paw{background:var(--acid);color:var(--ink)}
+.app-paw .inner{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:14%;
+}
+.app-paw svg{width:80%;height:auto}
+
+/* SUBSTRATE TABLE */
+.substrate-grid{
+  display:grid;gap:8px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.sub-card{
+  border:1px solid var(--line-strong);
+  background:var(--ash);
+  padding:24px;
+  position:relative;
+}
+.sub-card h4{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:24px;letter-spacing:.02em;
+  color:var(--bone);
+  border-bottom:1px solid var(--line);
+  padding-bottom:10px;margin-bottom:14px;
+}
+.sub-card h4 small{
+  display:block;font-size:9px;letter-spacing:.3em;
+  color:var(--acid);font-weight:400;
+  margin-bottom:4px;font-family:'JetBrains Mono',monospace;
+}
+.sub-card ul{list-style:none;font-family:'JetBrains Mono',monospace;font-size:11px}
+.sub-card li{
+  padding:7px 0;
+  border-bottom:1px dashed var(--line);
+  display:flex;justify-content:space-between;gap:10px;
+  color:var(--grey);
+}
+.sub-card li b{color:var(--bone);font-weight:400}
+.sub-card li:last-child{border-bottom:0}
+
+/* DON'T GRID */
+.donts{
+  display:grid;gap:8px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+.dont{
+  aspect-ratio:1;
+  background:var(--ash);
+  border:1px solid var(--line);
+  position:relative;
+  padding:18%;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.dont::before{
+  content:"NO";
+  position:absolute;top:10px;left:12px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:18px;letter-spacing:.02em;
+  color:var(--blood);
+  z-index:5;
+}
+.dont::after{
+  content:"";
+  position:absolute;inset:14px;
+  background:linear-gradient(to top right,transparent calc(50% - 1px),var(--blood) calc(50% - 1px),var(--blood) calc(50% + 1px),transparent calc(50% + 1px));
+  z-index:4;opacity:.5;
+}
+.dont .lbl{
+  position:absolute;bottom:10px;left:12px;right:12px;
+  font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--bone);
+  z-index:5;
+}
+.dont svg{width:100%;height:100%;position:relative;z-index:1}
+
+/* FILE LIBRARY */
+.file-lib{
+  display:grid;gap:8px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+.file-row{
+  border:1px solid var(--line);
+  background:var(--ash);
+  padding:18px 20px;
+  display:flex;flex-direction:column;gap:6px;
+  position:relative;
+}
+.file-row .ext{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:32px;
+  color:var(--acid);line-height:1;
+}
+.file-row .name{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--bone);
+  word-break:break-all;
+}
+.file-row .desc{
+  font-size:10px;color:var(--grey);
+  letter-spacing:.05em;
+}
+
+/* TICKER */
+.ticker{
+  background:var(--acid);color:var(--ink);
+  padding:14px 0;overflow:hidden;
+  position:relative;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);
+}
+.ticker-track{
+  display:flex;gap:50px;white-space:nowrap;
+  animation:tick 28s linear infinite;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:20px;letter-spacing:-.005em;
+}
+.ticker-track span{display:inline-flex;align-items:center;gap:50px}
+.ticker-track span::after{content:"●";color:var(--blood)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* FOOTER */
+footer.doc-foot{
+  background:var(--bone);color:var(--ink);
+  padding:60px 24px;
+  display:grid;gap:30px;
+  grid-template-columns:1fr;
+  position:relative;
+}
+@media(min-width:768px){footer.doc-foot{grid-template-columns:2fr 1fr}}
+.foot-stamp{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900;font-size:clamp(60px,12vw,140px);
+  line-height:.85;letter-spacing:-.02em;
+}
+.foot-stamp em{font-style:normal;color:var(--blood)}
+.foot-info{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.05em;
+  color:var(--ink);align-self:end;
+}
+.foot-info b{display:block;font-size:9px;letter-spacing:.3em;color:rgba(10,10,10,.5);margin-bottom:4px;font-weight:400;text-transform:uppercase}
+.foot-info p{margin-bottom:10px}
+
+</style>
+</head>
+<body>
+
+<div class="scaffold"></div>
+
+<main>
+
+<!-- COVER STRIP -->
+<div class="cover-strip">
+  <span class="dot"></span>
+  <span><b>STRAY DOG</b> · BRAND STANDARDS MANUAL</span>
+  <span style="opacity:.5">VOL.01</span>
+  <span style="opacity:.5">REV.02</span>
+  <span style="opacity:.5">2026.05.04</span>
+  <span class="pull"><b>CONFIDENTIAL</b> · 66 RECORDS</span>
+</div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-corners tl"><svg viewBox="0 0 30 30"><path d="M0 0h12M0 0v12" stroke="#0A0A0A" stroke-width="1" fill="none"/></svg></div>
+  <div class="cover-corners tr"><svg viewBox="0 0 30 30"><path d="M30 0h-12M30 0v12" stroke="#0A0A0A" stroke-width="1" fill="none"/></svg></div>
+  <div class="cover-corners bl"><svg viewBox="0 0 30 30"><path d="M0 30h12M0 30v-12" stroke="#0A0A0A" stroke-width="1" fill="none"/></svg></div>
+  <div class="cover-corners br"><svg viewBox="0 0 30 30"><path d="M30 30h-12M30 30v-12" stroke="#0A0A0A" stroke-width="1" fill="none"/></svg></div>
+
+  <div class="cover-meta">
+    <div><span>DOCUMENT</span><b>BSM-066</b></div>
+    <div><span>ISSUED</span><b>05.2026</b></div>
+    <div><span>REVISION</span><b>02</b></div>
+    <div><span>OWNER</span><b>66 RECORDS</b></div>
+  </div>
+
+  <div class="sub">— BRAND STANDARDS MANUAL · MANUAL DE IDENTIDAD —</div>
+  <h1>STRAY<br>DOG</h1>
+  <div class="doc-title">
+    <span>SISTEMA DE IDENTIDAD VISUAL · IDENTITY ARCHITECTURE</span>
+    <small>09 SECCIONES · 66 ESPECIFICACIONES</small>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>BRAND STANDARDS MANUAL</span><span>STRAY DOG</span><span>66 RECORDS</span><span>SXD-066</span><span>EST. 2026</span><span>CONFIDENTIAL</span><span>BRAND STANDARDS MANUAL</span><span>STRAY DOG</span><span>66 RECORDS</span><span>SXD-066</span><span>EST. 2026</span><span>CONFIDENTIAL</span>
+  </div>
+</div>
+
+<!-- 01 — ANATOMY -->
+<section class="section" id="anatomy">
+  <div class="sec-meta">DOC.01 / SECTION 01 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>1</span></div>
+    <h2>ANATOMÍA DEL <em>SUBMARK</em><br>PAW + 66</h2>
+  </div>
+
+  <div class="anatomy">
+    <div class="diagram">
+      <div class="diagram-corners"></div>
+      <span class="diagram-extra t">↑ HEIGHT 240u</span>
+      <span class="diagram-extra b">↓ BASELINE 222u</span>
+      <span class="diagram-extra l">← WIDTH 240u →</span>
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- guidelines (subtle) -->
+        <line x1="120" y1="0" x2="120" y2="240" stroke="rgba(10,10,10,.08)" stroke-width="0.5" stroke-dasharray="2 3"/>
+        <line x1="0" y1="120" x2="240" y2="120" stroke="rgba(10,10,10,.08)" stroke-width="0.5" stroke-dasharray="2 3"/>
+
+        <!-- ALMOHADILLA PRINCIPAL (pad) -->
+        <polygon points="120,180 70,215 95,145 145,145 170,215" fill="#0A0A0A"/>
+
+        <!-- 5 DEDOS (5 toes — front paw) -->
+        <!-- Dedo 1 — espolón izquierdo (dewclaw-like, lower) -->
+        <polygon points="40,128 62,118 67,148 45,152" fill="#0A0A0A"/>
+        <!-- Dedo 2 -->
+        <polygon points="72,90 96,80 99,118 76,121" fill="#0A0A0A"/>
+        <!-- Dedo 3 — centro -->
+        <polygon points="108,60 132,60 132,110 108,110" fill="#0A0A0A"/>
+        <!-- Dedo 4 -->
+        <polygon points="144,80 168,90 164,121 141,118" fill="#0A0A0A"/>
+        <!-- Dedo 5 — derecho -->
+        <polygon points="178,118 200,128 195,152 173,148" fill="#0A0A0A"/>
+
+        <!-- 66 dentro de la almohadilla -->
+        <text x="120" y="195" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#D4FF1C" letter-spacing="-2">66</text>
+
+        <!-- callout markers -->
+        <circle cx="120" cy="85" r="12" fill="none" stroke="#FF3B00" stroke-width="0.8"/>
+        <text x="120" y="89" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#FF3B00">A</text>
+
+        <circle cx="50" cy="140" r="12" fill="none" stroke="#FF3B00" stroke-width="0.8"/>
+        <text x="50" y="144" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#FF3B00">B</text>
+
+        <circle cx="120" cy="195" r="12" fill="none" stroke="#FF3B00" stroke-width="0.8"/>
+        <text x="120" y="199" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#FF3B00">C</text>
+
+        <circle cx="190" cy="140" r="12" fill="none" stroke="#FF3B00" stroke-width="0.8"/>
+        <text x="190" y="144" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#FF3B00">D</text>
+      </svg>
+    </div>
+
+    <div class="callouts">
+      <div class="callout">
+        <div class="id">A</div>
+        <div class="body">
+          <h4>5 DEDOS · ARCO ANATÓMICO</h4>
+          <p>Pata <b>delantera derecha</b>. Cinco dedos en disposición de arco — el espolón (B) es el quinto dedo, posicionado más bajo, fiel a la anatomía canina real. Diferenciador clave vs. logos genéricos de huella.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="id">B</div>
+        <div class="body">
+          <h4>ESPOLÓN · DEWCLAW</h4>
+          <p>El detalle anatómico que <b>nadie más tiene</b>. Marca de autenticidad: este perro existe, no es un cliché.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="id">C</div>
+        <div class="body">
+          <h4>66 · MARCA DEL SELLO</h4>
+          <p>El número del sello vive <b>dentro</b> de la almohadilla. La pata pisa con el sello — cada paso es una firma. Color ácido <b>#D4FF1C</b> obligatorio sobre fondo oscuro.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="id">D</div>
+        <div class="body">
+          <h4>ALMOHADILLA · PAD</h4>
+          <p>Pentágono asimétrico. Base estructural del logo. Proporción <b>1:1.45</b> (ancho:alto). Sostiene el "66" sin invadir los dedos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — CONSTRUCTION GRID -->
+<section class="section" id="construction">
+  <div class="sec-meta">DOC.01 / SECTION 02 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>2</span></div>
+    <h2>CUADRÍCULA DE <em>CONSTRUCCIÓN</em><br>GEOMETRY GRID 24×24u</h2>
+  </div>
+
+  <div class="construct-grid">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <!-- 24x24 grid -->
+      <g stroke="rgba(10,10,10,.12)" stroke-width="0.5">
+        <!-- vertical lines every 10u -->
+        <line x1="10" y1="0" x2="10" y2="240"/><line x1="20" y1="0" x2="20" y2="240"/>
+        <line x1="30" y1="0" x2="30" y2="240"/><line x1="40" y1="0" x2="40" y2="240"/>
+        <line x1="50" y1="0" x2="50" y2="240"/><line x1="60" y1="0" x2="60" y2="240"/>
+        <line x1="70" y1="0" x2="70" y2="240"/><line x1="80" y1="0" x2="80" y2="240"/>
+        <line x1="90" y1="0" x2="90" y2="240"/><line x1="100" y1="0" x2="100" y2="240"/>
+        <line x1="110" y1="0" x2="110" y2="240"/><line x1="120" y1="0" x2="120" y2="240" stroke="rgba(10,10,10,.3)"/>
+        <line x1="130" y1="0" x2="130" y2="240"/><line x1="140" y1="0" x2="140" y2="240"/>
+        <line x1="150" y1="0" x2="150" y2="240"/><line x1="160" y1="0" x2="160" y2="240"/>
+        <line x1="170" y1="0" x2="170" y2="240"/><line x1="180" y1="0" x2="180" y2="240"/>
+        <line x1="190" y1="0" x2="190" y2="240"/><line x1="200" y1="0" x2="200" y2="240"/>
+        <line x1="210" y1="0" x2="210" y2="240"/><line x1="220" y1="0" x2="220" y2="240"/>
+        <line x1="230" y1="0" x2="230" y2="240"/>
+        <!-- horizontal -->
+        <line x1="0" y1="10" x2="240" y2="10"/><line x1="0" y1="20" x2="240" y2="20"/>
+        <line x1="0" y1="30" x2="240" y2="30"/><line x1="0" y1="40" x2="240" y2="40"/>
+        <line x1="0" y1="50" x2="240" y2="50"/><line x1="0" y1="60" x2="240" y2="60"/>
+        <line x1="0" y1="70" x2="240" y2="70"/><line x1="0" y1="80" x2="240" y2="80"/>
+        <line x1="0" y1="90" x2="240" y2="90"/><line x1="0" y1="100" x2="240" y2="100"/>
+        <line x1="0" y1="110" x2="240" y2="110"/><line x1="0" y1="120" x2="240" y2="120" stroke="rgba(10,10,10,.3)"/>
+        <line x1="0" y1="130" x2="240" y2="130"/><line x1="0" y1="140" x2="240" y2="140"/>
+        <line x1="0" y1="150" x2="240" y2="150"/><line x1="0" y1="160" x2="240" y2="160"/>
+        <line x1="0" y1="170" x2="240" y2="170"/><line x1="0" y1="180" x2="240" y2="180"/>
+        <line x1="0" y1="190" x2="240" y2="190"/><line x1="0" y1="200" x2="240" y2="200"/>
+        <line x1="0" y1="210" x2="240" y2="210"/><line x1="0" y1="220" x2="240" y2="220"/>
+        <line x1="0" y1="230" x2="240" y2="230"/>
+      </g>
+
+      <!-- DOG FACE on grid -->
+      <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+      <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+      <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+      <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+      <polygon points="72,118 108,112 102,134 78,130" fill="#EFEAD8"/>
+      <polygon points="168,118 132,112 138,134 162,130" fill="#EFEAD8"/>
+      <polygon points="108,188 132,188 120,205" fill="#EFEAD8"/>
+
+      <!-- measurement labels -->
+      <text x="120" y="8" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="6" fill="#0A0A0A">240u</text>
+      <text x="3" y="120" font-family="JetBrains Mono,monospace" font-size="6" fill="#0A0A0A">120u</text>
+
+      <!-- key dimensions in red -->
+      <line x1="48" y1="245" x2="192" y2="245" stroke="#FF3B00" stroke-width="0.8"/>
+      <line x1="48" y1="243" x2="48" y2="247" stroke="#FF3B00" stroke-width="0.8"/>
+      <line x1="192" y1="243" x2="192" y2="247" stroke="#FF3B00" stroke-width="0.8"/>
+      <text x="120" y="252" text-anchor="middle" font-family="Special Elite,monospace" font-size="6" fill="#FF3B00">HEAD WIDTH = 144u (60% canvas)</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 03 — CLEAR SPACE & MIN SIZE -->
+<section class="section" id="clearspace">
+  <div class="sec-meta">DOC.01 / SECTION 03 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>3</span></div>
+    <h2>ESPACIO LIBRE Y <em>TAMAÑO</em><br>CLEAR SPACE / MIN SIZE</h2>
+  </div>
+
+  <div class="clearspace">
+    <div class="cs-card">
+      <span class="label">CLEAR SPACE · X = ALTO DE OREJA</span>
+      <svg viewBox="0 0 320 240">
+        <!-- clear space dashed boundary -->
+        <rect x="20" y="30" width="280" height="180" fill="none" stroke="#FF3B00" stroke-width="0.8" stroke-dasharray="4 4"/>
+        <!-- inner mark area -->
+        <rect x="80" y="60" width="160" height="120" fill="none" stroke="rgba(10,10,10,.3)" stroke-width="0.4" stroke-dasharray="2 2"/>
+        <!-- the dog mark -->
+        <g transform="translate(120 60) scale(0.42)">
+          <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+          <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        </g>
+        <!-- X dimension markers -->
+        <text x="20" y="20" font-family="Special Elite,monospace" font-size="9" fill="#FF3B00">X</text>
+        <line x1="20" y1="22" x2="20" y2="56" stroke="#FF3B00" stroke-width="0.6"/>
+        <line x1="80" y1="60" x2="80" y2="60" stroke="#FF3B00"/>
+        <text x="48" y="50" font-family="JetBrains Mono,monospace" font-size="9" fill="#FF3B00">X</text>
+        <text x="160" y="225" text-anchor="middle" font-family="Special Elite,monospace" font-size="10" fill="#0A0A0A">CLEAR SPACE = 1X EN LOS 4 LADOS</text>
+      </svg>
+    </div>
+
+    <div class="cs-card">
+      <span class="label">MIN SIZE · LIMITES OPERATIVOS</span>
+      <svg viewBox="0 0 320 240">
+        <!-- 3 sizes: large, medium, minimum -->
+        <g transform="translate(20 60) scale(0.5)">
+          <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+          <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        </g>
+        <text x="80" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#0A0A0A">120 PX</text>
+
+        <g transform="translate(150 90) scale(0.25)">
+          <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+          <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        </g>
+        <text x="180" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#0A0A0A">60 PX</text>
+
+        <g transform="translate(245 105) scale(0.13)">
+          <polygon points="55,98 28,18 102,80" fill="#0A0A0A"/>
+          <polygon points="185,98 212,18 138,80" fill="#0A0A0A"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#0A0A0A"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#0A0A0A"/>
+        </g>
+        <text x="260" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#FF3B00">32 PX MIN</text>
+
+        <text x="160" y="225" text-anchor="middle" font-family="Special Elite,monospace" font-size="10" fill="#0A0A0A">NUNCA POR DEBAJO DE 32 PX / 10 MM</text>
+      </svg>
+    </div>
+  </div>
+
+  <table class="minsize-table">
+    <thead>
+      <tr><th>APLICACIÓN</th><th>MEDIO</th><th>MIN. ANCHO</th><th>RESOLUCIÓN</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FAVICON · APP ICON</td><td>DIGITAL</td><td>32 PX</td><td>72 DPI / RGB</td></tr>
+      <tr><td>AVATAR REDES SOCIALES</td><td>DIGITAL</td><td>180 PX</td><td>72 DPI / RGB</td></tr>
+      <tr><td>ETIQUETA VINILO 12"</td><td>OFFSET</td><td>88 MM Ø</td><td>300 DPI / CMYK</td></tr>
+      <tr><td>SERIGRAFÍA TEXTIL</td><td>SERIGRAFÍA</td><td>80 MM</td><td>300 DPI / SPOT</td></tr>
+      <tr><td>CARTEL A2</td><td>OFFSET</td><td>100 MM</td><td>300 DPI / CMYK</td></tr>
+      <tr><td>BORDADO MERCH</td><td>BORDADO</td><td>50 MM</td><td>3 HILOS MAX</td></tr>
+      <tr><td>STICKER DIE-CUT</td><td>VINILO</td><td>40 MM</td><td>300 DPI / CMYK</td></tr>
+      <tr><td>TARJETA PERSONAL</td><td>OFFSET</td><td>20 MM</td><td>300 DPI / CMYK</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 04 — COLOR -->
+<section class="section" id="color">
+  <div class="sec-meta">DOC.01 / SECTION 04 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>4</span></div>
+    <h2>SISTEMA <em>CROMÁTICO</em><br>COLOR LAB · 5 CHIPS</h2>
+  </div>
+
+  <div class="color-lab">
+
+    <div class="color-card ink">
+      <div class="swatch" data-name="NEGRO ASFALTO" data-pct="60%"></div>
+      <div class="data">
+        <dl>
+          <dt>HEX</dt><dd>#0A0A0A</dd>
+          <dt>RGB</dt><dd>10 · 10 · 10</dd>
+          <dt>CMYK</dt><dd>0 · 0 · 0 · 96</dd>
+          <dt>HSL</dt><dd>0° · 0% · 4%</dd>
+          <dt>PMS</dt><dd>BLACK 6 C</dd>
+          <dt>RAL</dt><dd>9005 · JET BLACK</dd>
+          <dt>NCS</dt><dd>S 9000-N</dd>
+          <dt>USO</dt><dd>FONDO PRINCIPAL</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="color-card bone">
+      <div class="swatch" data-name="HUESO / BONE" data-pct="25%"></div>
+      <div class="data">
+        <dl>
+          <dt>HEX</dt><dd>#EFEAD8</dd>
+          <dt>RGB</dt><dd>239 · 234 · 216</dd>
+          <dt>CMYK</dt><dd>2 · 2 · 12 · 0</dd>
+          <dt>HSL</dt><dd>47° · 38% · 89%</dd>
+          <dt>PMS</dt><dd>WARM GRAY 1 C</dd>
+          <dt>RAL</dt><dd>9001 · CREAM</dd>
+          <dt>NCS</dt><dd>S 1005-Y20R</dd>
+          <dt>USO</dt><dd>TIPOGRAFÍA / LOGO</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="color-card acid">
+      <div class="swatch" data-name="ÁCIDO / ACID" data-pct="10%"></div>
+      <div class="data">
+        <dl>
+          <dt>HEX</dt><dd>#D4FF1C</dd>
+          <dt>RGB</dt><dd>212 · 255 · 28</dd>
+          <dt>CMYK</dt><dd>20 · 0 · 90 · 0</dd>
+          <dt>HSL</dt><dd>71° · 100% · 55%</dd>
+          <dt>PMS</dt><dd>389 C</dd>
+          <dt>RAL</dt><dd>1026 · LUMINOUS YELLOW</dd>
+          <dt>NCS</dt><dd>S 0570-G70Y</dd>
+          <dt>USO</dt><dd>ACENTO ÚNICO</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="color-card blood">
+      <div class="swatch" data-name="SANGRE / BLOOD" data-pct="3%"></div>
+      <div class="data">
+        <dl>
+          <dt>HEX</dt><dd>#FF3B00</dd>
+          <dt>RGB</dt><dd>255 · 59 · 0</dd>
+          <dt>CMYK</dt><dd>0 · 85 · 100 · 0</dd>
+          <dt>HSL</dt><dd>14° · 100% · 50%</dd>
+          <dt>PMS</dt><dd>172 C</dd>
+          <dt>RAL</dt><dd>2002 · VERMILLION</dd>
+          <dt>NCS</dt><dd>S 0580-Y70R</dd>
+          <dt>USO</dt><dd>ALERTA / MERCH</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="color-card shadow">
+      <div class="swatch" data-name="SOMBRA" data-pct="2%"></div>
+      <div class="data">
+        <dl>
+          <dt>HEX</dt><dd>#3A3A3A</dd>
+          <dt>RGB</dt><dd>58 · 58 · 58</dd>
+          <dt>CMYK</dt><dd>0 · 0 · 0 · 77</dd>
+          <dt>HSL</dt><dd>0° · 0% · 23%</dd>
+          <dt>PMS</dt><dd>426 C</dd>
+          <dt>RAL</dt><dd>7021 · BLACK GREY</dd>
+          <dt>NCS</dt><dd>S 7500-N</dd>
+          <dt>USO</dt><dd>NEUTRO TÉCNICO</dd>
+        </dl>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 — TYPOGRAPHY -->
+<section class="section" id="typography">
+  <div class="sec-meta">DOC.01 / SECTION 05 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>5</span></div>
+    <h2>SISTEMA <em>TIPOGRÁFICO</em><br>TYPE SYSTEM · 4 NIVELES</h2>
+  </div>
+
+  <div class="typo-stack">
+
+    <div class="typo-card display">
+      <div class="meta">
+        <span><b>NIVEL 01</b> · DISPLAY · WORDMARK</span>
+        <span>BIG SHOULDERS STENCIL DISPLAY · 900</span>
+        <span>TRACKING -2% · LEADING 85%</span>
+      </div>
+      <div class="specimen">STRAY DOG</div>
+      <div class="charset">
+        <div><b>UPPERCASE</b>A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</div>
+        <div><b>NUMERALS</b>0 1 2 3 4 5 6 7 8 9</div>
+      </div>
+    </div>
+
+    <div class="typo-card head">
+      <div class="meta">
+        <span><b>NIVEL 02</b> · HEAD · TITULARES</span>
+        <span>ARCHIVO BLACK · 900</span>
+        <span>TRACKING 0 · LEADING 95%</span>
+      </div>
+      <div class="specimen">66 RECORDS</div>
+      <div class="charset">
+        <div><b>UPPERCASE</b>A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</div>
+        <div><b>LOWERCASE</b>a b c d e f g h i j k l m n ñ o p q r s t u v w x y z</div>
+      </div>
+    </div>
+
+    <div class="typo-card body">
+      <div class="meta">
+        <span><b>NIVEL 03</b> · BODY · TEXTO CORRIDO</span>
+        <span>JETBRAINS MONO · 400 / 700</span>
+        <span>TRACKING +5% · LEADING 155%</span>
+      </div>
+      <div class="specimen">El sello que firma con dientes. Música cruda, geometría brutal, identidad sin correa.</div>
+      <div class="charset">
+        <div><b>SAMPLE</b>aA bB cC dD eE fF gG hH 0123456789 #&amp;@</div>
+      </div>
+    </div>
+
+    <div class="typo-card tech">
+      <div class="meta">
+        <span><b>NIVEL 04</b> · TECHNICAL · CATÁLOGO</span>
+        <span>SPECIAL ELITE · 400</span>
+        <span>TRACKING +10% · LEADING 160%</span>
+      </div>
+      <div class="specimen">CAT. SXD-066 // RELEASED 2026 // VINYL 12" 180G // STAMPED IN MEXICO</div>
+      <div class="charset">
+        <div><b>SAMPLE</b>A B C · 0 1 2 3 4 5 6 7 8 9 · # / · -</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 06 — APPLICATIONS -->
+<section class="section" id="applications">
+  <div class="sec-meta">DOC.01 / SECTION 06 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>6</span></div>
+    <h2>APLICACIONES <em>HERO</em><br>HERO APPLICATIONS</h2>
+  </div>
+
+  <div class="app-hero">
+
+    <!-- TEE on blood -->
+    <div class="app-card app-tee">
+      <span class="lbl">APP.01 · MERCH TEE</span>
+      <div class="inner">
+        <svg viewBox="0 0 240 240">
+          <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+          <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+          <polygon points="72,118 108,112 102,134 78,130" fill="#FF3B00"/>
+          <polygon points="168,118 132,112 138,134 162,130" fill="#FF3B00"/>
+          <polygon points="108,188 132,188 120,205" fill="#FF3B00"/>
+        </svg>
+        <h3>STRAY DOG</h3>
+        <div class="est">66 / EST. 2026</div>
+      </div>
+      <div class="meta-bot">
+        <span>BLOOD #FF3B00</span>
+        <span>SERIGRAFÍA · 2 TINTAS</span>
+      </div>
+    </div>
+
+    <!-- PAW on acid -->
+    <div class="app-card app-paw">
+      <span class="lbl">APP.02 · SUBMARK / PIN</span>
+      <div class="inner">
+        <svg viewBox="0 0 240 240">
+          <polygon points="120,180 70,215 95,145 145,145 170,215" fill="#0A0A0A"/>
+          <polygon points="40,128 62,118 67,148 45,152" fill="#0A0A0A"/>
+          <polygon points="72,90 96,80 99,118 76,121" fill="#0A0A0A"/>
+          <polygon points="108,60 132,60 132,110 108,110" fill="#0A0A0A"/>
+          <polygon points="144,80 168,90 164,121 141,118" fill="#0A0A0A"/>
+          <polygon points="178,118 200,128 195,152 173,148" fill="#0A0A0A"/>
+          <text x="120" y="195" font-family="Big Shoulders Stencil Display, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#D4FF1C" letter-spacing="-2">66</text>
+        </svg>
+      </div>
+      <div class="meta-bot">
+        <span style="color:#0A0A0A">ACID #D4FF1C</span>
+        <span style="color:#0A0A0A">5 DEDOS · ANATOMÍA REAL</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 07 — SUBSTRATE / PRODUCTION -->
+<section class="section" id="substrate">
+  <div class="sec-meta">DOC.01 / SECTION 07 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>7</span></div>
+    <h2>ESPECIFICACIONES DE <em>PRODUCCIÓN</em><br>SUBSTRATE / OUTPUT</h2>
+  </div>
+
+  <div class="substrate-grid">
+
+    <div class="sub-card">
+      <h4><small>S.01</small>SERIGRAFÍA TEXTIL</h4>
+      <ul>
+        <li>TÉCNICA <b>SCREEN PRINT</b></li>
+        <li>TINTAS <b>2 PLASTISOL</b></li>
+        <li>MALLA <b>110 / 156 LPI</b></li>
+        <li>SOPORTE <b>100% ALGODÓN 180G</b></li>
+        <li>CURADO <b>160°C · 90s</b></li>
+        <li>SUFRE LAVADO <b>80°C · 50 CICLOS</b></li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <h4><small>S.02</small>VINILO 12" CENTER LABEL</h4>
+      <ul>
+        <li>FORMATO <b>88 MM Ø</b></li>
+        <li>TINTAS <b>1 SPOT (PMS 389C)</b></li>
+        <li>PAPEL <b>OFFSET 80G UNCOATED</b></li>
+        <li>RESOLUCIÓN <b>300 DPI</b></li>
+        <li>ESPACIO INTERNO <b>7 MM Ø (HOLE)</b></li>
+        <li>BORDE EXTERNO <b>2 MM SAFETY</b></li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <h4><small>S.03</small>BORDADO MERCH</h4>
+      <ul>
+        <li>HILOS MÁX <b>3 (BONE/INK/ACID)</b></li>
+        <li>DENSIDAD <b>0.4 MM</b></li>
+        <li>ÁNGULO <b>45° / 135° ALT.</b></li>
+        <li>BACKING <b>POLY 80G</b></li>
+        <li>TAMAÑO MIN <b>50 MM</b></li>
+        <li>PUNTADAS APROX <b>4500</b></li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <h4><small>S.04</small>WEB / DIGITAL</h4>
+      <ul>
+        <li>FORMATO <b>SVG / WEBP</b></li>
+        <li>ESPACIO COLOR <b>sRGB</b></li>
+        <li>RESOLUCIÓN <b>72-150 DPI</b></li>
+        <li>TIPOS <b>VARIABLE FONT</b></li>
+        <li>RETINA <b>@1x @2x @3x</b></li>
+        <li>FAVICON <b>32 / 192 PX</b></li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <h4><small>S.05</small>OFFSET CARTEL / FLYER</h4>
+      <ul>
+        <li>SOPORTE <b>COUCHÉ MATE 200G</b></li>
+        <li>TINTAS <b>4/0 CMYK + 1 SPOT</b></li>
+        <li>RESOLUCIÓN <b>300 DPI</b></li>
+        <li>SANGRADO <b>3 MM</b></li>
+        <li>ÁREA SEGURA <b>5 MM</b></li>
+        <li>ACABADO <b>UV SELECTIVO 66</b></li>
+      </ul>
+    </div>
+
+    <div class="sub-card">
+      <h4><small>S.06</small>STICKER / DIE-CUT</h4>
+      <ul>
+        <li>MATERIAL <b>VINILO MATE</b></li>
+        <li>TROQUEL <b>KISS-CUT</b></li>
+        <li>LAMINADO <b>UV RESISTANT</b></li>
+        <li>SANGRADO <b>2 MM</b></li>
+        <li>TIRAJE INICIAL <b>666 UDS</b></li>
+        <li>REPOSICIÓN <b>100 UDS</b></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 08 — DON'TS -->
+<section class="section" id="donts">
+  <div class="sec-meta">DOC.01 / SECTION 08 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>8</span></div>
+    <h2>USO <em>INCORRECTO</em><br>WHAT NEVER TO DO</h2>
+  </div>
+
+  <div class="donts">
+
+    <div class="dont">
+      <span class="lbl">DEFORMAR</span>
+      <svg viewBox="0 0 240 240" style="transform:scaleX(.55)">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+    <div class="dont">
+      <span class="lbl">ROTAR</span>
+      <svg viewBox="0 0 240 240" style="transform:rotate(28deg)">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+    <div class="dont">
+      <span class="lbl">DEGRADAR</span>
+      <svg viewBox="0 0 240 240">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#FF00FF"/>
+            <stop offset="1" stop-color="#00FFFF"/>
+          </linearGradient>
+        </defs>
+        <polygon points="55,98 28,18 102,80" fill="url(#g1)"/>
+        <polygon points="185,98 212,18 138,80" fill="url(#g1)"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="url(#g1)"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="url(#g1)"/>
+      </svg>
+    </div>
+
+    <div class="dont">
+      <span class="lbl">CONTORNEAR</span>
+      <svg viewBox="0 0 240 240">
+        <polygon points="55,98 28,18 102,80" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+        <polygon points="185,98 212,18 138,80" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="none" stroke="#EFEAD8" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="dont">
+      <span class="lbl">SOMBRA</span>
+      <svg viewBox="0 0 240 240">
+        <g style="filter:drop-shadow(8px 8px 0 #FF3B00)">
+          <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+          <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+          <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+          <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="dont">
+      <span class="lbl">FONDOS RUIDOSOS</span>
+      <div style="position:absolute;inset:14px;background:repeating-linear-gradient(45deg,#FF3B00,#FF3B00 8px,#D4FF1C 8px,#D4FF1C 16px);z-index:0"></div>
+      <svg viewBox="0 0 240 240" style="position:relative;z-index:2">
+        <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+        <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+        <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+        <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- 09 — FILE LIBRARY -->
+<section class="section" id="files">
+  <div class="sec-meta">DOC.01 / SECTION 09 OF 09</div>
+  <div class="sec-head">
+    <div class="num">0<span>9</span></div>
+    <h2>BIBLIOTECA DE <em>ARCHIVOS</em><br>FILE LIBRARY · 12 ASSETS</h2>
+  </div>
+
+  <div class="file-lib">
+    <div class="file-row"><div class="ext">SVG</div><div class="name">stray-dog_primary_dark.svg</div><div class="desc">Vector · escala infinita</div></div>
+    <div class="file-row"><div class="ext">SVG</div><div class="name">stray-dog_primary_light.svg</div><div class="desc">Vector · sobre claro</div></div>
+    <div class="file-row"><div class="ext">SVG</div><div class="name">stray-dog_paw_5toes.svg</div><div class="desc">Submark · pata 5 dedos</div></div>
+    <div class="file-row"><div class="ext">SVG</div><div class="name">stray-dog_wordmark.svg</div><div class="desc">Wordmark stack</div></div>
+    <div class="file-row"><div class="ext">AI</div><div class="name">stray-dog_master.ai</div><div class="desc">Adobe Illustrator master</div></div>
+    <div class="file-row"><div class="ext">EPS</div><div class="name">stray-dog_print.eps</div><div class="desc">Imprenta · CMYK</div></div>
+    <div class="file-row"><div class="ext">PDF</div><div class="name">stray-dog_print_x.pdf</div><div class="desc">PDF/X-1a · imprenta</div></div>
+    <div class="file-row"><div class="ext">PNG</div><div class="name">stray-dog_@1x_2x_3x.png</div><div class="desc">Retina · transparente</div></div>
+    <div class="file-row"><div class="ext">DST</div><div class="name">stray-dog_embroidery.dst</div><div class="desc">Bordado · 4500 puntadas</div></div>
+    <div class="file-row"><div class="ext">DXF</div><div class="name">stray-dog_lasercut.dxf</div><div class="desc">Corte láser · pin / vinilo</div></div>
+    <div class="file-row"><div class="ext">ICO</div><div class="name">stray-dog_favicon.ico</div><div class="desc">32 / 192 px · web</div></div>
+    <div class="file-row"><div class="ext">WEBP</div><div class="name">stray-dog_social.webp</div><div class="desc">1080×1080 · redes</div></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>END OF DOCUMENT</span><span>BSM-066 REV.02</span><span>STRAY DOG / 66 RECORDS</span><span>CONFIDENTIAL</span><span>END OF DOCUMENT</span><span>BSM-066 REV.02</span><span>STRAY DOG / 66 RECORDS</span><span>CONFIDENTIAL</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-foot">
+  <div class="foot-stamp">STRAY DOG <em>·</em> 66</div>
+  <div class="foot-info">
+    <p><b>DOCUMENT</b>BSM-066 · REV.02 · 2026.05.04</p>
+    <p><b>OWNER</b>66 RECORDS / CESAR · MX</p>
+    <p><b>CONTACT</b>info@straydog.66</p>
+    <p><b>STATUS</b>● ACTIVE / CONFIDENTIAL</p>
+  </div>
+</footer>
+
+</main>
+
+</body>
+</html>

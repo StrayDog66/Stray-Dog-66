@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAY DOG — Official Site</title>
+<meta name="description" content="Stray Dog · Perro Callejero — DJ y productor paraguayo radicado en Panamá. Techno crudo · 66 RECORDS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Archivo+Black&family=JetBrains+Mono:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#EFEAD8; --ink:#0A0A0A; --ash:#0F0F0F; --carbon:#161616;
+  --grey:#7A7A7A; --acid:#D4FF1C; --blood:#FF3B00;
+  --line:rgba(239,234,216,.1); --line-strong:rgba(239,234,216,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink); color:var(--bone);
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px; line-height:1.5; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:1000;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.55; mix-blend-mode:overlay;
+}
+::selection{background:var(--acid); color:var(--ink)}
+
+/* BILINGUAL TOGGLE — pure CSS hide/show */
+html[lang="es"] .en{display:none !important}
+html[lang="en"] .es{display:none !important}
+
+/* NAV */
+nav.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+}
+nav.topbar .brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:18px; letter-spacing:-.005em;
+  color:var(--bone); text-decoration:none;
+}
+nav.topbar .brand svg{width:24px; height:24px; display:block; fill:currentColor}
+nav.topbar ul{
+  list-style:none; display:flex; gap:22px;
+  font-size:11px; letter-spacing:.25em; text-transform:uppercase;
+}
+nav.topbar a{color:var(--bone); text-decoration:none; position:relative; padding:6px 0; transition:color .2s}
+nav.topbar a:hover{color:var(--acid)}
+nav.topbar a::after{content:""; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--acid); transition:width .25s}
+nav.topbar a:hover::after{width:100%}
+nav.topbar .right{display:flex; align-items:center; gap:14px}
+.lang-toggle{
+  display:flex; gap:0; border:1px solid var(--line-strong);
+  font-family:'JetBrains Mono',monospace; font-weight:700;
+  font-size:10px; letter-spacing:.18em;
+}
+.lang-toggle button{
+  background:transparent; color:var(--grey); border:0;
+  padding:7px 11px; cursor:pointer;
+  transition:all .2s;
+}
+.lang-toggle button:hover{color:var(--bone)}
+.lang-toggle button.active{background:var(--acid); color:var(--ink)}
+nav.topbar .booking{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:13px; letter-spacing:.04em;
+  background:var(--bone); color:var(--ink);
+  padding:8px 14px; text-decoration:none;
+  transition:transform .2s, box-shadow .2s, background .2s;
+}
+nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--blood); background:var(--acid)}
+@media(max-width:880px){
+  nav.topbar ul{display:none}
+  nav.topbar .booking{padding:7px 10px; font-size:11px}
+}
+
+/* HERO */
+.hero{
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:80px 24px 40px; overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(212,255,28,.12),transparent 50%),
+    radial-gradient(circle at 20% 80%,rgba(255,59,0,.08),transparent 50%),
+    var(--ink);
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background-image:
+    linear-gradient(to right,var(--line) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);
+}
+.hero-tag{
+  position:relative; z-index:2;
+  font-family:'Special Elite',monospace;
+  font-size:11px; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--acid); margin-bottom:16px;
+  display:flex; align-items:center; gap:10px;
+  opacity:0; animation:fadeUp .6s .2s forwards;
+}
+.hero-tag .pulse{width:8px; height:8px; border-radius:50%; background:var(--acid); animation:pulse 1.4s infinite ease-in-out}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{
+  position:relative; z-index:2;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(72px,18vw,260px);
+  line-height:.82; letter-spacing:-.025em;
+  color:var(--bone); margin-bottom:8px;
+  opacity:0; animation:fadeUp .8s .4s forwards;
+}
+.hero h1 .acid{color:var(--acid)}
+.hero .sub{
+  position:relative; z-index:2;
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(14px,2.4vw,22px);
+  letter-spacing:.18em; color:var(--grey);
+  margin-bottom:30px;
+  opacity:0; animation:fadeUp .8s .6s forwards;
+}
+.hero-meta{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1px; background:var(--line-strong);
+  border:1px solid var(--line-strong);
+  margin-top:20px;
+  opacity:0; animation:fadeUp .8s .8s forwards;
+}
+.hero-meta div{background:var(--ink); padding:14px 18px; font-size:10px; letter-spacing:.2em; text-transform:uppercase}
+.hero-meta div b{display:block; color:var(--acid); font-weight:400; font-size:9px; margin-bottom:4px}
+.hero-meta div span{font-family:'Special Elite',monospace; font-size:14px; color:var(--bone); letter-spacing:.05em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.ticker{
+  background:var(--acid); color:var(--ink);
+  padding:14px 0; overflow:hidden;
+  border-top:3px solid var(--ink); border-bottom:3px solid var(--ink);
+}
+.ticker-track{
+  display:flex; gap:50px; white-space:nowrap;
+  animation:tick 32s linear infinite;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:22px; letter-spacing:-.005em;
+}
+.ticker-track span{display:inline-flex; align-items:center; gap:50px}
+.ticker-track span::after{content:"●"; color:var(--blood)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding:90px 24px 70px; border-bottom:1px solid var(--line); position:relative}
+.sec-head{
+  display:flex; justify-content:space-between; flex-wrap:wrap;
+  align-items:flex-end; gap:18px;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:24px; margin-bottom:50px;
+  max-width:1400px; margin-left:auto; margin-right:auto;
+}
+.sec-head .num{
+  font-family:'Special Elite',monospace;
+  font-size:11px; letter-spacing:.3em;
+  color:var(--grey); text-transform:uppercase;
+  margin-bottom:8px;
+}
+.sec-head h2{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(42px,8vw,98px);
+  line-height:.85; letter-spacing:-.02em; color:var(--bone);
+}
+.sec-head h2 em{font-style:normal; color:var(--acid)}
+.sec-head .label{
+  font-family:'Special Elite',monospace;
+  font-size:11px; letter-spacing:.25em; color:var(--grey);
+  text-transform:uppercase; text-align:right; max-width:240px;
+}
+@media(max-width:600px){.sec-head .label{text-align:left}}
+.section-inner{max-width:1400px; margin:0 auto}
+
+/* NEXT SHOW */
+.next-show{
+  background:linear-gradient(135deg,var(--ash) 0%,var(--ink) 100%);
+  border:1px solid var(--line-strong); padding:40px;
+  display:grid; gap:24px; grid-template-columns:1fr;
+  position:relative; overflow:hidden;
+}
+.next-show::before{
+  content:"NEXT"; position:absolute; bottom:-30px; right:-10px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:280px; letter-spacing:-.04em;
+  color:rgba(212,255,28,.05); line-height:.8; pointer-events:none;
+}
+@media(min-width:768px){.next-show{grid-template-columns:2fr 1fr; align-items:end; padding:60px}}
+.next-show .info{position:relative; z-index:2}
+.next-show .badge{
+  display:inline-block;
+  font-family:'Special Elite',monospace; font-size:10px; letter-spacing:.3em;
+  background:var(--acid); color:var(--ink);
+  padding:5px 10px; text-transform:uppercase; margin-bottom:18px;
+}
+.next-show .city{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(48px,10vw,120px);
+  line-height:.85; letter-spacing:-.02em; color:var(--bone);
+}
+.next-show .city span{color:var(--acid)}
+.next-show .venue{
+  font-family:'Archivo Black',sans-serif; font-size:18px; letter-spacing:.04em;
+  color:var(--bone); margin-top:12px; margin-bottom:8px;
+}
+.next-show .country{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px; color:var(--grey); letter-spacing:.15em; text-transform:uppercase;
+}
+.next-show .countdown{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:6px;
+}
+.next-show .countdown div{background:var(--ink); border:1px solid var(--line-strong); padding:14px 8px; text-align:center}
+.next-show .countdown b{
+  display:block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:36px; line-height:1; color:var(--acid);
+}
+.next-show .countdown small{font-size:9px; letter-spacing:.2em; color:var(--grey); text-transform:uppercase; display:block; margin-top:6px}
+
+/* RADIO SHOWS */
+.radio-grid{display:grid; gap:24px; grid-template-columns:1fr}
+@media(min-width:900px){.radio-grid{grid-template-columns:1fr 1fr}}
+.radio-card{
+  position:relative; aspect-ratio:1;
+  overflow:hidden; border:1px solid var(--line-strong);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:40px 32px; cursor:pointer;
+  transition:transform .25s, border-color .25s;
+}
+.radio-card:hover{transform:translateY(-5px); border-color:var(--acid)}
+.radio-card.growler{
+  background:
+    radial-gradient(circle at 70% 30%,rgba(255,180,40,.18),transparent 60%),
+    linear-gradient(135deg,#1a1208 0%, var(--ink) 60%);
+}
+.radio-card.offleash{
+  background:
+    radial-gradient(circle at 30% 70%,rgba(212,255,28,.15),transparent 60%),
+    linear-gradient(135deg, var(--ink) 0%, var(--ash) 100%);
+}
+.radio-card .grid-overlay{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(to right,rgba(239,234,216,.04) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(239,234,216,.04) 1px,transparent 1px);
+  background-size:30px 30px; pointer-events:none;
+}
+.radio-card .corners{position:absolute; inset:14px; pointer-events:none}
+.radio-card .corners::before, .radio-card .corners::after{
+  content:""; position:absolute; width:24px; height:24px;
+  border:1px solid var(--bone); opacity:.25;
+}
+.radio-card .corners::before{top:0; left:0; border-right:0; border-bottom:0}
+.radio-card .corners::after{bottom:0; right:0; border-left:0; border-top:0}
+.radio-card .ep{
+  position:absolute; top:24px; left:24px;
+  font-family:'Special Elite',monospace; font-size:11px;
+  letter-spacing:.3em; color:var(--bone); opacity:.7;
+  z-index:3;
+}
+.radio-card .day{
+  position:absolute; top:24px; right:24px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:48px; line-height:.85;
+  letter-spacing:-.02em; color:var(--acid);
+  text-align:right; z-index:3;
+}
+.radio-card .day small{display:block; font-size:11px; letter-spacing:.25em; color:var(--bone); font-family:'JetBrains Mono',monospace; font-weight:700; margin-top:4px; opacity:.7}
+.radio-card .name{
+  position:relative; z-index:3;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(40px,7vw,72px);
+  line-height:.85; letter-spacing:-.02em;
+  color:var(--bone); margin-bottom:14px;
+}
+.radio-card.growler .name span{color:#FFB428}
+.radio-card.offleash .name span{color:var(--acid)}
+.radio-card .desc{
+  position:relative; z-index:3;
+  font-family:'JetBrains Mono',monospace; font-size:13px;
+  line-height:1.5; color:var(--bone); opacity:.85;
+  margin-bottom:18px; max-width:380px;
+}
+.radio-card .specs{
+  position:relative; z-index:3;
+  display:flex; flex-wrap:wrap; gap:8px;
+}
+.radio-card .specs span{
+  font-family:'JetBrains Mono',monospace; font-weight:700;
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--bone); border:1px solid var(--line-strong);
+  padding:5px 10px;
+}
+
+/* TOUR */
+.tour-list{display:flex; flex-direction:column}
+.tour-row{
+  display:grid;
+  grid-template-columns:80px 1fr 1fr auto;
+  gap:18px; align-items:center;
+  padding:20px 8px; border-bottom:1px solid var(--line);
+  transition:background .2s, padding .2s; position:relative;
+}
+.tour-row:hover{background:rgba(212,255,28,.04); padding-left:18px}
+.tour-row:hover .arrow{transform:translateX(0); opacity:1}
+@media(max-width:700px){
+  .tour-row{grid-template-columns:60px 1fr auto; gap:12px}
+  .tour-row .ven{grid-column:1/-1; padding-left:72px; font-size:11px; color:var(--grey); margin-top:-12px}
+}
+.tour-row.tba{opacity:.55}
+.tour-row .date{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:32px; line-height:1;
+  color:var(--bone); letter-spacing:-.01em;
+}
+.tour-row .date small{display:block; font-size:10px; letter-spacing:.2em; color:var(--grey); font-family:'JetBrains Mono',monospace; font-weight:400; margin-top:2px}
+.tour-row .city{font-family:'Archivo Black',sans-serif; font-size:18px; letter-spacing:.02em; color:var(--bone)}
+.tour-row .city small{display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--grey); letter-spacing:.1em; text-transform:uppercase; font-weight:400; margin-top:3px}
+.tour-row .ven{font-size:12px; color:var(--grey); letter-spacing:.05em}
+.tour-row .ticket{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:14px; letter-spacing:.05em;
+  background:var(--bone); color:var(--ink); padding:8px 14px;
+  text-decoration:none; transition:transform .2s, box-shadow .2s; display:inline-block;
+}
+.tour-row .ticket:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--acid)}
+.tour-row .ticket.tba{background:transparent; color:var(--grey); border:1px solid var(--line-strong); cursor:default}
+.tour-row .ticket.tba:hover{transform:none; box-shadow:none}
+.tour-row .arrow{position:absolute; left:-30px; font-size:24px; color:var(--acid); opacity:0; transform:translateX(-10px); transition:all .2s}
+
+/* RELEASE */
+.release-hero{display:grid; gap:30px; grid-template-columns:1fr; align-items:center}
+@media(min-width:900px){.release-hero{grid-template-columns:1fr 1fr}}
+.release-art{
+  aspect-ratio:1; background:var(--ink); position:relative;
+  overflow:hidden; border:1px solid var(--line-strong);
+  display:flex; align-items:center; justify-content:center;
+}
+.release-art .art-inner{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 30% 30%,rgba(212,255,28,.15),transparent 50%),
+    radial-gradient(circle at 70% 70%,rgba(255,59,0,.08),transparent 60%),
+    var(--ink);
+  display:flex; align-items:center; justify-content:center;
+}
+.release-art svg.dog{width:50%; height:50%; display:block; filter:drop-shadow(0 0 30px rgba(212,255,28,.3))}
+.release-art .grid-overlay{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(to right,rgba(239,234,216,.05) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(239,234,216,.05) 1px,transparent 1px);
+  background-size:30px 30px; pointer-events:none;
+}
+.release-art .corners{position:absolute; inset:14px; pointer-events:none}
+.release-art .corners::before, .release-art .corners::after{
+  content:""; position:absolute; width:24px; height:24px;
+  border:1px solid var(--bone); opacity:.3;
+}
+.release-art .corners::before{top:0; left:0; border-right:0; border-bottom:0}
+.release-art .corners::after{bottom:0; right:0; border-left:0; border-top:0}
+.release-art .cat{position:absolute; top:18px; left:18px; font-family:'Special Elite',monospace; font-size:10px; letter-spacing:.3em; color:var(--bone); opacity:.7}
+.release-art .play{
+  position:absolute; bottom:18px; right:18px;
+  width:60px; height:60px; background:var(--acid); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:transform .2s;
+}
+.release-art .play:hover{transform:scale(1.1)}
+.release-art .play::before{
+  content:""; width:0; height:0;
+  border-left:18px solid var(--ink);
+  border-top:11px solid transparent; border-bottom:11px solid transparent;
+  margin-left:5px;
+}
+.release-info .label{
+  font-family:'Special Elite',monospace; font-size:11px;
+  letter-spacing:.3em; text-transform:uppercase;
+  color:var(--acid); margin-bottom:14px;
+}
+.release-info h3{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(40px,7vw,84px);
+  line-height:.85; letter-spacing:-.02em; margin-bottom:16px;
+}
+.release-info .artist{
+  font-family:'Archivo Black',sans-serif; font-size:16px;
+  letter-spacing:.05em; color:var(--grey); text-transform:uppercase;
+  margin-bottom:24px;
+}
+.release-info .desc{
+  font-family:'JetBrains Mono',monospace; font-size:13px;
+  line-height:1.7; color:var(--bone); opacity:.85;
+  margin-bottom:28px; max-width:480px;
+}
+.release-info .tracks{list-style:none; margin-bottom:28px}
+.release-info .tracks li{
+  display:flex; align-items:center; gap:14px;
+  padding:10px 0; border-bottom:1px dashed var(--line-strong);
+  font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--bone);
+}
+.release-info .tracks li b{font-weight:400; color:var(--grey); font-size:10px; letter-spacing:.2em; min-width:30px}
+.release-info .tracks li span.title{flex:1}
+.release-info .tracks li span.dur{color:var(--grey); font-size:11px}
+.release-info .platforms{display:flex; flex-wrap:wrap; gap:8px}
+.release-info .platforms a{
+  font-family:'JetBrains Mono',monospace; font-weight:700;
+  font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--bone); text-decoration:none;
+  border:1px solid var(--line-strong); padding:10px 14px;
+  transition:all .2s;
+}
+.release-info .platforms a:hover{
+  background:var(--bone); color:var(--ink);
+  transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--acid);
+}
+
+/* ABOUT */
+.about{display:grid; gap:30px; grid-template-columns:1fr}
+@media(min-width:900px){.about{grid-template-columns:1.3fr 1fr}}
+.bio p{font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.8; color:var(--bone); margin-bottom:18px; max-width:600px}
+.bio p.lead{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(24px,3.5vw,38px);
+  line-height:1.05; letter-spacing:-.005em;
+  color:var(--bone); margin-bottom:30px; text-transform:uppercase;
+}
+.bio p.lead em{font-style:normal; color:var(--acid)}
+.stats{
+  display:grid; gap:1px; grid-template-columns:1fr 1fr;
+  background:var(--line-strong); border:1px solid var(--line-strong);
+}
+.stats div{background:var(--ink); padding:24px 18px}
+.stats b{
+  display:block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:48px; line-height:1;
+  letter-spacing:-.02em; color:var(--acid); margin-bottom:6px;
+}
+.stats span{font-size:10px; letter-spacing:.25em; color:var(--grey); text-transform:uppercase}
+
+/* MIXES */
+.mixes{display:grid; gap:10px}
+.mix-row{
+  display:grid; grid-template-columns:50px 1fr 1fr auto;
+  gap:18px; align-items:center; padding:18px 16px;
+  background:var(--ash); border:1px solid var(--line);
+  transition:all .2s; cursor:pointer;
+}
+.mix-row:hover{background:rgba(212,255,28,.04); border-color:var(--acid)}
+@media(max-width:700px){.mix-row{grid-template-columns:40px 1fr auto; gap:12px} .mix-row .src{display:none}}
+.mix-row .play{
+  width:40px; height:40px; background:var(--bone); color:var(--ink);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  transition:background .2s;
+}
+.mix-row:hover .play{background:var(--acid)}
+.mix-row .play::before{content:""; width:0; height:0; border-left:11px solid var(--ink); border-top:7px solid transparent; border-bottom:7px solid transparent; margin-left:3px}
+.mix-row .info h5{font-family:'Archivo Black',sans-serif; font-size:15px; letter-spacing:.02em; color:var(--bone); margin-bottom:4px}
+.mix-row .info small{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--grey); letter-spacing:.1em}
+.mix-row .src{font-family:'Special Elite',monospace; font-size:11px; color:var(--grey); letter-spacing:.2em; text-transform:uppercase}
+.mix-row .dur{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--bone); letter-spacing:.1em}
+
+/* NEWSLETTER */
+.newsletter{background:var(--acid); color:var(--ink); padding:60px 24px; position:relative; overflow:hidden}
+.newsletter::before{
+  content:"66"; position:absolute; bottom:-100px; right:-30px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:500px; letter-spacing:-.04em;
+  color:rgba(10,10,10,.08); line-height:.8; pointer-events:none;
+}
+.newsletter-inner{
+  max-width:1400px; margin:0 auto;
+  display:grid; gap:30px; grid-template-columns:1fr; align-items:center;
+  position:relative; z-index:2;
+}
+@media(min-width:768px){.newsletter-inner{grid-template-columns:1fr 1fr; gap:60px}}
+.newsletter h3{font-family:'Big Shoulders Stencil Display',sans-serif; font-weight:900; font-size:clamp(40px,7vw,80px); line-height:.85; letter-spacing:-.02em}
+.newsletter p{font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.6; margin:14px 0; max-width:480px}
+.subscribe{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+.subscribe input{
+  flex:1; min-width:200px;
+  background:var(--ink); color:var(--bone);
+  border:0; padding:16px 18px;
+  font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.05em;
+  outline:none;
+}
+.subscribe input::placeholder{color:var(--grey); text-transform:uppercase; letter-spacing:.2em; font-size:11px}
+.subscribe button{
+  background:var(--ink); color:var(--bone);
+  border:0; padding:16px 24px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:14px; letter-spacing:.04em;
+  cursor:pointer; transition:transform .2s, box-shadow .2s;
+}
+.subscribe button:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--blood); background:var(--bone); color:var(--ink)}
+
+/* CONTACT */
+.booking-grid{display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.booking-card{
+  background:var(--ash); border:1px solid var(--line-strong);
+  padding:30px 24px; position:relative;
+}
+.booking-card .role{font-family:'Special Elite',monospace; font-size:10px; letter-spacing:.3em; color:var(--acid); text-transform:uppercase; margin-bottom:12px}
+.booking-card h4{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:32px; line-height:.95;
+  letter-spacing:-.005em; color:var(--bone); margin-bottom:8px;
+}
+.booking-card .agency{font-family:'Archivo Black',sans-serif; font-size:12px; letter-spacing:.04em; color:var(--grey); text-transform:uppercase; margin-bottom:20px}
+.booking-card a{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace; font-size:12px;
+  letter-spacing:.05em; color:var(--bone); text-decoration:none;
+  border-bottom:1px solid var(--bone); padding-bottom:3px;
+  transition:color .2s, border-color .2s; word-break:break-all;
+}
+.booking-card a:hover{color:var(--acid); border-color:var(--acid)}
+
+/* FOOTER */
+footer{background:var(--bone); color:var(--ink); padding:60px 24px 30px; position:relative}
+footer .foot-stamp{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(70px,18vw,260px);
+  line-height:.8; letter-spacing:-.025em;
+  color:var(--ink); margin-bottom:40px;
+}
+footer .foot-stamp em{font-style:normal; color:var(--blood)}
+footer .foot-rows{display:grid; gap:30px; grid-template-columns:1fr; border-top:2px solid var(--ink); padding-top:30px}
+@media(min-width:700px){footer .foot-rows{grid-template-columns:repeat(4,1fr)}}
+footer .foot-col h5{font-family:'Special Elite',monospace; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(10,10,10,.55); margin-bottom:14px}
+footer .foot-col ul{list-style:none}
+footer .foot-col li{margin-bottom:6px}
+footer .foot-col a{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink); text-decoration:none; transition:color .2s}
+footer .foot-col a:hover{color:var(--blood)}
+footer .foot-bottom{
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px;
+  margin-top:50px; padding-top:24px; border-top:1px solid var(--ink);
+  font-family:'Special Elite',monospace; font-size:10px;
+  letter-spacing:.2em; color:rgba(10,10,10,.65); text-transform:uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar">
+  <a href="#" class="brand">
+    <svg viewBox="0 0 240 240">
+      <polygon points="55,98 28,18 102,80"/>
+      <polygon points="185,98 212,18 138,80"/>
+      <polygon points="48,86 192,86 178,178 62,178"/>
+      <polygon points="80,178 160,178 148,222 92,222"/>
+      <polygon points="72,118 108,112 102,134 78,130" fill="#0A0A0A"/>
+      <polygon points="168,118 132,112 138,134 162,130" fill="#0A0A0A"/>
+      <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+    </svg>
+    STRAY DOG
+  </a>
+  <ul>
+    <li><a href="#radio"><span class="es">Radio</span><span class="en">Radio</span></a></li>
+    <li><a href="#tour"><span class="es">Gira</span><span class="en">Tour</span></a></li>
+    <li><a href="#music"><span class="es">Música</span><span class="en">Music</span></a></li>
+    <li><a href="#about"><span class="es">Bio</span><span class="en">About</span></a></li>
+    <li><a href="#contact"><span class="es">Prensa</span><span class="en">Press</span></a></li>
+  </ul>
+  <div class="right">
+    <div class="lang-toggle">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="en">EN</button>
+    </div>
+    <a href="#contact" class="booking">BOOKING</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">
+    <span class="pulse"></span>
+    <span class="es">EN VIVO DESDE EL UNDERGROUND</span>
+    <span class="en">LIVE FROM THE UNDERGROUND</span>
+  </div>
+  <h1>STRAY <span class="acid">DOG</span></h1>
+  <div class="sub">
+    <span class="es">— PERRO CALLEJERO · UN ARTISTA DE 66 RECORDS —</span>
+    <span class="en">— PERRO CALLEJERO · A 66 RECORDS ARTIST —</span>
+  </div>
+
+  <div class="hero-meta">
+    <div>
+      <b><span class="es">BASE</span><span class="en">BASED IN</span></b>
+      <span>PANAMA CITY · PA</span>
+    </div>
+    <div>
+      <b><span class="es">ORIGEN</span><span class="en">ORIGIN</span></b>
+      <span>ASUNCIÓN · PY</span>
+    </div>
+    <div>
+      <b><span class="es">GÉNERO</span><span class="en">GENRE</span></b>
+      <span>TECHNO · HOUSE</span>
+    </div>
+    <div>
+      <b><span class="es">SELLO</span><span class="en">LABEL</span></b>
+      <span>66 RECORDS</span>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>STRAY DOG</span><span>SXD-066 OUT NOW</span><span>PANAMA CITY ↔ WORLD</span><span>PERRO CALLEJERO</span><span>66 RECORDS</span><span>STRAY DOG</span><span>SXD-066 OUT NOW</span><span>PANAMA CITY ↔ WORLD</span><span>PERRO CALLEJERO</span><span>66 RECORDS</span>
+  </div>
+</div>
+
+<!-- NEXT SHOW -->
+<section class="section" id="next">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[01] · PRÓXIMO SHOW</span><span class="en">[01] · NEXT SHOW</span></div>
+      <h2><span class="es">PRÓXIMA <em>PARADA</em></span><span class="en">NEXT <em>STOP</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">06.06.2026 · CASCO VIEJO<br>PANAMA CITY · PA</span>
+      <span class="en">06.06.2026 · CASCO VIEJO<br>PANAMA CITY · PA</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="next-show">
+      <div class="info">
+        <span class="badge"><span class="es">● HEADLINING</span><span class="en">● HEADLINING</span></span>
+        <div class="city">PANAMA <span>CITY</span></div>
+        <div class="venue">CASCO VIEJO · WAREHOUSE TBA</div>
+        <div class="country">PA · 23:59 → 06:00</div>
+      </div>
+      <div class="countdown">
+        <div><b>32</b><small><span class="es">DÍAS</span><span class="en">DAYS</span></small></div>
+        <div><b>14</b><small><span class="es">HRS</span><span class="en">HRS</span></small></div>
+        <div><b>22</b><small><span class="es">MIN</span><span class="en">MIN</span></small></div>
+        <div><b>08</b><small><span class="es">SEG</span><span class="en">SEC</span></small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RADIO SHOWS -->
+<section class="section" id="radio">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[02] · PROGRAMAS DE RADIO · 2026</span><span class="en">[02] · RADIO SHOWS · 2026</span></div>
+      <h2><span class="es">RADIO <em>HOWL</em></span><span class="en">RADIO <em>HOWL</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">2 SHOWS RECURRENTES<br>SOUNDCLOUD · YOUTUBE · SPOTIFY</span>
+      <span class="en">2 RECURRING SHOWS<br>SOUNDCLOUD · YOUTUBE · SPOTIFY</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="radio-grid">
+
+      <!-- THE GROWLER (Thursdays) -->
+      <div class="radio-card growler">
+        <div class="grid-overlay"></div>
+        <div class="corners"></div>
+        <span class="ep">EP. 001 · QUINCENAL</span>
+        <span class="day">JUE<small>21:00</small></span>
+        <h3 class="name">THE<br><span>GROWLER.</span></h3>
+        <p class="desc">
+          <span class="es">Una hora. Una cerveza. Música profunda. Cada quincena los jueves, Stray Dog comparte el set que estaría poniendo si te invitara a tomar una en su bar favorito de Casco Viejo. Más historia que pista de baile.</span>
+          <span class="en">One hour. One beer. Deep music. Every other Thursday, Stray Dog shares the set he'd play if he invited you for a pint at his favorite bar in Casco Viejo. More story than dancefloor.</span>
+        </p>
+        <div class="specs">
+          <span>60 MIN</span>
+          <span>110-122 BPM</span>
+          <span><span class="es">DEEP</span><span class="en">DEEP</span></span>
+          <span>SPOTIFY POD</span>
+        </div>
+      </div>
+
+      <!-- OFF LEASH (Fridays) -->
+      <div class="radio-card offleash">
+        <div class="grid-overlay"></div>
+        <div class="corners"></div>
+        <span class="ep">EP. 001 · SEMANAL</span>
+        <span class="day">VIE<small>22:00</small></span>
+        <h3 class="name">OFF<br><span>LEASH.</span></h3>
+        <p class="desc">
+          <span class="es">Cada viernes a las 22:00, antes de salir. 90 minutos de techno y house ascendente para calentarte rumbo a la pista. Sin habladuría, sin pausas. La correa se suelta, ponete los audífonos.</span>
+          <span class="en">Every Friday at 22:00, before you head out. 90 minutes of ascending techno and house to warm you up before the club. No talk, no pause. The leash comes off — strap in.</span>
+        </p>
+        <div class="specs">
+          <span>90 MIN</span>
+          <span>122-128 BPM</span>
+          <span>WARM-UP</span>
+          <span>SOUNDCLOUD</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section class="section" id="tour">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[03] · GIRA · 2026</span><span class="en">[03] · WORLD TOUR · 2026</span></div>
+      <h2><span class="es">FECHAS <em>DE GIRA</em></span><span class="en">TOUR <em>DATES</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">PRIMERA GIRA LATAM<br>MÁS FECHAS POR ANUNCIAR</span>
+      <span class="en">FIRST LATAM TOUR<br>MORE DATES TBA</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="tour-list">
+
+      <div class="tour-row">
+        <span class="arrow">→</span>
+        <div class="date">06<small>JUN '26</small></div>
+        <div class="city">PANAMA CITY<small><span class="es">PA · HEADLINING</span><span class="en">PA · HEADLINING</span></small></div>
+        <div class="ven">CASCO VIEJO · WAREHOUSE TBA</div>
+        <a href="mailto:straydog2066@gmail.com?subject=Tickets%20Panama" class="ticket"><span class="es">TICKETS</span><span class="en">TICKETS</span></a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">26<small>JUN '26</small></div>
+        <div class="city">BOGOTÁ<small><span class="es">CO · DEBUT</span><span class="en">CO · DEBUT</span></small></div>
+        <div class="ven">VIDEO CLUB · TBA</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">11<small>JUL '26</small></div>
+        <div class="city">LIMA<small><span class="es">PE · CLUB SET</span><span class="en">PE · CLUB SET</span></small></div>
+        <div class="ven">SACHA · TBA</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">25<small>JUL '26</small></div>
+        <div class="city">ASUNCIÓN<small><span class="es">PY · HOMECOMING</span><span class="en">PY · HOMECOMING</span></small></div>
+        <div class="ven">TBA · CITY OF BIRTH</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">15<small>AGO '26</small></div>
+        <div class="city">BUENOS AIRES<small><span class="es">AR · WAREHOUSE</span><span class="en">AR · WAREHOUSE</span></small></div>
+        <div class="ven">CRØBAR · TBA</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">29<small>AGO '26</small></div>
+        <div class="city">SÃO PAULO<small><span class="es">BR · CLUB SET</span><span class="en">BR · CLUB SET</span></small></div>
+        <div class="ven">D-EDGE · TBA</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">19<small>SEP '26</small></div>
+        <div class="city">MEXICO CITY<small><span class="es">MX · WAREHOUSE</span><span class="en">MX · WAREHOUSE</span></small></div>
+        <div class="ven">TBA · DOCTORES</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+      <div class="tour-row tba">
+        <span class="arrow">→</span>
+        <div class="date">10<small>OCT '26</small></div>
+        <div class="city">SANTIAGO<small><span class="es">CL · CLUB SET</span><span class="en">CL · CLUB SET</span></small></div>
+        <div class="ven">TBA</div>
+        <a href="#" class="ticket tba">TBA</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LATEST RELEASE -->
+<section class="section" id="music">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[04] · RELEASE DEBUT · 2026</span><span class="en">[04] · DEBUT RELEASE · 2026</span></div>
+      <h2><span class="es">ÚLTIMO <em>RELEASE</em></span><span class="en">LATEST <em>RELEASE</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">SXD-066 · EP DEBUT<br>4 TRACKS · VINILO + DIGITAL</span>
+      <span class="en">SXD-066 · DEBUT EP<br>4 TRACKS · VINYL + DIGITAL</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="release-hero">
+      <div class="release-art">
+        <div class="art-inner">
+          <div class="grid-overlay"></div>
+          <svg class="dog" viewBox="0 0 240 240">
+            <polygon points="55,98 28,18 102,80" fill="#EFEAD8"/>
+            <polygon points="185,98 212,18 138,80" fill="#EFEAD8"/>
+            <polygon points="48,86 192,86 178,178 62,178" fill="#EFEAD8"/>
+            <polygon points="80,178 160,178 148,222 92,222" fill="#EFEAD8"/>
+            <polygon points="72,118 108,112 102,134 78,130" fill="#0A0A0A"/>
+            <polygon points="168,118 132,112 138,134 162,130" fill="#0A0A0A"/>
+            <polygon points="88,118 96,116 94,124 87,124" fill="#D4FF1C"/>
+            <polygon points="148,118 156,116 154,124 147,124" fill="#D4FF1C"/>
+            <polygon points="108,188 132,188 120,205" fill="#0A0A0A"/>
+          </svg>
+        </div>
+        <div class="corners"></div>
+        <div class="cat">SXD-066 · 12" 180G</div>
+        <div class="play"></div>
+      </div>
+
+      <div class="release-info">
+        <div class="label"><span class="es">EP · 06.06.2026</span><span class="en">EP · 06.06.2026</span></div>
+        <h3>FERAL<br>FREQUENCY</h3>
+        <div class="artist">STRAY DOG · 66 RECORDS</div>
+        <div class="desc">
+          <span class="es">Cuatro tracks de techno crudo grabados entre Asunción y Panamá. Sin sample-packs. Sin cuantizar la batería. Sólo máquinas, distorsión y el aullido del migrante. Edición limitada de 666 vinilos numerados a mano — el primer release de 66 RECORDS.</span>
+          <span class="en">Four raw techno tracks recorded between Asunción and Panama. No sample-packs. No quantized drums. Only machines, distortion, and the howl of the migrant. Limited edition of 666 hand-numbered vinyls — the first release on 66 RECORDS.</span>
+        </div>
+        <ul class="tracks">
+          <li><b>A1</b><span class="title">Sin Correa</span><span class="dur">7:32</span></li>
+          <li><b>A2</b><span class="title">Aullido</span><span class="dur">6:18</span></li>
+          <li><b>B1</b><span class="title">Casco Viejo 04:00</span><span class="dur">8:44</span></li>
+          <li><b>B2</b><span class="title">66 (Outro)</span><span class="dur">5:12</span></li>
+        </ul>
+        <div class="platforms">
+          <a href="#">SPOTIFY</a>
+          <a href="#">APPLE</a>
+          <a href="#">BANDCAMP</a>
+          <a href="#">BEATPORT</a>
+          <a href="#">SOUNDCLOUD</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[05] · BIO · PRENSA</span><span class="en">[05] · BIO · PRESS</span></div>
+      <h2><span class="es">QUIÉN <em>ES</em></span><span class="en">ABOUT <em>·</em><br>WHO IS</span></h2>
+    </div>
+    <div class="label">
+      <span class="es">PRESS KIT BAJO PETICIÓN<br>BOOKING@STRAYDOG2066</span>
+      <span class="en">PRESS KIT ON REQUEST<br>BOOKING@STRAYDOG2066</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="about">
+      <div class="bio">
+        <p class="lead">
+          <span class="es">DJ Y PRODUCTOR PARAGUAYO RADICADO EN PANAMÁ. <em>SIN CORREA. SIN DUEÑO. SIN PIEDAD.</em></span>
+          <span class="en">PARAGUAYAN-BORN DJ & PRODUCER BASED IN PANAMA. <em>NO LEASH. NO MASTER. NO MERCY.</em></span>
+        </p>
+        <p>
+          <span class="es">Stray Dog (también conocido como Perro Callejero) es el alias de un productor nacido en Asunción y radicado en Ciudad de Panamá. Su sonido es el resultado de dos historias: la melancolía del río Paraguay y el pulso eléctrico del trópico panameño.</span>
+          <span class="en">Stray Dog (also known as Perro Callejero) is the alias of a producer born in Asunción, Paraguay, currently based in Panama City. His sound is the result of two stories: the melancholy of the Paraguay River and the electric pulse of the Panamanian tropics.</span>
+        </p>
+        <p>
+          <span class="es">Su debut <em>"Feral Frequency"</em> (SXD-066) marca el nacimiento de <b style="color:var(--acid)">66 RECORDS</b>, sello dedicado al techno crudo y house oscuro de Latinoamérica. El vinilo de tirada limitada (666 unidades numeradas a mano) es coleccionable.</span>
+          <span class="en">His debut <em>"Feral Frequency"</em> (SXD-066) marks the birth of <b style="color:var(--acid)">66 RECORDS</b>, a label dedicated to raw techno and dark house from Latin America. The hand-numbered vinyl edition (666 units) is collectible.</span>
+        </p>
+        <p>
+          <span class="es">Su show en vivo combina hardware modular, máquinas Roland y un set visual brutalista diseñado por él mismo. Cada quincena conduce <b style="color:var(--bone)">THE GROWLER</b>, su programa de radio con cerveza en mano. Cada viernes calienta la pista con <b style="color:var(--bone)">OFF LEASH</b>.</span>
+          <span class="en">His live show combines modular hardware, Roland machines, and a brutalist visual set he designs himself. Bi-weekly he hosts <b style="color:var(--bone)">THE GROWLER</b>, his beer-in-hand radio show. Every Friday he warms up the dancefloor with <b style="color:var(--bone)">OFF LEASH</b>.</span>
+        </p>
+      </div>
+      <div class="stats">
+        <div><b>666</b><span><span class="es">VINILOS / DROP</span><span class="en">VINYLS / DROP</span></span></div>
+        <div><b>2</b><span><span class="es">PROGRAMAS RADIO</span><span class="en">RADIO SHOWS</span></span></div>
+        <div><b>8</b><span><span class="es">FECHAS LATAM</span><span class="en">LATAM DATES</span></span></div>
+        <div><b>2</b><span><span class="es">PAÍSES BASE</span><span class="en">HOME COUNTRIES</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIXES -->
+<section class="section" id="mixes">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[06] · MIXES · SETS</span><span class="en">[06] · MIXES · SETS</span></div>
+      <h2><span class="es">SET<em>LIST</em></span><span class="en">SET<em>LIST</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">SOUNDCLOUD · MIXCLOUD<br>SETS EXCLUSIVOS</span>
+      <span class="en">SOUNDCLOUD · MIXCLOUD<br>EXCLUSIVE LIVE SETS</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="mixes">
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>THE GROWLER · EP.001 · DEBUT</h5>
+          <small>2026.05.22 · <span class="es">PROGRAMA DEBUT</span><span class="en">DEBUT EPISODE</span></small>
+        </div>
+        <div class="src">SPOTIFY POD</div>
+        <div class="dur">01:02:14</div>
+      </div>
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>OFF LEASH · 001 · OPENING WARM-UP</h5>
+          <small>2026.05.30 · <span class="es">PROGRAMA DEBUT</span><span class="en">DEBUT EPISODE</span></small>
+        </div>
+        <div class="src">SOUNDCLOUD</div>
+        <div class="dur">01:30:00</div>
+      </div>
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>FERAL FREQUENCY · STUDIO MIX</h5>
+          <small>2026.06.06 · <span class="es">EP PREVIEW</span><span class="en">EP PREVIEW</span></small>
+        </div>
+        <div class="src">EXCLUSIVE</div>
+        <div class="dur">00:42:08</div>
+      </div>
+      <div class="mix-row">
+        <div class="play"></div>
+        <div class="info">
+          <h5>66 RECORDS · LABEL PODCAST 001</h5>
+          <small>2026.04.14 · <span class="es">LANZAMIENTO SELLO</span><span class="en">LABEL DEBUT</span></small>
+        </div>
+        <div class="src">MIXCLOUD</div>
+        <div class="dur">02:00:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div>
+      <h3><span class="es">ÚNETE A LA<br>JAURÍA.</span><span class="en">JOIN<br>THE PACK.</span></h3>
+      <p>
+        <span class="es">Cero spam. Sólo fechas, drops de vinilo limitado y mixes exclusivos antes que nadie. Solo para los que se sueltan la correa.</span>
+        <span class="en">Zero spam. Only dates, limited vinyl drops, and exclusive mixes before anyone else. Only for those who break the leash.</span>
+      </p>
+    </div>
+    <div>
+      <div class="subscribe">
+        <input type="email" placeholder="EMAIL">
+        <button><span class="es">SUSCRIBIR ●</span><span class="en">SUBSCRIBE ●</span></button>
+      </div>
+      <p style="font-size:11px; margin-top:14px; opacity:.7">
+        <span class="es">Sin correa, sin dueño, sin piedad — pero con buen gusto musical.</span>
+        <span class="en">No leash, no master, no mercy — but with good taste.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section" id="contact">
+  <div class="sec-head">
+    <div>
+      <div class="num"><span class="es">[07] · BOOKING · PRENSA</span><span class="en">[07] · BOOKING · PRESS</span></div>
+      <h2><span class="es">CON<em>TACTO</em></span><span class="en">CON<em>TACT</em></span></h2>
+    </div>
+    <div class="label">
+      <span class="es">RESPUESTA EN 48 HORAS<br>PRESS KIT BAJO PETICIÓN</span>
+      <span class="en">REPLY WITHIN 48 HOURS<br>PRESS KIT ON REQUEST</span>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="booking-grid">
+
+      <div class="booking-card">
+        <div class="role"><span class="es">BOOKING MUNDIAL</span><span class="en">WORLDWIDE BOOKING</span></div>
+        <h4><span class="es">TODOS<br>LOS TERRITORIOS</span><span class="en">ALL<br>TERRITORIES</span></h4>
+        <div class="agency"><span class="es">66 RECORDS / SELF-MANAGED</span><span class="en">66 RECORDS / SELF-MANAGED</span></div>
+        <a href="mailto:straydog2066@gmail.com?subject=Booking%20Inquiry">straydog2066@gmail.com</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role"><span class="es">BOOKING LATAM</span><span class="en">LATAM BOOKING</span></div>
+        <h4>PANAMA · LATAM</h4>
+        <div class="agency"><span class="es">CONTACTO DIRECTO</span><span class="en">DIRECT CONTACT</span></div>
+        <a href="mailto:straydog2066@gmail.com?subject=Booking%20LATAM">straydog2066@gmail.com</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role"><span class="es">PRENSA · PROMO</span><span class="en">PRESS · PROMO</span></div>
+        <h4><span class="es">PRENSA</span><span class="en">PRESS</span></h4>
+        <div class="agency"><span class="es">PRESS KIT + EPK</span><span class="en">PRESS KIT + EPK</span></div>
+        <a href="mailto:straydog2066@gmail.com?subject=Press%20Inquiry">straydog2066@gmail.com</a>
+      </div>
+
+      <div class="booking-card">
+        <div class="role"><span class="es">SELLO · DEMOS</span><span class="en">LABEL · DEMOS</span></div>
+        <h4>66 RECORDS</h4>
+        <div class="agency"><span class="es">SOLO MATERIAL VINYL-READY</span><span class="en">VINYL-READY ONLY</span></div>
+        <a href="mailto:straydog2066@gmail.com?subject=Demo%20Submission">straydog2066@gmail.com</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-stamp">STRAY DOG <em>·</em> 66</div>
+
+  <div class="foot-rows">
+    <div class="foot-col">
+      <h5><span class="es">SITIO</span><span class="en">SITE</span></h5>
+      <ul>
+        <li><a href="#radio"><span class="es">Radio</span><span class="en">Radio</span></a></li>
+        <li><a href="#tour"><span class="es">Gira</span><span class="en">Tour</span></a></li>
+        <li><a href="#music"><span class="es">Música</span><span class="en">Music</span></a></li>
+        <li><a href="#about"><span class="es">Bio</span><span class="en">About</span></a></li>
+        <li><a href="#contact">Booking</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5><span class="es">SEGUIR</span><span class="en">FOLLOW</span></h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">SoundCloud</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Bandcamp</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5><span class="es">SELLO · 66 RECORDS</span><span class="en">LABEL · 66 RECORDS</span></h5>
+      <ul>
+        <li><a href="#"><span class="es">Catálogo</span><span class="en">Catalog</span></a></li>
+        <li><a href="#"><span class="es">Artistas</span><span class="en">Artists</span></a></li>
+        <li><a href="#"><span class="es">Tienda · Vinilos</span><span class="en">Shop · Vinyl</span></a></li>
+        <li><a href="#"><span class="es">Política Demos</span><span class="en">Demo Policy</span></a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h5>LEGAL</h5>
+      <ul>
+        <li><a href="#">Press Kit</a></li>
+        <li><a href="#">Tech Rider</a></li>
+        <li><a href="#"><span class="es">Privacidad</span><span class="en">Privacy</span></a></li>
+        <li><a href="mailto:straydog2066@gmail.com">straydog2066@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span><span class="es">STRAY DOG · UNA PRODUCCIÓN DE 66 RECORDS · EST. 2026</span><span class="en">STRAY DOG · A 66 RECORDS PRODUCTION · EST. 2026</span></span>
+    <span><span class="es">SIN CORREA · SIN DUEÑO · SIN PIEDAD ●</span><span class="en">NO LEASH · NO MASTER · NO MERCY ●</span></span>
+  </div>
+</footer>
+
+<script>
+// LANGUAGE TOGGLE — pure CSS visibility, JS only updates the html lang attr
+(function(){
+  const html = document.documentElement;
+  const buttons = document.querySelectorAll('.lang-toggle button');
+
+  function setLang(lang){
+    html.lang = lang;
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    // Update document title
+    document.title = lang === 'es'
+      ? 'STRAY DOG — Sitio Oficial'
+      : 'STRAY DOG — Official Site';
+  }
+
+  buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Detect browser language for first visit (default ES, but EN if browser is en-*)
+  const browserLang = (navigator.language || 'es').toLowerCase();
+  if (browserLang.startsWith('en')) setLang('en');
+})();
+</script>
+
+</body>
+</html>

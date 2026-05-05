@@ -548,14 +548,25 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
 }
 .rotation-list{list-style:none; counter-reset:rot}
 .rotation-item{
-  display:grid; grid-template-columns:60px 1fr auto;
-  gap:18px; align-items:center;
-  padding:16px 4px; border-bottom:1px dashed var(--line-strong);
-  transition:background .2s, padding .2s;
+  border-bottom:1px dashed var(--line-strong);
+  transition:background .2s;
 }
 .rotation-item:last-child{border-bottom:0}
-.rotation-item:hover{background:rgba(212,255,28,.04); padding-left:14px}
-.rotation-item.placeholder{opacity:.55}
+.rotation-item.placeholder{
+  display:grid; grid-template-columns:60px 1fr auto;
+  gap:18px; align-items:center;
+  padding:16px 4px;
+  opacity:.55;
+}
+.rotation-item-row{
+  display:grid; grid-template-columns:60px 1fr auto;
+  gap:18px; align-items:center;
+  width:100%; padding:16px 4px;
+  background:transparent; border:0; color:inherit;
+  text-align:left; font:inherit; cursor:pointer;
+  transition:background .2s, padding .2s;
+}
+.rotation-item-row:hover{background:rgba(212,255,28,.04); padding-left:14px}
 .rotation-item-num{
   font-family:'Big Shoulders Stencil Display',sans-serif;
   font-weight:900; font-size:38px; line-height:1;
@@ -576,14 +587,38 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
   color:var(--bone); border:1px solid var(--line-strong);
   padding:5px 10px; white-space:nowrap;
 }
-.rotation-item-link{
-  text-decoration:none; transition:all .2s;
+.rotation-item-play{
+  display:inline-flex; align-items:center; gap:7px;
+  transition:all .2s;
 }
-.rotation-item-link:hover{
+.rotation-item-play .rotation-play-icon{
+  font-size:8px; color:var(--acid); transition:color .2s;
+}
+.rotation-item-row:hover .rotation-item-play{
   background:var(--acid); color:var(--ink); border-color:var(--acid);
 }
+.rotation-item-row:hover .rotation-play-icon{color:var(--ink)}
+.rotation-item[aria-current="true"] .rotation-item-play,
+.rotation-item-row[aria-expanded="true"] .rotation-item-play{
+  background:var(--acid); color:var(--ink); border-color:var(--acid);
+}
+.rotation-item-row[aria-expanded="true"] .rotation-play-icon{
+  color:var(--ink); font-size:0;
+}
+.rotation-item-row[aria-expanded="true"] .rotation-play-icon::before{
+  content:"❚❚"; font-size:10px; letter-spacing:1.5px;
+}
+.rotation-item-player{
+  padding:0 4px 18px;
+  animation:rotFade .25s ease-out;
+}
+.rotation-item-player iframe{
+  display:block; width:100%; height:120px; border:0;
+}
+@keyframes rotFade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){
-  .rotation-item{grid-template-columns:48px 1fr; gap:12px}
+  .rotation-item.placeholder,
+  .rotation-item-row{grid-template-columns:48px 1fr; gap:12px}
   .rotation-item-tag{grid-column:2; justify-self:start; margin-top:4px}
   .rotation-item-num{font-size:28px}
 }
@@ -996,23 +1031,37 @@ footer .foot-bottom{
         <span class="rotation-week-num">WEEK 19 · 2026</span>
       </div>
       <ol class="rotation-list">
-        <li class="rotation-item">
-          <span class="rotation-item-num">01</span>
-          <div class="rotation-item-info">
-            <span class="rotation-item-artist">FAVIO INKER</span>
-            <span class="rotation-item-track">Internal Whisper 2</span>
-          </div>
-          <a href="https://soundcloud.com/favio-inker/favio-inker-internal-whisper-2"
-             target="_blank" rel="noopener" class="rotation-item-tag rotation-item-link">SOUNDCLOUD →</a>
+
+        <li class="rotation-item" data-track-url="https://soundcloud.com/favio-inker/favio-inker-internal-whisper-2">
+          <button type="button" class="rotation-item-row" aria-expanded="false">
+            <span class="rotation-item-num">01</span>
+            <div class="rotation-item-info">
+              <span class="rotation-item-artist">FAVIO INKER</span>
+              <span class="rotation-item-track">Internal Whisper 2</span>
+            </div>
+            <span class="rotation-item-tag rotation-item-play">
+              <span class="rotation-play-icon">▶</span>
+              <span class="rotation-play-label"><span class="es">PLAY</span><span class="en">PLAY</span></span>
+            </span>
+          </button>
+          <div class="rotation-item-player" hidden></div>
         </li>
-        <li class="rotation-item placeholder">
-          <span class="rotation-item-num">02</span>
-          <div class="rotation-item-info">
-            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
-            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
-          </div>
-          <span class="rotation-item-tag">INDUSTRIAL</span>
+
+        <li class="rotation-item" data-track-url="https://soundcloud.com/ardohdj/ardoh-leave-you-alone">
+          <button type="button" class="rotation-item-row" aria-expanded="false">
+            <span class="rotation-item-num">02</span>
+            <div class="rotation-item-info">
+              <span class="rotation-item-artist">ARDOH</span>
+              <span class="rotation-item-track">Leave You Alone</span>
+            </div>
+            <span class="rotation-item-tag rotation-item-play">
+              <span class="rotation-play-icon">▶</span>
+              <span class="rotation-play-label"><span class="es">PLAY</span><span class="en">PLAY</span></span>
+            </span>
+          </button>
+          <div class="rotation-item-player" hidden></div>
         </li>
+
         <li class="rotation-item placeholder">
           <span class="rotation-item-num">03</span>
           <div class="rotation-item-info">
@@ -1237,6 +1286,58 @@ footer .foot-bottom{
 
   tick();
   setInterval(tick, 1000);
+})();
+
+// ON ROTATION · inline SoundCloud accordion (only one open at a time)
+(function(){
+  const items = document.querySelectorAll('.rotation-item[data-track-url]');
+  if(!items.length) return;
+  let openItem = null;
+
+  function close(item){
+    if(!item) return;
+    const btn = item.querySelector('.rotation-item-row');
+    const player = item.querySelector('.rotation-item-player');
+    btn.setAttribute('aria-expanded','false');
+    player.setAttribute('hidden','');
+    player.innerHTML = '';
+  }
+
+  function open(item){
+    const btn = item.querySelector('.rotation-item-row');
+    const player = item.querySelector('.rotation-item-player');
+    const url = item.dataset.trackUrl;
+    const params = new URLSearchParams({
+      url: url,
+      color: '#D4FF1C',
+      auto_play: 'true',
+      hide_related: 'true',
+      show_comments: 'false',
+      show_user: 'true',
+      show_reposts: 'false',
+      show_teaser: 'false'
+    });
+    const iframe = document.createElement('iframe');
+    iframe.title = item.querySelector('.rotation-item-artist').textContent + ' — ' + item.querySelector('.rotation-item-track').textContent;
+    iframe.loading = 'lazy';
+    iframe.scrolling = 'no';
+    iframe.frameBorder = 'no';
+    iframe.allow = 'autoplay';
+    iframe.src = 'https://w.soundcloud.com/player/?' + params.toString();
+    player.innerHTML = '';
+    player.appendChild(iframe);
+    player.removeAttribute('hidden');
+    btn.setAttribute('aria-expanded','true');
+  }
+
+  items.forEach(item => {
+    item.querySelector('.rotation-item-row').addEventListener('click', () => {
+      const isOpen = item.querySelector('.rotation-item-row').getAttribute('aria-expanded') === 'true';
+      if(openItem && openItem !== item) close(openItem);
+      if(isOpen){ close(item); openItem = null; }
+      else      { open(item);  openItem = item; }
+    });
+  });
 })();
 </script>
 

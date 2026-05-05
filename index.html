@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRAY DOG — Official Site</title>
-<meta name="description" content="Stray Dog · Perro Callejero — DJ y productor paraguayo radicado en Panamá. Techno crudo · 66 RECORDS.">
+<meta name="description" content="Stray Dog · Perro Callejero — DJ y productor paraguayo de Pilar radicado en Panamá. Hard techno · house oscuro · industrial. 66 RECORDS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Archivo+Black&family=JetBrains+Mono:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
@@ -349,6 +349,46 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
 .tour-row .ticket.tba:hover{transform:none; box-shadow:none}
 .tour-row .arrow{position:absolute; left:-30px; font-size:24px; color:var(--acid); opacity:0; transform:translateX(-10px); transition:all .2s}
 
+/* TOUR · COMING SOON STATE */
+.tour-soon{
+  position:relative; overflow:hidden;
+  background:linear-gradient(135deg,var(--ash) 0%,var(--ink) 100%);
+  border:1px solid var(--line-strong); padding:60px 32px;
+}
+.tour-soon::before{
+  content:"SOON"; position:absolute; bottom:-50px; right:-10px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:300px; letter-spacing:-.04em;
+  color:rgba(212,255,28,.04); line-height:.8; pointer-events:none;
+}
+.tour-soon-inner{position:relative; z-index:2; max-width:720px}
+.tour-soon-eyebrow{
+  font-family:'Special Elite',monospace; font-size:11px;
+  letter-spacing:.3em; color:var(--acid);
+  text-transform:uppercase; margin-bottom:18px;
+}
+.tour-soon-title{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:clamp(40px,7vw,80px);
+  line-height:.88; letter-spacing:-.02em;
+  color:var(--bone); margin-bottom:24px;
+}
+.tour-soon-title em{font-style:normal; color:var(--acid)}
+.tour-soon-copy{
+  font-family:'JetBrains Mono',monospace; font-size:14px;
+  line-height:1.7; color:var(--bone); opacity:.85;
+  margin-bottom:32px; max-width:560px;
+}
+.tour-soon-cta{
+  display:inline-block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:16px; letter-spacing:.04em;
+  background:var(--acid); color:var(--ink);
+  padding:14px 22px; text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+}
+.tour-soon-cta:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--blood)}
+
 /* RELEASE */
 .release-hero{display:grid; gap:30px; grid-template-columns:1fr; align-items:center}
 @media(min-width:900px){.release-hero{grid-template-columns:1fr 1fr}}
@@ -381,19 +421,38 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
 .release-art .corners::before{top:0; left:0; border-right:0; border-bottom:0}
 .release-art .corners::after{bottom:0; right:0; border-left:0; border-top:0}
 .release-art .cat{position:absolute; top:18px; left:18px; font-family:'Special Elite',monospace; font-size:10px; letter-spacing:.3em; color:var(--bone); opacity:.7}
-.release-art .play{
+.release-art .release-stamp{
   position:absolute; bottom:18px; right:18px;
-  width:60px; height:60px; background:var(--acid); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer; transition:transform .2s;
+  background:var(--acid); color:var(--ink);
+  padding:10px 14px;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:18px; line-height:.95;
+  letter-spacing:-.005em; text-align:center;
+  transform:rotate(-6deg);
+  border:2px solid var(--ink);
+  box-shadow:3px 3px 0 var(--ink);
 }
-.release-art .play:hover{transform:scale(1.1)}
-.release-art .play::before{
-  content:""; width:0; height:0;
-  border-left:18px solid var(--ink);
-  border-top:11px solid transparent; border-bottom:11px solid transparent;
-  margin-left:5px;
+.release-presave{
+  border:1px solid var(--line-strong); padding:22px 20px;
+  background:rgba(212,255,28,.04);
+  display:flex; flex-direction:column; gap:12px;
+  max-width:480px;
 }
+.release-presave-label{
+  font-family:'Special Elite',monospace; font-size:10px;
+  letter-spacing:.3em; text-transform:uppercase;
+  color:var(--acid);
+}
+.release-presave-cta{
+  display:inline-block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:16px; letter-spacing:.04em;
+  background:var(--bone); color:var(--ink);
+  padding:12px 18px; text-decoration:none;
+  transition:transform .2s, box-shadow .2s, background .2s;
+  align-self:flex-start;
+}
+.release-presave-cta:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--blood); background:var(--acid)}
 .release-info .label{
   font-family:'Special Elite',monospace; font-size:11px;
   letter-spacing:.3em; text-transform:uppercase;
@@ -460,27 +519,78 @@ nav.topbar .booking:hover{transform:translate(-2px,-2px); box-shadow:4px 4px 0 v
 }
 .stats span{font-size:10px; letter-spacing:.25em; color:var(--grey); text-transform:uppercase}
 
-/* MIXES */
-.mixes{display:grid; gap:10px}
-.mix-row{
-  display:grid; grid-template-columns:50px 1fr 1fr auto;
-  gap:18px; align-items:center; padding:18px 16px;
-  background:var(--ash); border:1px solid var(--line);
-  transition:all .2s; cursor:pointer;
+/* ON ROTATION */
+.rotation-intro{
+  font-family:'JetBrains Mono',monospace; font-size:14px;
+  line-height:1.7; color:var(--bone); opacity:.85;
+  margin-bottom:32px; max-width:680px;
 }
-.mix-row:hover{background:rgba(212,255,28,.04); border-color:var(--acid)}
-@media(max-width:700px){.mix-row{grid-template-columns:40px 1fr auto; gap:12px} .mix-row .src{display:none}}
-.mix-row .play{
-  width:40px; height:40px; background:var(--bone); color:var(--ink);
-  border-radius:50%; display:flex; align-items:center; justify-content:center;
-  transition:background .2s;
+.rotation-week{
+  background:var(--ash); border:1px solid var(--line-strong); padding:28px 24px;
 }
-.mix-row:hover .play{background:var(--acid)}
-.mix-row .play::before{content:""; width:0; height:0; border-left:11px solid var(--ink); border-top:7px solid transparent; border-bottom:7px solid transparent; margin-left:3px}
-.mix-row .info h5{font-family:'Archivo Black',sans-serif; font-size:15px; letter-spacing:.02em; color:var(--bone); margin-bottom:4px}
-.mix-row .info small{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--grey); letter-spacing:.1em}
-.mix-row .src{font-family:'Special Elite',monospace; font-size:11px; color:var(--grey); letter-spacing:.2em; text-transform:uppercase}
-.mix-row .dur{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--bone); letter-spacing:.1em}
+.rotation-week-head{
+  display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line-strong);
+  padding-bottom:18px; margin-bottom:8px;
+}
+.rotation-week-tag{
+  display:inline-block;
+  font-family:'Special Elite',monospace; font-size:10px;
+  letter-spacing:.3em; text-transform:uppercase;
+  background:var(--acid); color:var(--ink);
+  padding:5px 10px;
+}
+.rotation-week-num{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:22px; letter-spacing:-.005em;
+  color:var(--bone);
+}
+.rotation-list{list-style:none; counter-reset:rot}
+.rotation-item{
+  display:grid; grid-template-columns:60px 1fr auto;
+  gap:18px; align-items:center;
+  padding:16px 4px; border-bottom:1px dashed var(--line-strong);
+  transition:background .2s, padding .2s;
+}
+.rotation-item:last-child{border-bottom:0}
+.rotation-item:hover{background:rgba(212,255,28,.04); padding-left:14px}
+.rotation-item.placeholder{opacity:.55}
+.rotation-item-num{
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:38px; line-height:1;
+  letter-spacing:-.02em; color:var(--acid);
+}
+.rotation-item-info{display:flex; flex-direction:column; gap:4px; min-width:0}
+.rotation-item-artist{
+  font-family:'Archivo Black',sans-serif; font-size:15px;
+  letter-spacing:.02em; color:var(--bone);
+}
+.rotation-item-track{
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--grey);
+}
+.rotation-item-tag{
+  font-family:'JetBrains Mono',monospace; font-weight:700;
+  font-size:9px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--bone); border:1px solid var(--line-strong);
+  padding:5px 10px; white-space:nowrap;
+}
+@media(max-width:700px){
+  .rotation-item{grid-template-columns:48px 1fr; gap:12px}
+  .rotation-item-tag{grid-column:2; justify-self:start; margin-top:4px}
+  .rotation-item-num{font-size:28px}
+}
+.rotation-cta{
+  display:inline-block;
+  font-family:'Big Shoulders Stencil Display',sans-serif;
+  font-weight:900; font-size:15px; letter-spacing:.04em;
+  background:var(--acid); color:var(--ink);
+  padding:14px 22px; text-decoration:none;
+  margin-top:24px;
+  transition:transform .2s, box-shadow .2s;
+}
+.rotation-cta:hover{transform:translate(-3px,-3px); box-shadow:5px 5px 0 var(--blood)}
 
 /* NEWSLETTER */
 .newsletter{background:var(--acid); color:var(--ink); padding:60px 24px; position:relative; overflow:hidden}
@@ -554,6 +664,8 @@ footer .foot-col ul{list-style:none}
 footer .foot-col li{margin-bottom:6px}
 footer .foot-col a{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink); text-decoration:none; transition:color .2s}
 footer .foot-col a:hover{color:var(--blood)}
+footer .foot-col a[data-soon]{opacity:.5; cursor:default}
+footer .foot-col a[data-soon]:hover{color:var(--ink)}
 footer .foot-bottom{
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px;
   margin-top:50px; padding-top:24px; border-top:1px solid var(--ink);
@@ -580,10 +692,11 @@ footer .foot-bottom{
   </a>
   <ul>
     <li><a href="#radio"><span class="es">Radio</span><span class="en">Radio</span></a></li>
-    <li><a href="#tour"><span class="es">Gira</span><span class="en">Tour</span></a></li>
-    <li><a href="#music"><span class="es">Música</span><span class="en">Music</span></a></li>
+    <li><a href="#rotation"><span class="es">Rotación</span><span class="en">Rotation</span></a></li>
+    <li><a href="#music"><span class="es">EP</span><span class="en">EP</span></a></li>
+    <li><a href="#tour"><span class="es">Live</span><span class="en">Live</span></a></li>
     <li><a href="#about"><span class="es">Bio</span><span class="en">About</span></a></li>
-    <li><a href="#contact"><span class="es">Prensa</span><span class="en">Press</span></a></li>
+    <li><a href="#contact"><span class="es">Booking</span><span class="en">Booking</span></a></li>
   </ul>
   <div class="right">
     <div class="lang-toggle">
@@ -614,11 +727,11 @@ footer .foot-bottom{
     </div>
     <div>
       <b><span class="es">ORIGEN</span><span class="en">ORIGIN</span></b>
-      <span>ASUNCIÓN · PY</span>
+      <span>PILAR · PY</span>
     </div>
     <div>
       <b><span class="es">GÉNERO</span><span class="en">GENRE</span></b>
-      <span>TECHNO · HOUSE</span>
+      <span>HARD TECHNO · INDUSTRIAL</span>
     </div>
     <div>
       <b><span class="es">SELLO</span><span class="en">LABEL</span></b>
@@ -634,32 +747,32 @@ footer .foot-bottom{
   </div>
 </div>
 
-<!-- NEXT SHOW -->
+<!-- NEXT EPISODE -->
 <section class="section" id="next">
   <div class="sec-head">
     <div>
-      <div class="num"><span class="es">[01] · PRÓXIMO SHOW</span><span class="en">[01] · NEXT SHOW</span></div>
-      <h2><span class="es">PRÓXIMA <em>PARADA</em></span><span class="en">NEXT <em>STOP</em></span></h2>
+      <div class="num"><span class="es">[01] · PRÓXIMO EPISODIO</span><span class="en">[01] · NEXT EPISODE</span></div>
+      <h2><span class="es">EN <em>VIVO</em></span><span class="en">ON <em>AIR</em></span></h2>
     </div>
     <div class="label">
-      <span class="es">06.06.2026 · CASCO VIEJO<br>PANAMA CITY · PA</span>
-      <span class="en">06.06.2026 · CASCO VIEJO<br>PANAMA CITY · PA</span>
+      <span class="es">RADIO SHOWS RECURRENTES<br>SOUNDCLOUD · MIXCLOUD</span>
+      <span class="en">RECURRING RADIO SHOWS<br>SOUNDCLOUD · MIXCLOUD</span>
     </div>
   </div>
 
   <div class="section-inner">
     <div class="next-show">
       <div class="info">
-        <span class="badge"><span class="es">● HEADLINING</span><span class="en">● HEADLINING</span></span>
-        <div class="city">PANAMA <span>CITY</span></div>
-        <div class="venue">CASCO VIEJO · WAREHOUSE TBA</div>
-        <div class="country">PA · 23:59 → 06:00</div>
+        <span class="badge"><span class="es">● PRÓXIMO EPISODIO</span><span class="en">● NEXT EPISODE</span></span>
+        <div class="city">OFF <span>LEASH</span></div>
+        <div class="venue"><span class="es">EPISODIO 001 · DEBUT</span><span class="en">EPISODE 001 · DEBUT</span></div>
+        <div class="country"><span class="es">SOUNDCLOUD · 90 MIN · WARM-UP</span><span class="en">SOUNDCLOUD · 90 MIN · WARM-UP</span></div>
       </div>
-      <div class="countdown">
-        <div><b>32</b><small><span class="es">DÍAS</span><span class="en">DAYS</span></small></div>
-        <div><b>14</b><small><span class="es">HRS</span><span class="en">HRS</span></small></div>
-        <div><b>22</b><small><span class="es">MIN</span><span class="en">MIN</span></small></div>
-        <div><b>08</b><small><span class="es">SEG</span><span class="en">SEC</span></small></div>
+      <div class="countdown" id="countdown">
+        <div><b id="cd-d">--</b><small><span class="es">DÍAS</span><span class="en">DAYS</span></small></div>
+        <div><b id="cd-h">--</b><small><span class="es">HRS</span><span class="en">HRS</span></small></div>
+        <div><b id="cd-m">--</b><small><span class="es">MIN</span><span class="en">MIN</span></small></div>
+        <div><b id="cd-s">--</b><small><span class="es">SEG</span><span class="en">SEC</span></small></div>
       </div>
     </div>
   </div>
@@ -723,100 +836,49 @@ footer .foot-bottom{
   </div>
 </section>
 
-<!-- TOUR -->
+<!-- LIVE / TOUR -->
 <section class="section" id="tour">
   <div class="sec-head">
     <div>
-      <div class="num"><span class="es">[03] · GIRA · 2026</span><span class="en">[03] · WORLD TOUR · 2026</span></div>
-      <h2><span class="es">FECHAS <em>DE GIRA</em></span><span class="en">TOUR <em>DATES</em></span></h2>
+      <div class="num"><span class="es">[03] · LIVE · 2026</span><span class="en">[03] · LIVE · 2026</span></div>
+      <h2><span class="es">EN <em>VIVO</em></span><span class="en">LIVE <em>SHOWS</em></span></h2>
     </div>
     <div class="label">
-      <span class="es">PRIMERA GIRA LATAM<br>MÁS FECHAS POR ANUNCIAR</span>
-      <span class="en">FIRST LATAM TOUR<br>MORE DATES TBA</span>
+      <span class="es">CONSTRUYENDO LA RUTA<br>BOOKING ABIERTO</span>
+      <span class="en">BUILDING THE ROUTE<br>BOOKING OPEN</span>
     </div>
   </div>
 
   <div class="section-inner">
-    <div class="tour-list">
-
-      <div class="tour-row">
-        <span class="arrow">→</span>
-        <div class="date">06<small>JUN '26</small></div>
-        <div class="city">PANAMA CITY<small><span class="es">PA · HEADLINING</span><span class="en">PA · HEADLINING</span></small></div>
-        <div class="ven">CASCO VIEJO · WAREHOUSE TBA</div>
-        <a href="mailto:straydog2066@gmail.com?subject=Tickets%20Panama" class="ticket"><span class="es">TICKETS</span><span class="en">TICKETS</span></a>
+    <div class="tour-soon">
+      <div class="tour-soon-inner">
+        <div class="tour-soon-eyebrow"><span class="es">● PRÓXIMAMENTE</span><span class="en">● COMING SOON</span></div>
+        <h3 class="tour-soon-title">
+          <span class="es">FECHAS <em>EN VIVO</em><br>POR ANUNCIAR</span>
+          <span class="en">LIVE DATES<br><em>TO BE ANNOUNCED</em></span>
+        </h3>
+        <p class="tour-soon-copy">
+          <span class="es">Stray Dog está construyendo su primera ruta. Si manejás un club, warehouse o festival underground en LATAM o EU y querés contratar el primer set, escribime directo. Sin agencia, sin intermediario.</span>
+          <span class="en">Stray Dog is building his first route. If you run a club, warehouse, or underground festival in LATAM or EU and want to book the first set, write me directly. No agency, no middleman.</span>
+        </p>
+        <a href="mailto:straydog2066@gmail.com?subject=Booking%20Inquiry" class="tour-soon-cta">
+          <span class="es">RESERVAR FECHA →</span><span class="en">BOOK A DATE →</span>
+        </a>
       </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">26<small>JUN '26</small></div>
-        <div class="city">BOGOTÁ<small><span class="es">CO · DEBUT</span><span class="en">CO · DEBUT</span></small></div>
-        <div class="ven">VIDEO CLUB · TBA</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">11<small>JUL '26</small></div>
-        <div class="city">LIMA<small><span class="es">PE · CLUB SET</span><span class="en">PE · CLUB SET</span></small></div>
-        <div class="ven">SACHA · TBA</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">25<small>JUL '26</small></div>
-        <div class="city">ASUNCIÓN<small><span class="es">PY · HOMECOMING</span><span class="en">PY · HOMECOMING</span></small></div>
-        <div class="ven">TBA · CITY OF BIRTH</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">15<small>AGO '26</small></div>
-        <div class="city">BUENOS AIRES<small><span class="es">AR · WAREHOUSE</span><span class="en">AR · WAREHOUSE</span></small></div>
-        <div class="ven">CRØBAR · TBA</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">29<small>AGO '26</small></div>
-        <div class="city">SÃO PAULO<small><span class="es">BR · CLUB SET</span><span class="en">BR · CLUB SET</span></small></div>
-        <div class="ven">D-EDGE · TBA</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">19<small>SEP '26</small></div>
-        <div class="city">MEXICO CITY<small><span class="es">MX · WAREHOUSE</span><span class="en">MX · WAREHOUSE</span></small></div>
-        <div class="ven">TBA · DOCTORES</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
-      <div class="tour-row tba">
-        <span class="arrow">→</span>
-        <div class="date">10<small>OCT '26</small></div>
-        <div class="city">SANTIAGO<small><span class="es">CL · CLUB SET</span><span class="en">CL · CLUB SET</span></small></div>
-        <div class="ven">TBA</div>
-        <a href="#" class="ticket tba">TBA</a>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- LATEST RELEASE -->
+<!-- DEBUT EP · COMING SOON -->
 <section class="section" id="music">
   <div class="sec-head">
     <div>
-      <div class="num"><span class="es">[04] · RELEASE DEBUT · 2026</span><span class="en">[04] · DEBUT RELEASE · 2026</span></div>
-      <h2><span class="es">ÚLTIMO <em>RELEASE</em></span><span class="en">LATEST <em>RELEASE</em></span></h2>
+      <div class="num"><span class="es">[04] · EP DEBUT · COMING SOON</span><span class="en">[04] · DEBUT EP · COMING SOON</span></div>
+      <h2><span class="es">DEBUT <em>·</em><br>EN ESTUDIO</span><span class="en">DEBUT <em>·</em><br>IN STUDIO</span></h2>
     </div>
     <div class="label">
-      <span class="es">SXD-066 · EP DEBUT<br>4 TRACKS · VINILO + DIGITAL</span>
-      <span class="en">SXD-066 · DEBUT EP<br>4 TRACKS · VINYL + DIGITAL</span>
+      <span class="es">SXD-066 · 66 RECORDS<br>FALL 2026</span>
+      <span class="en">SXD-066 · 66 RECORDS<br>FALL 2026</span>
     </div>
   </div>
 
@@ -838,30 +900,23 @@ footer .foot-bottom{
           </svg>
         </div>
         <div class="corners"></div>
-        <div class="cat">SXD-066 · 12" 180G</div>
-        <div class="play"></div>
+        <div class="cat">SXD-066 · COMING SOON</div>
+        <div class="release-stamp"><span class="es">EN<br>ESTUDIO</span><span class="en">IN<br>STUDIO</span></div>
       </div>
 
       <div class="release-info">
-        <div class="label"><span class="es">EP · 06.06.2026</span><span class="en">EP · 06.06.2026</span></div>
+        <div class="label"><span class="es">EP DEBUT · FALL 2026</span><span class="en">DEBUT EP · FALL 2026</span></div>
         <h3>FERAL<br>FREQUENCY</h3>
         <div class="artist">STRAY DOG · 66 RECORDS</div>
         <div class="desc">
-          <span class="es">Cuatro tracks de techno crudo grabados entre Asunción y Panamá. Sin sample-packs. Sin cuantizar la batería. Sólo máquinas, distorsión y el aullido del migrante. Edición limitada de 666 vinilos numerados a mano — el primer release de 66 RECORDS.</span>
-          <span class="en">Four raw techno tracks recorded between Asunción and Panama. No sample-packs. No quantized drums. Only machines, distortion, and the howl of the migrant. Limited edition of 666 hand-numbered vinyls — the first release on 66 RECORDS.</span>
+          <span class="es">El primer EP de Stray Dog y el primer catálogo de 66 RECORDS. Hard techno e industrial grabado entre Pilar y Ciudad de Panamá. Sin sample-packs, sin baterías cuantizadas — máquinas, distorsión y el aullido del migrante. Edición limitada en preparación.</span>
+          <span class="en">Stray Dog's first EP and 66 RECORDS' first catalog entry. Hard techno and industrial recorded between Pilar and Panama City. No sample-packs, no quantized drums — machines, distortion, and the migrant's howl. Limited edition in preparation.</span>
         </div>
-        <ul class="tracks">
-          <li><b>A1</b><span class="title">Sin Correa</span><span class="dur">7:32</span></li>
-          <li><b>A2</b><span class="title">Aullido</span><span class="dur">6:18</span></li>
-          <li><b>B1</b><span class="title">Casco Viejo 04:00</span><span class="dur">8:44</span></li>
-          <li><b>B2</b><span class="title">66 (Outro)</span><span class="dur">5:12</span></li>
-        </ul>
-        <div class="platforms">
-          <a href="#">SPOTIFY</a>
-          <a href="#">APPLE</a>
-          <a href="#">BANDCAMP</a>
-          <a href="#">BEATPORT</a>
-          <a href="#">SOUNDCLOUD</a>
+        <div class="release-presave">
+          <div class="release-presave-label"><span class="es">SÉ EL PRIMERO EN ENTERARTE</span><span class="en">BE THE FIRST TO KNOW</span></div>
+          <a href="mailto:straydog2066@gmail.com?subject=Pre-save%20Feral%20Frequency&body=Av%C3%ADsame%20cuando%20salga%20Feral%20Frequency." class="release-presave-cta">
+            <span class="es">AVISARME DEL DROP →</span><span class="en">NOTIFY ME →</span>
+          </a>
         </div>
       </div>
     </div>
@@ -889,79 +944,97 @@ footer .foot-bottom{
           <span class="en">PARAGUAYAN-BORN DJ & PRODUCER BASED IN PANAMA. <em>NO LEASH. NO MASTER. NO MERCY.</em></span>
         </p>
         <p>
-          <span class="es">Stray Dog (también conocido como Perro Callejero) es el alias de un productor nacido en Asunción y radicado en Ciudad de Panamá. Su sonido es el resultado de dos historias: la melancolía del río Paraguay y el pulso eléctrico del trópico panameño.</span>
-          <span class="en">Stray Dog (also known as Perro Callejero) is the alias of a producer born in Asunción, Paraguay, currently based in Panama City. His sound is the result of two stories: the melancholy of the Paraguay River and the electric pulse of the Panamanian tropics.</span>
+          <span class="es">Stray Dog (también conocido como Perro Callejero) es el alias de un productor nacido en Pilar, Paraguay, y radicado en Ciudad de Panamá. Su sonido es el resultado de dos historias: la frontera lenta del río Paraguay y el pulso eléctrico del trópico panameño.</span>
+          <span class="en">Stray Dog (also known as Perro Callejero) is the alias of a producer born in Pilar, Paraguay, currently based in Panama City. His sound is the result of two stories: the slow border of the Paraguay River and the electric pulse of the Panamanian tropics.</span>
         </p>
         <p>
-          <span class="es">Su debut <em>"Feral Frequency"</em> (SXD-066) marca el nacimiento de <b style="color:var(--acid)">66 RECORDS</b>, sello dedicado al techno crudo y house oscuro de Latinoamérica. El vinilo de tirada limitada (666 unidades numeradas a mano) es coleccionable.</span>
-          <span class="en">His debut <em>"Feral Frequency"</em> (SXD-066) marks the birth of <b style="color:var(--acid)">66 RECORDS</b>, a label dedicated to raw techno and dark house from Latin America. The hand-numbered vinyl edition (666 units) is collectible.</span>
+          <span class="es">Su EP debut <em>"Feral Frequency"</em> (SXD-066) marca el nacimiento de <b style="color:var(--acid)">66 RECORDS</b>, sello dedicado al hard techno e industrial de Latinoamérica. En estudio · lanzamiento previsto para fin de año.</span>
+          <span class="en">His debut EP <em>"Feral Frequency"</em> (SXD-066) marks the birth of <b style="color:var(--acid)">66 RECORDS</b>, a label dedicated to hard techno and industrial from Latin America. In studio · release planned for late 2026.</span>
         </p>
         <p>
-          <span class="es">Su show en vivo combina hardware modular, máquinas Roland y un set visual brutalista diseñado por él mismo. Cada quincena conduce <b style="color:var(--bone)">THE GROWLER</b>, su programa de radio con cerveza en mano. Cada viernes calienta la pista con <b style="color:var(--bone)">OFF LEASH</b>.</span>
-          <span class="en">His live show combines modular hardware, Roland machines, and a brutalist visual set he designs himself. Bi-weekly he hosts <b style="color:var(--bone)">THE GROWLER</b>, his beer-in-hand radio show. Every Friday he warms up the dancefloor with <b style="color:var(--bone)">OFF LEASH</b>.</span>
+          <span class="es">Cada quincena conduce <b style="color:var(--bone)">THE GROWLER</b>, su programa de radio con cerveza en mano. Cada viernes calienta la pista con <b style="color:var(--bone)">OFF LEASH</b>. En "On Rotation" comparte cinco tracks semanales — curaduría sin algoritmo. Diseña su propia identidad visual brutalista, sin agencia.</span>
+          <span class="en">Bi-weekly he hosts <b style="color:var(--bone)">THE GROWLER</b>, his beer-in-hand radio show. Every Friday he warms up the dancefloor with <b style="color:var(--bone)">OFF LEASH</b>. In "On Rotation" he shares five weekly tracks — curation without algorithm. He designs his own brutalist visual identity, no agency.</span>
         </p>
       </div>
       <div class="stats">
-        <div><b>666</b><span><span class="es">VINILOS / DROP</span><span class="en">VINYLS / DROP</span></span></div>
         <div><b>2</b><span><span class="es">PROGRAMAS RADIO</span><span class="en">RADIO SHOWS</span></span></div>
-        <div><b>8</b><span><span class="es">FECHAS LATAM</span><span class="en">LATAM DATES</span></span></div>
+        <div><b>5</b><span><span class="es">TRACKS / SEMANA</span><span class="en">TRACKS / WEEK</span></span></div>
+        <div><b>125<small style="font-size:18px;letter-spacing:0">-150</small></b><span>BPM</span></div>
         <div><b>2</b><span><span class="es">PAÍSES BASE</span><span class="en">HOME COUNTRIES</span></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MIXES -->
-<section class="section" id="mixes">
+<!-- ON ROTATION · WEEKLY CURATION -->
+<section class="section" id="rotation">
   <div class="sec-head">
     <div>
-      <div class="num"><span class="es">[06] · MIXES · SETS</span><span class="en">[06] · MIXES · SETS</span></div>
-      <h2><span class="es">SET<em>LIST</em></span><span class="en">SET<em>LIST</em></span></h2>
+      <div class="num"><span class="es">[06] · ON ROTATION · SEMANAL</span><span class="en">[06] · ON ROTATION · WEEKLY</span></div>
+      <h2><span class="es">ON <em>ROTATION</em></span><span class="en">ON <em>ROTATION</em></span></h2>
     </div>
     <div class="label">
-      <span class="es">SOUNDCLOUD · MIXCLOUD<br>SETS EXCLUSIVOS</span>
-      <span class="en">SOUNDCLOUD · MIXCLOUD<br>EXCLUSIVE LIVE SETS</span>
+      <span class="es">CURADURÍA SEMANAL<br>LO QUE STRAY DOG ESCUCHA</span>
+      <span class="en">WEEKLY CURATION<br>WHAT STRAY DOG IS PLAYING</span>
     </div>
   </div>
 
   <div class="section-inner">
-    <div class="mixes">
-      <div class="mix-row">
-        <div class="play"></div>
-        <div class="info">
-          <h5>THE GROWLER · EP.001 · DEBUT</h5>
-          <small>2026.05.22 · <span class="es">PROGRAMA DEBUT</span><span class="en">DEBUT EPISODE</span></small>
-        </div>
-        <div class="src">SPOTIFY POD</div>
-        <div class="dur">01:02:14</div>
+    <div class="rotation-intro">
+      <span class="es">Cada semana, 5 tracks que están sonando fuerte en mi rotación. Hard techno, industrial, dub techno, dark bass — sin pertenecer a ningún algoritmo.</span>
+      <span class="en">Every week, 5 tracks hitting hard in my rotation. Hard techno, industrial, dub techno, dark bass — without belonging to any algorithm.</span>
+    </div>
+    <div class="rotation-week">
+      <div class="rotation-week-head">
+        <span class="rotation-week-tag"><span class="es">SEMANA EN CURSO</span><span class="en">CURRENT WEEK</span></span>
+        <span class="rotation-week-num">WEEK 19 · 2026</span>
       </div>
-      <div class="mix-row">
-        <div class="play"></div>
-        <div class="info">
-          <h5>OFF LEASH · 001 · OPENING WARM-UP</h5>
-          <small>2026.05.30 · <span class="es">PROGRAMA DEBUT</span><span class="en">DEBUT EPISODE</span></small>
-        </div>
-        <div class="src">SOUNDCLOUD</div>
-        <div class="dur">01:30:00</div>
-      </div>
-      <div class="mix-row">
-        <div class="play"></div>
-        <div class="info">
-          <h5>FERAL FREQUENCY · STUDIO MIX</h5>
-          <small>2026.06.06 · <span class="es">EP PREVIEW</span><span class="en">EP PREVIEW</span></small>
-        </div>
-        <div class="src">EXCLUSIVE</div>
-        <div class="dur">00:42:08</div>
-      </div>
-      <div class="mix-row">
-        <div class="play"></div>
-        <div class="info">
-          <h5>66 RECORDS · LABEL PODCAST 001</h5>
-          <small>2026.04.14 · <span class="es">LANZAMIENTO SELLO</span><span class="en">LABEL DEBUT</span></small>
-        </div>
-        <div class="src">MIXCLOUD</div>
-        <div class="dur">02:00:00</div>
-      </div>
+      <ol class="rotation-list">
+        <li class="rotation-item placeholder">
+          <span class="rotation-item-num">01</span>
+          <div class="rotation-item-info">
+            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
+            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+          </div>
+          <span class="rotation-item-tag">HARD TECHNO</span>
+        </li>
+        <li class="rotation-item placeholder">
+          <span class="rotation-item-num">02</span>
+          <div class="rotation-item-info">
+            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
+            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+          </div>
+          <span class="rotation-item-tag">INDUSTRIAL</span>
+        </li>
+        <li class="rotation-item placeholder">
+          <span class="rotation-item-num">03</span>
+          <div class="rotation-item-info">
+            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
+            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+          </div>
+          <span class="rotation-item-tag">DUB TECHNO</span>
+        </li>
+        <li class="rotation-item placeholder">
+          <span class="rotation-item-num">04</span>
+          <div class="rotation-item-info">
+            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
+            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+          </div>
+          <span class="rotation-item-tag">DARK BASS</span>
+        </li>
+        <li class="rotation-item placeholder">
+          <span class="rotation-item-num">05</span>
+          <div class="rotation-item-info">
+            <span class="rotation-item-artist"><span class="es">[ ARTISTA ]</span><span class="en">[ ARTIST ]</span></span>
+            <span class="rotation-item-track"><span class="es">[ TRACK · LABEL ]</span><span class="en">[ TRACK · LABEL ]</span></span>
+          </div>
+          <span class="rotation-item-tag">HOUSE</span>
+        </li>
+      </ol>
+      <a href="https://soundcloud.com/straydog2066" target="_blank" rel="noopener" class="rotation-cta">
+        <span class="es">VER PLAYLIST COMPLETA EN SOUNDCLOUD →</span>
+        <span class="en">FULL PLAYLIST ON SOUNDCLOUD →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1046,8 +1119,9 @@ footer .foot-bottom{
       <h5><span class="es">SITIO</span><span class="en">SITE</span></h5>
       <ul>
         <li><a href="#radio"><span class="es">Radio</span><span class="en">Radio</span></a></li>
-        <li><a href="#tour"><span class="es">Gira</span><span class="en">Tour</span></a></li>
-        <li><a href="#music"><span class="es">Música</span><span class="en">Music</span></a></li>
+        <li><a href="#rotation"><span class="es">Rotación</span><span class="en">Rotation</span></a></li>
+        <li><a href="#music">EP</a></li>
+        <li><a href="#tour">Live</a></li>
         <li><a href="#about"><span class="es">Bio</span><span class="en">About</span></a></li>
         <li><a href="#contact">Booking</a></li>
       </ul>
@@ -1056,31 +1130,30 @@ footer .foot-bottom{
     <div class="foot-col">
       <h5><span class="es">SEGUIR</span><span class="en">FOLLOW</span></h5>
       <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">SoundCloud</a></li>
-        <li><a href="#">Spotify</a></li>
-        <li><a href="#">Bandcamp</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">TikTok</a></li>
+        <li><a href="https://soundcloud.com/straydog2066" target="_blank" rel="noopener">SoundCloud →</a></li>
+        <li><a href="https://www.mixcloud.com/StrayDog66/" target="_blank" rel="noopener">Mixcloud →</a></li>
+        <li><a href="#" data-soon><span class="es">Instagram (pronto)</span><span class="en">Instagram (soon)</span></a></li>
+        <li><a href="#" data-soon><span class="es">Spotify (pronto)</span><span class="en">Spotify (soon)</span></a></li>
+        <li><a href="#" data-soon><span class="es">Bandcamp (pronto)</span><span class="en">Bandcamp (soon)</span></a></li>
+        <li><a href="#" data-soon><span class="es">YouTube (pronto)</span><span class="en">YouTube (soon)</span></a></li>
       </ul>
     </div>
 
     <div class="foot-col">
       <h5><span class="es">SELLO · 66 RECORDS</span><span class="en">LABEL · 66 RECORDS</span></h5>
       <ul>
-        <li><a href="#"><span class="es">Catálogo</span><span class="en">Catalog</span></a></li>
-        <li><a href="#"><span class="es">Artistas</span><span class="en">Artists</span></a></li>
-        <li><a href="#"><span class="es">Tienda · Vinilos</span><span class="en">Shop · Vinyl</span></a></li>
-        <li><a href="#"><span class="es">Política Demos</span><span class="en">Demo Policy</span></a></li>
+        <li><a href="#" data-soon><span class="es">Catálogo (pronto)</span><span class="en">Catalog (soon)</span></a></li>
+        <li><a href="#" data-soon><span class="es">Artistas (pronto)</span><span class="en">Artists (soon)</span></a></li>
+        <li><a href="#" data-soon><span class="es">Tienda · Vinilos (pronto)</span><span class="en">Shop · Vinyl (soon)</span></a></li>
+        <li><a href="mailto:straydog2066@gmail.com?subject=Demo%20Submission"><span class="es">Enviar demo</span><span class="en">Submit demo</span></a></li>
       </ul>
     </div>
 
     <div class="foot-col">
-      <h5>LEGAL</h5>
+      <h5><span class="es">CONTACTO</span><span class="en">CONTACT</span></h5>
       <ul>
-        <li><a href="#">Press Kit</a></li>
-        <li><a href="#">Tech Rider</a></li>
-        <li><a href="#"><span class="es">Privacidad</span><span class="en">Privacy</span></a></li>
+        <li><a href="mailto:straydog2066@gmail.com?subject=Booking%20Inquiry">Booking</a></li>
+        <li><a href="mailto:straydog2066@gmail.com?subject=Press%20Inquiry">Press</a></li>
         <li><a href="mailto:straydog2066@gmail.com">straydog2066@gmail.com</a></li>
       </ul>
     </div>
@@ -1112,6 +1185,51 @@ footer .foot-bottom{
   // Detect browser language for first visit (default ES, but EN if browser is en-*)
   const browserLang = (navigator.language || 'es').toLowerCase();
   if (browserLang.startsWith('en')) setLang('en');
+})();
+
+// COUNTDOWN to next OFF LEASH episode (Friday 22:00 Panama time, UTC-5)
+(function(){
+  const elD = document.getElementById('cd-d');
+  const elH = document.getElementById('cd-h');
+  const elM = document.getElementById('cd-m');
+  const elS = document.getElementById('cd-s');
+  if(!elD) return;
+
+  function nextFriday2200PanamaUTC(){
+    // Panama is UTC-5 year-round (no DST). 22:00 PA = 03:00 UTC next day.
+    const now = new Date();
+    const candidate = new Date(Date.UTC(
+      now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 3, 0, 0
+    ));
+    // candidate is "today 03:00 UTC" = yesterday 22:00 PA
+    // We want the next Saturday 03:00 UTC (= Friday 22:00 PA)
+    const day = candidate.getUTCDay(); // 0=Sun..6=Sat
+    let addDays = (6 - day + 7) % 7; // days until Saturday UTC
+    candidate.setUTCDate(candidate.getUTCDate() + addDays);
+    if(candidate.getTime() <= now.getTime()){
+      candidate.setUTCDate(candidate.getUTCDate() + 7);
+    }
+    return candidate;
+  }
+
+  function pad(n){ return String(Math.max(0,Math.floor(n))).padStart(2,'0'); }
+
+  function tick(){
+    const target = nextFriday2200PanamaUTC();
+    const diff = target - new Date();
+    if(diff <= 0){ elD.textContent = elH.textContent = elM.textContent = elS.textContent = '00'; return; }
+    const days = Math.floor(diff / 86400000);
+    const hrs  = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    elD.textContent = pad(days);
+    elH.textContent = pad(hrs);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
 })();
 </script>
 

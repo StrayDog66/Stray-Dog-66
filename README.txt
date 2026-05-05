@@ -23,8 +23,8 @@
    Owner:    Cesar (Stray Dog · Perro Callejero)
    Email:    straydog2066@gmail.com
    Label:    66 RECORDS
-   Based:    Panama City, Panama (origin: Asunción, Paraguay)
-   Genre:    Techno · House · Underground
+   Based:    Panama City, Panama (origin: Pilar, Paraguay)
+   Genre:    Hard Techno · Industrial · Dark House · Dub · Dark Bass
 
    Version:  v1.0
    Date:     2026.05.04
@@ -160,10 +160,11 @@
 
   ESTOS 3 MESES:
   □ Producir y masterizar el EP "Feral Frequency"
-  □ Mandar a prensar 666 vinilos (Brasil o México son
-        más baratos que EU)
+  □ Cotizar prensado de vinilo (Brasil o México son
+        más baratos que EU) — definir cantidad y formato
   □ Publicar primeros 6 episodios de cada radio show
-  □ Buscar primer evento como headliner en Casco Viejo
+  □ Publicar primeras 8 semanas de "On Rotation"
+  □ Buscar primer evento como soporte en Panama City
 
 
 ┌─────────────────────────────────────────────────────────────┐
